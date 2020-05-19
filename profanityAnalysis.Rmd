@@ -1,0 +1,36 @@
+---
+title: "Profanity time series modelling"
+author: "Josephine Hillebrand Hansen"
+date: "19/05/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+data = read.csv("got_cleaned.csv")
+library(sjmisc)
+
+#Create empty profanity column
+data[,"profanity"] <- NA
+
+profanity = read.csv("Google-profanity-words-master/list.txt", header = FALSE)
+
+
+swear_words = vector(mode = "list", length = length(data$lemma))
+
+
+for (i in 1:length(data$lemma)){
+  sentence = data$lemma[i]
+  sw = 0
+  
+  for (prof in profanity$V1){
+    nsw = str_count(sentence, prof)
+    sw = sw + nsw
+    sentence = gsub(prof, "", sentence)
+    }
+  data$profanity[i] = sw
+  print(i)
+}
+
+
+
+```
