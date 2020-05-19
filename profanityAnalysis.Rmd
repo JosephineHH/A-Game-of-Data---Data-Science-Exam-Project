@@ -31,6 +31,16 @@ for (i in 1:length(data$lemma)){
   print(i)
 }
 
+library(dplyr)
+prof_data_episode = data %>%
+  group_by(N_serie) %>%
+  summarize(sum_profanity = sum(profanity))
+  
+
+prof_data_season = data %>%
+  group_by(Season) %>%
+  summarize(sum_profanity = sum(profanity))
+  
 
 
 ```
