@@ -47,27 +47,30 @@ def clean_sentence(sentence, lemma=False):
                             if word not in my_stopwords] # remove stopwords
 
     if lemma == True:
-      sentence_lemma_list = [wordnet_lemmatizer.lemmatize(word) if '#' not in word else word
+        sentence_lemma_list = [wordnet_lemmatizer.lemmatize(word) if '#' not in word else word
                         for word in sentence_token_list] # apply lemmatizer
+        sentence_lemma = ' '.join(sentence_lemma_list)
+        return sentence_lemma
     else:   # or                 
-      sentence_token_list = [word_rooter(word) if '#' not in word else word
+        sentence_token_list = [word_rooter(word) if '#' not in word else word
                         for word in sentence_token_list] # apply word rooter
-    
-    #sentence = ' '.join(sentence_token_list)
-    sentence_lemma = ' '.join(sentence_lemma_list)
-    return sentence_lemma
+        sentence = ' '.join(sentence_token_list)
+        return sentence
 
 #Finally we apply the function to clean tweets (here we use lemmas)
-df['tokens'] = df.Sentence.apply(clean_sentence, lemma=False)
+#df['tokens'] = df.Sentence.apply(clean_sentence, lemma=False)
 
 
 df['lemma'] = df.Sentence.apply(clean_sentence, lemma=True)
 
 
 
-df['token_text'] = [
+df['tokens'] = [
     [word for word in sentence.split()]
     for sentence in df['lemma']]
 print(df['token_text'])
 
 df.to_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/got_cleaned.csv', index=False)
+
+
+
