@@ -57,6 +57,8 @@ print(corpus_tfidf)
 #-------------------------------------------------------------------
 #term frequency
 allWords = [sentence for sentence in df['lemma']]
+
+allWords = [sentence for sentence in df['Sentence']]
 allWords = [x for x in allWords if str(x) != 'nan']
 allWords = ' '.join(allWords)
 
@@ -64,7 +66,7 @@ allWords = [word for word in allWords.split(' ')]
 
 
 frequencyDist = nltk.FreqDist(allWords)
-frequencyDist.most_common(21) #50 most common words
+frequencyDist.most_common(50) #50 most common words
 
 #Create df
 pd.DataFrame(frequencyDist.items())
