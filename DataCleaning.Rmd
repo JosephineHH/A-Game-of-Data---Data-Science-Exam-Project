@@ -38,12 +38,18 @@ contractions = lexicon::key_contractions
 for (i in 1:nrow(contractions)) {
   contractions$contraction[i] = gsub("'","", contractions$contraction[i])
   contractions$contraction[i] = char_tolower(contractions$contraction[i])
-  contraction = paste("\\W", contractions$contraction[i], "\\W", sep = "")
+  contraction = paste("\\s?\\<", contractions$contraction[i], "\\s?\\>", sep = "")
   
   for (j in 1:nrow(data)) {
-    data$Sentence[j] = gsub(contraction, " ", data$Sentence[j])
+    data$Sentence[j] = gsub(contraction, " ", data$Sentence[j]) #remove apostrophe-free contractions
   }
   print(i)
+}
+
+
+#Remove the letter 'u' used as u
+for (i in 1:nrow(data)) {
+  data$Sentence[i] = gsub("\\s?\\<u\\>\\s?", " ", data$Sentence[i])
 }
 
 
