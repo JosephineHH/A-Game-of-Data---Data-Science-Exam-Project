@@ -78,6 +78,8 @@ rslt = pd.DataFrame(frequencyDist.most_common(8000),
 #Term frequency inverse document frequency 
 #document = Episode
 #Create documents for each season
+
+#Start with computing the tf
 documentDict = {}
 bag_of_words = []
 
@@ -107,10 +109,11 @@ for i in range(1,len(set(df['N_serie']))+1):
     print(i)
 
 #Now that we have computed the term frequency we want to compute the inverse document frequency
+#https://www.geeksforgeeks.org/tf-idf-model-for-page-ranking/
 import math
 j = 1
 idf = {}
-for word in allWords:
+for word in set(allWords):
     no_episodes_with_term = 0
     for i in range(1,len(set(df['N_serie']))+1):
         tempdf = df.loc[df['N_serie'] == i]
@@ -130,7 +133,33 @@ for word in allWords:
     print(j)
 
 
+#Well, now we can try to compute the tf-idf, if we somehow can manage to make it work
+tf_idf_dict = {}
+for i in range(1,len(set(df['N_serie']))+1):
+    #Choose data from episode we are working with
+    tempdf = df.loc[df['N_serie'] == i]
 
+    tempallWords = [sentence for sentence in tempdf['lemma']]
+    tempallWords = [x for x in tempallWords if str(x) != 'nan']
+    tempallWords = ' '.join(tempallWords)
+    tempallWords = [word for word in tempallWords.split(' ')]
+
+    tf_idf = {}
+
+    tempDict = collections.Counter(tempallWords)
+    for word, countw in tempDict.items():
+        normalizedtf = countw/len(tempallWords)
+        tf_idf[word] = normalizedtf*idf[word]
+    
+    for word in set(allWords):
+        if word in set(tempallWords):
+            pass
+        else:
+            tf_idf[word] = 0
+
+
+    tf_idf_dict[i] = tf_idf
+    print(i)
 
 """
 #Find tfidf
