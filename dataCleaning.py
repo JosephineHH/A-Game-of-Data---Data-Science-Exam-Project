@@ -33,16 +33,20 @@ df = pd.read_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---D
 
 #We start by defining lists of words to remove
 my_stopwords = nltk.corpus.stopwords.words('english') #uninformative common words
-my_punctuation = r'!"$%&\'()*+,-./:;<=>?[\\]^_`{|}~•…' #punctuation
+my_punctuation = r'!"$%&\()*+,-./:;<=>?[\\]^_`{|}~•…' #punctuation
 #We specify the stemmer or lemmatizer we want to use
 word_rooter = nltk.stem.snowball.PorterStemmer(ignore_stopwords=False).stem
+
 wordnet_lemmatizer = WordNetLemmatizer()
 
 
 
+
 def clean_sentence(sentence, lemma=False):
-    sentence = re.sub(r'[^\w\s]', ' ', sentence) # strip punctuation
+    sentence = re.sub(r'[^\w\s\']', ' ', sentence) # strip punctuation
     sentence = re.sub(r'\s+', ' ', sentence) #remove double spacing
+    sentence = re.sub(r'^\s*', '', sentence)
+    sentence = re.sub(r'\s*$', '', sentence)
     sentence_token_list = [word for word in sentence.split(' ')
                             if word not in my_stopwords] # remove stopwords
 
@@ -57,6 +61,7 @@ def clean_sentence(sentence, lemma=False):
         sentence = ' '.join(sentence_token_list)
         return sentence
 
+
 #Finally we apply the function to clean tweets (here we use lemmas)
 #df['tokens'] = df.Sentence.apply(clean_sentence, lemma=False)
 
@@ -68,9 +73,9 @@ df['lemma'] = df.Sentence.apply(clean_sentence, lemma=True)
 df['tokens'] = [
     [word for word in sentence.split()]
     for sentence in df['lemma']]
-print(df['token_text'])
 
 df.to_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/got_cleaned.csv', index=False)
+
 
 
 

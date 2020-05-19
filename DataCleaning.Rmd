@@ -49,7 +49,9 @@ for (i in 1:nrow(contractions)) {
 
 #Remove the letter 'u' used as u
 for (i in 1:nrow(data)) {
-  data$Sentence[i] = gsub("\\s?\\<u\\>\\s?", " ", data$Sentence[i])
+  data$Sentence[i] = gsub("\\<u\\>?", " ", data$Sentence[i])
+  #data$Sentence[i] = gsub("^\\s*", "", data$Sentence[i]) WILL RUIN PREPROCESSING IN PYTHON
+  #data$Sentence[i] = gsub("\\s*$", "", data$Sentence[i])
 }
 
 

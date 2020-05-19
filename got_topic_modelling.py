@@ -25,7 +25,7 @@ import gensim
 from gensim import corpora, models, similarities
 from gensim.models import CoherenceModel, LdaModel, LsiModel, HdpModel
 from gensim.corpora import Dictionary
-
+import collections
 
 df = pd.read_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/got_cleaned.csv', encoding = 'utf-8')
 
@@ -57,8 +57,6 @@ print(corpus_tfidf)
 #-------------------------------------------------------------------
 #term frequency
 allWords = [sentence for sentence in df['lemma']]
-
-allWords = [sentence for sentence in df['Sentence']]
 allWords = [x for x in allWords if str(x) != 'nan']
 allWords = ' '.join(allWords)
 
@@ -71,25 +69,33 @@ frequencyDist.most_common(50) #50 most common words
 #Create df
 pd.DataFrame(frequencyDist.items())
 
+rslt = pd.DataFrame(frequencyDist.most_common(50),
+                    columns=['Word', 'Frequency']).set_index('Word')
+
+#rslt.to_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/50most_common.csv')
+
 #-------------------------------------------------------------------
 #Term frequency inverse document frequency 
 #document = Episode
 #Create documents for each season
-document = []
+documentDict = {}
 
 for i in range(0,len(set(df['N_serie']))):
     #Choose data from episode we are working with
     tempdf = df.loc[df['N_serie'] == i]
 
-    allWords = [sentence for sentence in df['Sentence']]
+    allWords = [sentence for sentence in df['lemma']]
     allWords = [x for x in allWords if str(x) != 'nan']
     allWords = ' '.join(allWords)
     allWords = [word for word in allWords.split(' ')]
+    
+    tempDict = collections.Counter(allWords)
 
 
-    document.append(allWords)
+    documentDict[i+1] = tempDict
     print(i)
 
+"""
 #Find tfidf
 id2word = corpora.Dictionary(document)
 
@@ -104,16 +110,19 @@ corpus_tfidf = tfidf[corpus]
 print(corpus_tfidf)
 # Human readable format of corpus (term-frequency)
 [[(id2word[id], freq) for id, freq in cp] for cp in corpus_tfidf[:1]]
-
+"""
 
 
 #Try something else
 #https://www.freecodecamp.org/news/how-to-process-textual-data-using-tf-idf-in-python-cd2bbc0a94a3/
 
+bag_of_words = allWords
 def computeTF(wordDict, bow):
     tfDict = {}
     bowCount = len(bow)
-    for word, count is wordDict.items():
-        tfDict(word) = count/float(bowCount)
+    for word, countw in wordDict.items():
+        tfDict[word] = countw/float(bowCount)
         
     return tfDict
+
+computeTF(documentDict,bag_of_words)
