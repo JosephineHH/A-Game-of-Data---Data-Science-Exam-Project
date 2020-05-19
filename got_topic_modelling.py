@@ -69,7 +69,7 @@ frequencyDist.most_common(50) #50 most common words
 #Create df
 pd.DataFrame(frequencyDist.items())
 
-rslt = pd.DataFrame(frequencyDist.most_common(50),
+rslt = pd.DataFrame(frequencyDist.most_common(8000),
                     columns=['Word', 'Frequency']).set_index('Word')
 
 #rslt.to_csv('C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/50most_common.csv')
@@ -79,21 +79,58 @@ rslt = pd.DataFrame(frequencyDist.most_common(50),
 #document = Episode
 #Create documents for each season
 documentDict = {}
+bag_of_words = []
 
-for i in range(0,len(set(df['N_serie']))):
+for i in range(1,len(set(df['N_serie']))+1):
     #Choose data from episode we are working with
     tempdf = df.loc[df['N_serie'] == i]
 
-    allWords = [sentence for sentence in df['lemma']]
-    allWords = [x for x in allWords if str(x) != 'nan']
-    allWords = ' '.join(allWords)
-    allWords = [word for word in allWords.split(' ')]
+    tempallWords = [sentence for sentence in tempdf['lemma']]
+    tempallWords = [x for x in tempallWords if str(x) != 'nan']
+    tempallWords = ' '.join(tempallWords)
+    tempallWords = [word for word in tempallWords.split(' ')]
+
+    normalizedtf = {}
+
+    tempDict = collections.Counter(tempallWords)
+    for word, countw in tempDict.items():
+        normalizedtf[word] = countw/len(tempallWords)
     
-    tempDict = collections.Counter(allWords)
+    for word in set(allWords):
+        if word in set(tempallWords):
+            pass
+        else:
+            normalizedtf[word] = 0
 
 
-    documentDict[i+1] = tempDict
+    documentDict[i] = normalizedtf
     print(i)
+
+#Now that we have computed the term frequency we want to compute the inverse document frequency
+import math
+j = 1
+idf = {}
+for word in allWords:
+    no_episodes_with_term = 0
+    for i in range(1,len(set(df['N_serie']))+1):
+        tempdf = df.loc[df['N_serie'] == i]
+
+        tempallWords = [sentence for sentence in tempdf['lemma']]
+        tempallWords = [x for x in tempallWords if str(x) != 'nan']
+        tempallWords = ' '.join(tempallWords)
+        tempallWords = [word for word in tempallWords.split(' ')]
+
+        if word in tempallWords:
+            no_episodes_with_term = no_episodes_with_term + 1
+    
+    idf_val = math.log(float(len(set(df['N_serie']))) / no_episodes_with_term) 
+    
+    idf[word] = idf_val
+    j+=1
+    print(j)
+
+
+
 
 """
 #Find tfidf
