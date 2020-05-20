@@ -5,6 +5,9 @@ date: "19/05/2020"
 output: html_document
 ---
 
+
+Setting up and adding a column to the dataset that allows us to measure the number of times swear words were said during each episode
+
 ```{r setup, include=FALSE}
 data = read.csv("got_cleaned.csv")
 library(sjmisc)
@@ -15,7 +18,7 @@ data[,"profanity"] <- NA
 profanity = read.csv("Google-profanity-words-master/list.txt", header = FALSE)
 
 
-swear_words = vector(mode = "list", length = length(data$lemma))
+#swear_words = vector(mode = "list", length = length(data$lemma))
 
 
 for (i in 1:length(data$lemma)){
@@ -31,6 +34,10 @@ for (i in 1:length(data$lemma)){
   print(i)
 }
 
+write.csv(data, "got_profanity_data.csv")
+
+
+#Creating two new df with profanity count for each episode, as well as for each season
 library(dplyr)
 prof_data_episode = data %>%
   group_by(N_serie) %>%
@@ -44,3 +51,358 @@ prof_data_season = data %>%
 
 
 ```
+
+
+
+```{r}
+library(fpp2)
+
+ts_prof = ts(prof_data_episode$sum_profanity, frequency = 10)
+
+autoplot(ts_prof) +
+  ggtitle("Number of swear words per episode") +
+  xlab("Episode") +
+  ylab("Number of swear words")
+
+
+#Season
+ts_prof_season = ts(prof_data_season$sum_profanity)
+
+autoplot(ts_prof_season) +
+  ggtitle("Number of swear words per season") +
+  xlab("Season") +
+  ylab("Number of swear words")
+
+
+
+```
+
+
+
+#Creating the corrected data - sentences containing swear words
+
+```{r}
+prof_data_episode_ratio = data %>%
+  group_by(N_serie) %>%
+  summarize(sum_profanity = sum(profanity)/length(N_serie))
+
+ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
+autoplot(ts_prof_ratio) +
+  ggtitle("Number of swear words per episode corrected for number of sentences") +
+  xlab("Episode") +
+  ylab("Number of swear words")
+
+
+
+prof_data_season_ratio = data %>%
+  group_by(Season) %>%
+  summarize(sum_profanity = sum(profanity)/length(Season))
+
+  
+ts_prof_season_ratio = ts(prof_data_season_ratio$sum_profanity)
+
+autoplot(ts_prof_season_ratio) +
+  ggtitle("Number of swear words per season corrected for number of sentences") +
+  xlab("Season") +
+  ylab("Number of swear words")
+
+
+```
+
+
+#Lag plots
+```{r}
+gglagplot(ts_prof,
+          lags = 20,
+          seasonal = TRUE)
+
+
+
+
+gglagplot(ts_prof_ratio,
+          lags = 20,
+          seasonal = TRUE)
+```
+
+#Autocorrelation plots
+```{r}
+ggAcf(ts_prof, lag.max = 60)
+
+ggAcf(ts_prof_ratio, lag.max = 60)
+
+ggAcf(ts_prof_season)
+
+ggAcf(ts_prof_season_ratio)
+```
+
+
+
+
+#Simple forecasting
+```{r}
+# Plot some forecasts - Seasonal for each episodes
+autoplot(ts_prof_ratio) +
+  autolayer(meanf(ts_prof_ratio, h=11),
+    series="Mean", PI=FALSE) +
+  autolayer(naive(ts_prof_ratio, h=11),
+    series="Naïve", PI=FALSE) +
+  autolayer(snaive(ts_prof_ratio, h=11),
+    series="Seasonal naïve", PI=FALSE) +
+  autolayer(rwf(ts_prof_ratio, drift=TRUE, h=10),
+    series="Drift", PI=FALSE) +
+  ggtitle("Forecasts for profanity in future episodes") +
+  xlab("Season") + ylab("Swear words") +
+  guides(colour=guide_legend(title="Forecast"))
+
+
+
+#Non-seasonal season
+autoplot(ts_prof_season_ratio) +
+  autolayer(meanf(ts_prof_season_ratio, h=5),
+    series="Mean", PI=FALSE) +
+  autolayer(rwf(ts_prof_season_ratio, h=5),
+    series="Naïve", PI=FALSE) +
+  autolayer(rwf(ts_prof_season_ratio, drift=TRUE, h=5),
+    series="Drift", PI=FALSE) +
+  ggtitle("Simple forecasting of profanity in GOT") +
+  xlab("Season") + ylab("Profanity count") +
+  guides(colour=guide_legend(title="Forecast"))
+
+
+
+```
+
+
+#Residuals from simple forecasting methods
+```{r}
+res <- residuals(naive(ts_prof_ratio))
+autoplot(res) + xlab("Day") + ylab("") +
+  ggtitle("Residuals from naïve method")
+
+mean(res[-1]) #This is zero, thus it is not biased
+
+gghistogram(res) + ggtitle("Histogram of residuals")
+
+ggAcf(res) + ggtitle("ACF of residuals")
+
+
+#Portmanteau tests for autocorrelation
+Box.test(res, lag = 10, fitdf = 0)
+#this is significant, which indicates that there is still some information left in the residuals not captured by the naive method
+
+
+checkresiduals(naive(ts_prof_ratio))
+checkresiduals(snaive(ts_prof_ratio))
+checkresiduals(rwf(ts_prof_ratio, drift = TRUE))
+checkresiduals(meanf(ts_prof_ratio))
+
+
+checkresiduals(naive(ts_prof_season_ratio))
+checkresiduals(rwf(ts_prof_season_ratio, drift = TRUE))
+checkresiduals(meanf(ts_prof_season_ratio))
+
+
+
+
+
+```
+
+
+
+
+
+#Time series cross validation
+```{r}
+e <- tsCV(ts_prof_ratio, rwf, drift=TRUE, h=1)
+sqrt(mean(e^2, na.rm=TRUE))
+
+sqrt(mean(residuals(rwf(ts_prof_ratio, drift=TRUE))^2, na.rm=TRUE))
+
+```
+
+
+
+
+#Forecasting 1-8 steps into the future
+```{r}
+
+#Naive methods
+e <- tsCV(ts_prof_ratio, forecastfunction=naive, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point() #Best two episodes into the future
+
+
+e <- tsCV(ts_prof_season_ratio, forecastfunction=naive, h=5)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:5, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point()
+
+
+
+
+
+#Mean
+
+e <- tsCV(ts_prof_ratio, forecastfunction=meanf, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point() #Best two episodes into the future
+
+
+e <- tsCV(ts_prof_season_ratio, forecastfunction=meanf, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point()
+
+
+
+#Snaive - seasonal naive
+e <- tsCV(ts_prof_ratio, forecastfunction=snaive, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point() #Best two episodes into the future
+
+```
+
+
+This doesn't work
+#RWF - DRIFT
+e <- tsCV(ts_prof_ratio, forecastfunction=rwf, drift = TRUE, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point() #Best two episodes into the future
+
+
+e <- tsCV(ts_prof_season_ratio, forecastfunction=rwf, h=8)
+# Compute the MSE values and remove missing values
+mse <- colMeans(e^2, na.rm = T)
+# Plot the MSE values against the forecast horizon
+data.frame(h = 1:8, MSE = mse) %>%
+  ggplot(aes(x = h, y = MSE)) + geom_point()
+
+
+
+
+
+#Plotting prediction intervals
+```{r}
+autoplot(naive(ts_prof_ratio))
+autoplot(meanf(ts_prof_ratio))
+autoplot(snaive(ts_prof_ratio))
+autoplot(rwf(ts_prof_ratio, drift = TRUE))
+
+
+
+autoplot(naive(ts_prof_season_ratio))
+autoplot(meanf(ts_prof_season_ratio))
+autoplot(rwf(ts_prof_season_ratio, drift = TRUE))
+
+```
+
+
+
+
+
+#Creating a linear model
+```{r}
+#Fitting a linear model to our data
+
+fit.ts_prof_ratio <- tslm(ts_prof_ratio ~ trend)
+summary(fit.ts_prof_ratio)
+
+#Linear model with effect of season
+fit.ts_prof_ratio_season <- tslm(ts_prof_ratio ~ trend)
+summary(fit.ts_prof_ratio_season)
+
+#on the data from season
+fit.ts_prof_season_ratio <- tslm(ts_prof_season_ratio ~ trend)
+summary(fit.ts_prof_season_ratio)
+
+```
+
+
+```{r}
+
+ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity)
+
+h <- 10
+fit.lin <- tslm(ts_prof_ratio ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+fit.exp <- tslm(ts_prof_ratio ~ trend, lambda = 0)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+t <- time(ts_prof_ratio)
+t.break1 <- 56
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_prof_ratio ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+fit.spline <- tslm(ts_prof_ratio ~ t + I(t^2) + I(t^3) +
+  I(tb1^3))
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+autoplot(ts_prof_ratio) +
+  autolayer(fitted(fit.lin), series = "Linear") +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
+  xlab("Episode") + ylab("Proportion of swear words") +
+  ggtitle("Fit of predictions of swear-word proportions in GOT") +
+  guides(colour = guide_legend(title = " "))
+```
+
+
+
+#Decompositing our time series
+```{r}
+
+ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
+
+ts_prof_ratio %>% decompose(type="multiplicative") %>%
+  autoplot() + xlab("Season") +
+  ggtitle("Classical multiplicative decomposition
+    of profanity in GOT episodes")
+
+ts_prof_ratio %>% decompose(type="multiplicative") -> fit
+
+autoplot(fit) +
+  ggtitle("Classical multiplicative decomposition
+    of profanity in GOT episodes")
+
+
+
+autoplot(ts_prof_ratio, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Percent profanity") +
+  ggtitle("Profanity in GOT") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+
+
+
+```
+
