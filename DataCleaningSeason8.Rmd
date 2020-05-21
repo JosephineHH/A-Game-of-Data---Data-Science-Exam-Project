@@ -1,0 +1,70 @@
+---
+title: "Basic NLP Exploration"
+author: "Josephine Hillebrand Hansen"
+date: "18/05/2020"
+output: html_document
+---
+
+
+#Packages
+```{r}
+library(textclean)
+library(stringr)
+library(quanteda)
+library(tm)
+library(qdap)
+```
+
+
+```{r}
+#data <- readr::read_delim("got_scripts_breakdown.csv",";", escape_double = FALSE, trim_ws = TRUE)
+
+data <- read.csv("game-of-thrones-script-all-seasons/Game_of_Thrones_Script.csv",stringsAsFactors = FALSE)
+data = subset(data, Season == "Season 8")
+
+
+#Replace contractions with long form
+for (i in 1:nrow(data)) {
+  data$Sentence[i] = gsub("’", "'", data$Sentence[i]) #Replace apostrophe with a different one
+  data$Sentence[i] = replace_contraction(data$Sentence[i]) #Replace contractions with long form
+  data$Sentence[i] = gsub("haven't", "have not", data$Sentence[i]) #Custom words for contractions to long form
+  data$Sentence[i] = gsub("d' ", "did ", data$Sentence[i]) #Custom words for contractions to long form
+  data$Sentence[i] = char_tolower(toString(data$Sentence[i])) #Lowercase all characters
+  
+  #data$Tokens[i] = tokenize_(data$Sentence[i])
+  
+  print(i)}
+
+
+#Remove apostrephe less contractions #The other words from these contractions will be removed in python when removing stopwords
+contractions = lexicon::key_contractions
+for (i in 1:nrow(contractions)) {
+  contractions$contraction[i] = gsub("'","", contractions$contraction[i])
+  contractions$contraction[i] = char_tolower(contractions$contraction[i])
+  contraction = paste("\\s?\\<", contractions$contraction[i], "\\s?\\>", sep = "")
+  
+  for (j in 1:nrow(data)) {
+    data$Sentence[j] = gsub(contraction, " ", data$Sentence[j]) #remove apostrophe-free contractions
+  }
+  print(i)
+}
+
+
+#Remove the letter 'u' used as u
+for (i in 1:nrow(data)) {
+  data$Sentence[i] = gsub("\\<u\\>?", " ", data$Sentence[i])
+  #data$Sentence[i] = gsub("^\\s*", "", data$Sentence[i]) WILL RUIN PREPROCESSING IN PYTHON
+  #data$Sentence[i] = gsub("\\s*$", "", data$Sentence[i])
+}
+
+
+write.csv2(data,"got_season8_half_cleaned.csv", sep =";", row.names = FALSE)
+
+```
+
+
+
+```{r}
+
+```
+
