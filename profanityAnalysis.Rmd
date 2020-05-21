@@ -36,6 +36,8 @@ for (i in 1:length(data$lemma)){
 
 write.csv(data, "got_profanity_data.csv")
 
+data = read.csv("got_profanity_data.csv")
+
 
 #Creating two new df with profanity count for each episode, as well as for each season
 library(dplyr)
@@ -404,5 +406,112 @@ autoplot(ts_prof_ratio, series="Data") +
 
 
 
+```
+
+
+
+
+#Exponential smoothing
+```{r}
+
+# Estimate parameters
+fc <- ses(ts_prof_ratio, h=5)
+# Accuracy of one-step-ahead training errors
+round(accuracy(fc),2)
+
+
+autoplot(fc) +
+  autolayer(fitted(fc), series="Fitted") +
+  ylab("Profanity ratio") + xlab("Season")
+
+summary(fc)
+
+
+
+
+#Holst method + damped holst method
+fc <- holt(ts_prof_ratio, h=15)
+fc2 <- holt(ts_prof_ratio, damped=TRUE, phi = 0.9, h=15)
+autoplot(ts_prof_ratio) +
+  autolayer(fc, series="Holt's method", PI=FALSE) +
+  autolayer(fc2, series="Damped Holt's method", PI=FALSE) +
+  ggtitle("Forecasts from Holt's method") + xlab("Year") +
+  ylab("Air passengers in Australia (millions)") +
+  guides(colour=guide_legend(title="Forecast"))
+
+
+
+
+```
+
+
+
+
+
+#ARIMA
+Models that are neither seasonal nor have a trend
+```{r}
+Box.test(ts_prof_ratio)
+ggAcf(ts_prof_ratio)
+
+Box.test(diff(ts_prof_ratio))
+ggAcf(diff(ts_prof_ratio))
+
+#We keep the non-differentiated time-series
+
+#Plot to compare differenced and non-differenced data (Seasonal difference)
+cbind("Billion kWh" = ts_prof_ratio,
+      "Logs" = log(ts_prof_ratio),
+      "Seasonally\n differenced logs" =
+        diff(log(ts_prof_ratio),12),
+      "Doubly\n differenced logs" =
+        diff(diff(log(ts_prof_ratio),12),1)) %>%
+  autoplot(facets=TRUE) +
+    xlab("Season") + ylab("") +
+    ggtitle("Profanity in GOT")
+
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_prof_ratio %>% ur.kpss() %>% summary() #Statinary (below 5 % critical value)
+ts_prof_ratio %>% diff() %>% ur.kpss() %>% summary()
+
+
+ndiffs(ts_prof_ratio) #This test reveals that 1 differentiating is required
+
+ts_prof_ratio %>% diff() %>% ur.kpss() %>% summary() #New test
+
+
+#Is seasonal differntiating required
+nsdiffs(ts_prof_ratio)
+
+
+
+```
+
+
+#Autoarima
+```{r}
+fit <- auto.arima(ts_prof_ratio, seasonal=FALSE)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+
+#Differentiating
+#An autoarima that works harder
+fit2 <- auto.arima(diff(ts_prof_ratio), seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_prof_ratio))
+ggPacf(diff(ts_prof_ratio))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
 ```
 
