@@ -2,17 +2,22 @@
 title: "GOT"
 output: pdf_document
 ---
-
+# loading data
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 
 
-library(readr);library(textclean);library(pacman);library(fpp2)
+library(readr);library(MTS);library(textclean);library(pacman);library(fpp2)
 data <-read_delim("got_cleaned.csv",",", escape_double = FALSE, trim_ws = TRUE)
 
 
 ```
+
+```{r}
+
+```
+
 
 ```{r}
 if (!require("pacman")) install.packages("pacman")
@@ -27,10 +32,39 @@ sent_scor <- as.data.frame(sentiment(mytext))
 data1 <- merge(data,sent_scor, by.x='Column1', by.y='element_id')
 ```
 
+#variance test of all data
 ```{r}
+ts_data <- ts(data1$sentiment)
 
+
+# plotting full time series
+
+
+autoplot(ts_data) +
+  ggtitle("Sentiment scores per line") +
+  xlab("Line") +
+  ylab("Sentiment Score")
+
+# what is lambda
+lambda <- BoxCox.lambda(ts_data) 
+lambda # if lambda was around 1, then you do not need any power transform
+new_ts <- BoxCox(ts_data,lambda)
+
+# is log transform necessary - significant=transform
+MTS::archTest(ts_data, lag = 10) 
 ```
 
+##subsetting only one episode
+```{r}
+#subsetting
+length_ep = data1 %>%
+  group_by(data1$Episode)%>%
+  summarise(length(Episode))
+
+DW <- as.data.frame(subset(data1, Episode == 'dark wings dark words'))
+
+```
+# plot time series
 ```{r}
 # plot time series
 
@@ -45,7 +79,7 @@ autoplot(ts_DW) +
 
 ```
 
-
+# Moving average
 ```{r}
 # Moving average
 ma(ts_DW, 5)
@@ -58,6 +92,7 @@ autoplot(ts_DW, series="Data") +
                       breaks=c("Data","5-MA"))
 
 ```
+# simple exponential smoothing
 
 ```{r}
 # simple exponential smoothing
@@ -74,16 +109,16 @@ autoplot(DW_ses) +
 summary(DW_ses)
 ```
 
-
+# autocorrelation plots
 ```{r}
 
-# autocorrelation plots
+
 ggAcf(ts_DW)
 
 #
 ```
 
-simple forecasting methods
+#simple forecasting methods
 ```{r}
 
 
@@ -103,8 +138,7 @@ autoplot(ts_DW) +
 ```
 
 
-Group by episode
-
+# Group sentiment by episode
 ```{r}
 library(dplyr)
 sent_episode = data1 %>%
@@ -125,7 +159,18 @@ autoplot(ts_sent_ep) +
 ```{r}
 ggAcf(ts_sent_ep)
 ```
+# variance test
+```{r}
+lambda <- BoxCox.lambda(ts_sent_ep) # = 0.97
+lambda # if lambda was around 1, then you do not need any power transform
+new_ts <- BoxCox(ts_sent_ep,lambda)
 
+
+MTS::archTest(ts_sent_ep, lag = 10) #0.19
+```
+
+
+#simple forecasting
 ```{r}
 autoplot(ts_sent_ep) +
   autolayer(meanf(ts_sent_ep, h=5),
@@ -157,8 +202,9 @@ ts_sent_ep %>% decompose(type="additive") %>%
   ggtitle("Classical multiplicative decomposition
     of electrical equipment index")
 ```
-we cna conclude that there is no patterns in the sentiment across episodes. 
+we can conclude that there is no patterns in the sentiment across episodes. 
 
+# fit pw, exp, lin
 ```{r}
 
 ts_sent_ep = ts(sent_episode$mean_sent)
@@ -259,7 +305,6 @@ autoplot(ts_sent_ep) +
 ```
 
 ## Validating forecasting of season 8
-
 ```{r}
 # sentiment score for all seasons
 
@@ -287,14 +332,11 @@ sent_episode_s8 <- rename(sent_episode_s8, N_serie = Episode)
 sent_episode_all <- rbind(sent_episode, sent_episode_s8)
 ```
 
-
+re-transforming data to not have frequency
 ```{r}
 ts_all <- ts(sent_episode_all$mean_sent)
 
-
 ```
-
-
 
 
 ```{r}
@@ -337,7 +379,7 @@ autoplot(ts_all) +
 
 ```
 
-accuracy score
+# accuracy score
 ```{r}
 all_test <- window(ts_all, start=67, end=73)
 accuracy(fcasts.pw, all_test)
