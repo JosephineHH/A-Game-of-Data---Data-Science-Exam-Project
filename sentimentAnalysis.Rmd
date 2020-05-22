@@ -264,3 +264,83 @@ autoplot(ts_sent_ep) +
 
 ```
 
+## Validating forecasting of season 8
+
+```{r}
+# sentiment score for all seasons
+
+data2 <-read_delim("got_season8_cleaned.csv",",", escape_double = FALSE, trim_ws = TRUE)
+
+mytext <- data2$lemma
+
+mytext <- get_sentences(mytext)
+sent_scor <- as.data.frame(sentiment(mytext))
+
+data2$Column1 <- seq.int(nrow(data2))
+
+S8 <- merge(data2,sent_scor, by.x='Column1', by.y='element_id')
+
+library(dplyr);library(tidyverse)
+sent_episode_s8 = S8 %>%
+  group_by(Episode) %>%
+  summarise(mean_sent = mean(sentiment))
+  
+sent_episode_s8$Episode <- c(68,69,70,71,72,73)
+
+sent_episode_s8 <- rename(sent_episode_s8, N_serie = Episode)
+
+# appending season 8 to rest of data
+sent_episode_all <- rbind(sent_episode, sent_episode_s8)
+```
+
+
+```{r}
+ts_all <- ts(sent_episode_all$mean_sent)
+
+
+```
+
+
+
+
+```{r}
+
+
+h <- 10
+fit.lin <- tslm(ts_sent_ep ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+fit.exp <- tslm(ts_sent_ep ~ trend, lambda = 0)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+t <- time(ts_sent_ep)
+t.break1 <- 50
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_sent_ep ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+fit.spline <- tslm(ts_sent_ep ~ t + I(t^2) + I(t^3) +
+  I(tb1^3))
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+autoplot(ts_all) +
+  autolayer(fitted(fit.lin), series = "Linear") +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+ # autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
+  xlab("Episode") + ylab("Proportion of swear words") +
+  ggtitle("Fit of predictions of swear-word proportions in GOT") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+husk accuracy scores!!!!!!!!
