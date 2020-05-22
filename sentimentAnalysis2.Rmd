@@ -18,7 +18,7 @@ data <-read_delim("got_cleaned.csv",",", escape_double = FALSE, trim_ws = TRUE)
 
 ```
 
-
+#SEASON 1-7
 ```{r}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(sentimentr, dplyr, magrittr)
@@ -32,14 +32,11 @@ sent_scor <- as.data.frame(sentiment(mytext))
 data1 <- merge(data,sent_scor, by.x='Column1', by.y='element_id')
 ```
 
-#variance test of all data
+##variance test of all data
 ```{r}
 ts_data <- ts(data1$sentiment)
 
-
 # plotting full time series
-
-
 autoplot(ts_data) +
   ggtitle("Sentiment scores per line") +
   xlab("Line") +
@@ -48,97 +45,16 @@ autoplot(ts_data) +
 # what is lambda
 lambda <- BoxCox.lambda(ts_data) 
 lambda # if lambda was around 1, then you do not need any power transform
+lambda1 <- BoxCox.lambda(ts_data[200:300]) #=0.86
+lambda1
 new_ts <- BoxCox(ts_data,lambda)
 
 # is log transform necessary - significant=transform
 MTS::archTest(ts_data, lag = 10) 
 ```
 
-##subsetting only one episode
-```{r}
-#subsetting
-length_ep = data1 %>%
-  group_by(data1$Episode)%>%
-  summarise(length(Episode))
 
-DW <- as.data.frame(subset(data1, Episode == 'dark wings dark words'))
-
-```
-# plot time series
-```{r}
-# plot time series
-
-ts_DW <- ts(DW$sentiment)
-
-autoplot(ts_DW) +
-  ggtitle("Sentiment scores per line") +
-  xlab("Line") +
-  ylab("Sentiment Score")
-
-
-
-```
-
-# Moving average
-```{r}
-# Moving average
-ma(ts_DW, 5)
-
-autoplot(ts_DW, series="Data") +
-  autolayer(ma(ts_DW,10), series="5-MA") +
-  xlab("Line") + ylab("sentiment score") +
-  ggtitle("Sentiment score per line, MA smoothed") +
-  scale_colour_manual(values=c("Data"="grey50","5-MA"="red"),
-                      breaks=c("Data","5-MA"))
-
-```
-# simple exponential smoothing
-
-```{r}
-# simple exponential smoothing
-
-# Estimate parameters
-DW_ses <- ses(ts_DW, h=2)
-# Accuracy of one-step-ahead training errors
-round(accuracy(DW_ses),2)
-
-autoplot(DW_ses) +
-  autolayer(fitted(DW_ses), series="Fitted") +
-  ylab("Oil (millions of tonnes)") + xlab("Year")
-
-summary(DW_ses)
-```
-
-# autocorrelation plots
-```{r}
-
-
-ggAcf(ts_DW)
-
-#
-```
-
-#simple forecasting methods
-```{r}
-
-
-#Non-seasonal 
-autoplot(ts_DW) +
-  autolayer(meanf(ts_DW, h=50),
-    series="Mean", PI=FALSE) +
-  autolayer(rwf(ts_DW, h=50),
-    series="Naïve", PI=FALSE) +
-  autolayer(rwf(ts_DW, drift=TRUE, h=50),
-    series="Drift", PI=FALSE) +
-  ggtitle("Simple forecasting of profanity in GOT") +
-  xlab("Season") + ylab("Profanity count") +
-  guides(colour=guide_legend(title="Forecast"))
-
-
-```
-
-
-# Group sentiment by episode
+## Group sentiment by episode
 ```{r}
 library(dplyr)
 sent_episode = data1 %>%
@@ -159,8 +75,49 @@ autoplot(ts_sent_ep) +
 ```{r}
 ggAcf(ts_sent_ep)
 ```
-# variance test
+## checking is seasonality adds prediction value
 ```{r}
+#Fitting a linear model to our data
+fit.ts_sent_ep <- tslm(ts_sent_ep ~ trend)
+summary(fit.ts_sent_ep)
+
+#Linear model with effect of season
+fit.ts_sent_season <- tslm(ts_sent_ep ~ trend + season)
+summary(fit.ts_sent_ep_season)
+
+#on the data from season
+fit.ts_sent_ep_season <- tslm(ts_sent_ep ~ season)
+summary(fit.ts_sent_season)
+
+
+
+AIC(fit.ts_sent_ep, fit.ts_sent_ep_season, fit.ts_sent_season)
+# season does not add prediction value - lowest AIC
+
+
+
+```
+
+## decomposition
+```{r}
+
+ts_sent_ep %>% decompose(type="additive") %>%
+  autoplot() + xlab("Year") +
+  ggtitle("Classical multiplicative decomposition
+    of electrical equipment index")
+```
+
+## re-trasnforming data based on above
+```{r}
+ts_sent_ep <- ts(sent_episode$mean_sent)
+
+```
+
+
+## variance test of episodes s.1-7
+```{r}
+
+
 lambda <- BoxCox.lambda(ts_sent_ep) # = 0.97
 lambda # if lambda was around 1, then you do not need any power transform
 new_ts <- BoxCox(ts_sent_ep,lambda)
@@ -170,7 +127,7 @@ MTS::archTest(ts_sent_ep, lag = 10) #0.19
 ```
 
 
-#simple forecasting
+##simple forecasting
 ```{r}
 autoplot(ts_sent_ep) +
   autolayer(meanf(ts_sent_ep, h=5),
@@ -195,16 +152,10 @@ checkresiduals(snaive(ts_sent_ep))
 
 ```
 
-# decomposition
-```{r}
-ts_sent_ep %>% decompose(type="additive") %>%
-  autoplot() + xlab("Year") +
-  ggtitle("Classical multiplicative decomposition
-    of electrical equipment index")
-```
+
 we can conclude that there is no patterns in the sentiment across episodes. 
 
-# fit pw, exp, lin
+## fit pw, exp, lin - 6 knots
 ```{r}
 
 ts_sent_ep = ts(sent_episode$mean_sent)
@@ -261,7 +212,7 @@ autoplot(ts_sent_ep) +
   guides(colour = guide_legend(title = " "))
 ```
 
-
+## fit exp, lin, and pw - 1 knot
 
 ```{r}
 
@@ -274,7 +225,7 @@ fit.exp <- tslm(ts_sent_ep ~ trend, lambda = 0)
 fcasts.exp <- forecast(fit.exp, h = h)
 
 t <- time(ts_sent_ep)
-t.break1 <- 50
+t.break1 <- 51
 tb1 <- ts(pmax(0, t - t.break1), start = 0)
 
 fit.pw <- tslm(ts_sent_ep ~ t + tb1)
@@ -303,6 +254,78 @@ autoplot(ts_sent_ep) +
   guides(colour = guide_legend(title = " "))
 
 ```
+# ARIMA
+## checking for stationarity
+```{r}
+# box test of original data
+Box.test(ts_sent_ep, type = "Ljung-Box")
+ggAcf(ts_sent_ep)
+
+# box test of differenced data
+Box.test(diff(ts_sent_ep, type = "Ljung-Box"))
+ggAcf(diff(ts_sent_ep))
+
+#We keep the non-differentiated time-series
+
+#Plot to compare differenced and non-differenced data (Seasonal difference)
+cbind("Billion kWh" = ts_sent_ep,
+      "Logs" = log(ts_sent_ep),
+      "Seasonally\n differenced logs" =
+        diff(log(ts_sent_ep),12),
+      "Doubly\n differenced logs" =
+        diff(diff(log(ts_sent_ep),12),1)) %>%
+  autoplot(facets=TRUE) +
+    xlab("Season") + ylab("") +
+    ggtitle("Profanity in GOT")
+
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_sent_ep %>% ur.kpss() %>% summary() #Stationary (below 5 % critical value)
+ts_sent_ep %>% diff() %>% ur.kpss() %>% summary()
+
+# 'normal' differencing
+ndiffs(ts_sent_ep) #This test reveals that 1 differentiating is required
+
+ts_sent_ep %>% diff() %>% ur.kpss() %>% summary() #New test
+
+
+#Is seasonal differntiating required
+nsdiffs(ts_sent_ep)
+
+
+
+```
+
+## autoArima
+```{r}
+
+fit <- auto.arima(ts_sent_ep, seasonal=FALSE)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+#Differentiating
+#An autoarima that works harder
+fit2 <- auto.arima(diff(ts_sent_ep), seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_sent_ep))
+ggPacf(diff(ts_sent_ep))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+
+
+
+
 
 ## Validating forecasting of season 8
 ```{r}
@@ -332,13 +355,13 @@ sent_episode_s8 <- rename(sent_episode_s8, N_serie = Episode)
 sent_episode_all <- rbind(sent_episode, sent_episode_s8)
 ```
 
-re-transforming data to not have frequency
+## re-transforming data to not have frequency
 ```{r}
 ts_all <- ts(sent_episode_all$mean_sent)
 
 ```
 
-
+## fit lin, exp, pw - 1 knot
 ```{r}
 
 
