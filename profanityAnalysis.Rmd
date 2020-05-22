@@ -90,9 +90,9 @@ prof_data_episode_ratio = data %>%
 
 ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
 autoplot(ts_prof_ratio) +
-  ggtitle("Number of swear words per episode corrected for number of sentences") +
-  xlab("Episode") +
-  ylab("Number of swear words")
+  ggtitle("Proportion of profanities") +
+  xlab("Season") +
+  ylab("Proportion of profanities")
 
 
 
@@ -130,7 +130,8 @@ gglagplot(ts_prof_ratio,
 ```{r}
 ggAcf(ts_prof, lag.max = 60)
 
-ggAcf(ts_prof_ratio, lag.max = 60)
+ggAcf(ts_prof_ratio, lag.max = 30) +
+  ggtitle("Autocorrelation plot of proportion of profanities")
 
 ggAcf(ts_prof_season)
 
@@ -326,8 +327,16 @@ fit.ts_prof_ratio <- tslm(ts_prof_ratio ~ trend)
 summary(fit.ts_prof_ratio)
 
 #Linear model with effect of season
-fit.ts_prof_ratio_season <- tslm(ts_prof_ratio ~ trend)
+fit.ts_prof_ratio_season <- tslm(ts_prof_ratio ~ trend + season)
 summary(fit.ts_prof_ratio_season)
+
+fit.ts_season <- tslm(ts_prof_ratio ~ season)
+
+AIC(fit.ts_prof_ratio, fit.ts_prof_ratio_season, fit.ts_season)
+
+
+
+
 
 #on the data from season
 fit.ts_prof_season_ratio <- tslm(ts_prof_season_ratio ~ trend)
@@ -359,17 +368,17 @@ newdata <- cbind(t=t.new, tb1=tb1.new) %>%
 fcasts.pw <- forecast(fit.pw, newdata = newdata)
 
 fit.spline <- tslm(ts_prof_ratio ~ t + I(t^2) + I(t^3) +
-  I(tb1^3))
+  I(tb1^3))#, lambda = 0)
 fcasts.spl <- forecast(fit.spline, newdata = newdata)
 
 autoplot(ts_prof_ratio) +
-  autolayer(fitted(fit.lin), series = "Linear") +
-  autolayer(fitted(fit.exp), series = "Exponential") +
-  autolayer(fitted(fit.pw), series = "Piecewise") +
+  #autolayer(fitted(fit.lin), series = "Linear") +
+  #autolayer(fitted(fit.exp), series = "Exponential") +
+  #autolayer(fitted(fit.pw), series = "Piecewise") +
   autolayer(fitted(fit.spline), series = "Cubic Spline") +
-  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
-  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
-  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  #autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  #autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
   autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
   xlab("Episode") + ylab("Proportion of swear words") +
   ggtitle("Fit of predictions of swear-word proportions in GOT") +
@@ -383,12 +392,12 @@ autoplot(ts_prof_ratio) +
 
 ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
 
-ts_prof_ratio %>% decompose(type="multiplicative") %>%
+ts_prof_ratio %>% decompose(type="additive") %>%
   autoplot() + xlab("Season") +
-  ggtitle("Classical multiplicative decomposition
-    of profanity in GOT episodes")
+  ggtitle("Classical Additive Decomposition
+    of Proportion of Profanities")
 
-ts_prof_ratio %>% decompose(type="multiplicative") -> fit
+ts_prof_ratio %>% decompose(type="additive") -> fit
 
 autoplot(fit) +
   ggtitle("Classical multiplicative decomposition
@@ -399,8 +408,8 @@ autoplot(fit) +
 autoplot(ts_prof_ratio, series="Data") +
   autolayer(trendcycle(fit), series="Trend") +
   autolayer(seasadj(fit), series="Seasonally Adjusted") +
-  xlab("Season") + ylab("Percent profanity") +
-  ggtitle("Profanity in GOT") +
+  xlab("Season") + ylab("Proportion of profanities") +
+  ggtitle("Seasonally Adjusted Profanity Data") +
   scale_colour_manual(values=c("gray","blue","red"),
              breaks=c("Data","Seasonally Adjusted","Trend"))
 
@@ -515,3 +524,141 @@ ggPacf(diff(ts_prof_ratio))
 checkresiduals(fit2)
 ```
 
+
+Test of variance
+```{r}
+lambda <- BoxCox.lambda(ts_prof_ratio) # = 0.27
+lambda # if lambda was around 1, then you do not need any power transform
+new_ts <- BoxCox(ts_prof_ratio,lambda)
+
+
+MTS::archTest(ts_prof_ratio, lag = 10)
+```
+
+
+
+
+
+#CHRIS
+```{r}
+ggtsdisplay(ts_prof_ratio)
+```
+
+
+
+
+
+
+
+
+#New plots - comparing models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_prof_ratio, frequency = 1)
+#differenced ts for ARIMA
+ts_diff = diff(ts_p)
+
+
+
+h <- 10
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+#Exponential
+fit.exp <- tslm(ts_p ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 60
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_diff, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+
+Cross validation
+```{r}
+#trend
+flm1 <- function(y, h) { forecast(tslm(y ~ trend), h=h) }
+trend_p <- tsCV(ts_p, flm1, h=6)
+#trend
+flm2 <- function(y, h) { forecast(tslm(y ~ trend, lambda=0), h=h) }
+exp_p <- tsCV(ts_p, flm2, h=6)
+#sqrt(mean(e^2, na.rm=TRUE))
+#Our basic-bitch forecasting functions
+mean_p <- tsCV(ts_p, forecastfunction=meanf, h=8)
+naive_p <- tsCV(ts_p, forecastfunction=naive, h=8)
+#drift_p <- tsCV(ts_p, forecastfunction=rwf, drift = TRUE, h=8))
+
+farima <- function(x, h) {
+  forecast(auto.arima(x), h=h)
+}
+# Compute CV errors for ARIMA as e2
+arima_p <- tsCV(ts_diff, farima, h=1)
+# Find MSE of each model class
+mean(e2^2, na.rm=TRUE)
+
+
+
+#Piecewise
+fpw <- function(x, h) {
+  t <- time(x)
+  if (t > 50){
+    t.break1 <- 60}
+  else{
+      t.break1 = 0}
+  tb1 <- ts(pmax(0, t - t.break1), start = 0)
+  
+  fit.pw <- tslm(x ~ t + tb1)
+  t.new <- t[length(t)] + seq(h)
+  tb1.new <- tb1[length(tb1)] + seq(h)
+
+  newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+  
+  forecast(fit.pw, h=h)
+}
+
+
+
+mean(arima_p^2, na.rm=TRUE)
+mean(mean_p^2, na.rm=TRUE)
+mean(naive_p^2, na.rm=TRUE)
+mean(exp_p^2, na.rm=TRUE)
+mean(arima_p^2, na.rm=TRUE)
+mean(arima_p^2, na.rm=TRUE)
+
+```
