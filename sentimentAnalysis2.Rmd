@@ -552,7 +552,9 @@ ts_char <- sent_char_sub %>%
 
 ```
 
+## plot characterwise ts
 ```{r}
+# mean sentiment per episode per character
 char_sent <- ts_char %>%
   group_by(Name) %>%
   summarise(Sentiment = sum(sentiment))
@@ -560,5 +562,471 @@ char_sent <- ts_char %>%
 char_sent %>% autoplot(Sentiment) +
   ylab("Sentiment score") + xlab("Episode") +
   ggtitle("Sentiment Score of Main Characters")
+
+# mean sentiment per episode for main characters
+sum_sent <- ts_char %>% 
+  summarise(Sentiment2 = sum(sentiment))
+
+sum_sent %>% autoplot(Sentiment2)+
+  ylab("Sentiment score")+ xlab("Episodes")+
+  ggtitle("Combined sentiment of the four main characters")
+
+ggAcf(sum_sent)
 ```
+
+# SUBSET BY INDIVIDUAL CHARACTER
+
+##Jon
+```{r}
+sent_char = data1 %>%
+  group_by(Column1,N_serie, Episode, Name)%>%
+  summarise(mean_sent = mean(sentiment))
+
+
+jon_sub <- subset(sent_char, subset = Name %in% c('jon'))
+
+jon_mean = jon_sub %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+
+
+df <- data.frame("N_serie"=1:67)
+df.merge <- merge(x = jon_mean, y = df, by = "N_serie", all = TRUE)
+
+jon_mean <- df.merge
+
+#write.csv(jon_mean,"jon_mean.csv")
+
+#jon_sub <- readr::read_csv("jon_mean.csv")
+
+
+ts_jon <- ts(jon_mean$sentiment)
+
+autoplot(ts_jon)
+
+ggAcf(ts_jon)
+
+```
+
+## Tyrion
+```{r}
+
+tyrion_sub <- subset(sent_char, subset = Name %in% c('tyrion'))
+
+tyrion_mean = tyrion_sub %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+df <- data.frame("N_serie"=1:67)
+df.merge <- merge(x = tyrion_mean, y = df, by = "N_serie", all = TRUE)
+
+tyrion_mean <- df.merge
+
+#write.csv(tyrion_mean,"tyrion_mean.csv")
+
+#tyrion_sub <- readr::read_csv("tyrion_mean.csv")
+
+
+ts_tyrion <- ts(tyrion_mean$sentiment)
+
+autoplot(ts_tyrion)
+
+ggAcf(ts_tyrion)
+
+```
+##Cersei
+```{r}
+
+cersei_sub <- subset(sent_char, subset = Name %in% c('cersei'))
+
+cersei_mean = cersei_sub %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+df <- data.frame("N_serie"=1:67)
+df.merge <- merge(x = cersei_mean, y = df, by = "N_serie", all = TRUE)
+
+cersei_mean <- df.merge
+
+#write.csv(cersei_mean,"cersei_mean.csv")
+
+#cersei_sub <- readr::read_csv("cersei_mean.csv")
+
+
+ts_cersei <- ts(cersei_mean$sentiment)
+
+autoplot(ts_cersei)
+
+ggAcf(ts_cersei)
+
+```
+##Daenerys
+```{r}
+
+daenerys_sub <- subset(sent_char, subset = Name %in% c('daenerys'))
+
+daenerys_mean = daenerys_sub %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+df <- data.frame("N_serie"=1:67)
+df.merge <- merge(x = daenerys_mean, y = df, by = "N_serie", all = TRUE)
+
+daenerys_mean <- df.merge
+
+#write.csv(daenerys_mean,"daenerys_mean.csv")
+
+#daenerys_sub <- readr::read_csv("daenerys_mean.csv")
+
+
+ts_daenerys <- ts(daenerys_mean$sentiment)
+
+autoplot(ts_daenerys)
+
+ggAcf(ts_daenerys)
+
+```
+
+## ARCH test
+```{r}
+# what is lambda
+lambda <- BoxCox.lambda(ts_jon) # = 0.84
+lambda # if lambda was around 1, then you do not need any power transform
+
+new_ts <- BoxCox(ts_jon,lambda)
+
+lambda <- BoxCox.lambda(ts_tyrion) # = 0.84
+lambda # if lambda was around 1, then you do not need any power transform
+
+new_ts <- BoxCox(ts_tyrion,lambda)
+
+lambda <- BoxCox.lambda(ts_cersei) # =0.71
+lambda # if lambda was around 1, then you do not need any power transform
+
+new_ts <- BoxCox(ts_cersei,lambda)
+
+lambda <- BoxCox.lambda(ts_daenerys) # = 0.803
+lambda # if lambda was around 1, then you do not need any power transform
+
+new_ts <- BoxCox(ts_daenerys,lambda)
+
+
+# is log transform necessary - significant=transform
+
+```
+
+### plot all time series
+```{r}
+autoplot(ts_jon) + ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Jon Snow")
+autoplot(ts_tyrion)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Tyrion Lannister")
+autoplot(ts_cersei)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Cersei Lannister")
+autoplot(ts_daenerys)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Daenerys Targarian")
+```
+
+
+## decomposing and checking for seasonality
+```{r}
+
+
+jon_mean[is.na(jon_mean)] <- 0
+ts_jon<- ts(jon_mean$sentiment, frequency = 10)
+
+ts_jon %>% decompose(type="additive") %>%
+  autoplot() + xlab("Episode") +
+  ggtitle("Classical multiplicative decomposition
+    of sentiment score: Jon Snow")
+
+ts_jon %>% decompose(type="additive") -> fit
+
+autoplot(ts_jon, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Sentiment Score ") +
+  ggtitle("Seasonally Adjusted Sentiment: Jon Snow") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+
+tyrion_mean[is.na(tyrion_mean)] <- 0
+ts_tyrion<- ts(tyrion_mean$sentiment, frequency = 10)
+
+ts_tyrion %>% decompose(type="additive") %>%
+  autoplot() + xlab("Episode") +
+  ggtitle("Classical multiplicative decomposition
+    of sentiment score: Tyrion Lannister")
+
+ts_tyrion %>% decompose(type="additive") -> fit
+
+autoplot(ts_tyrion, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Sentiment Score") +
+  ggtitle("Seasonally Adjusted Sentiment: Tyrion Lannister") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+
+cersei_mean[is.na(cersei_mean)] <- 0
+ts_cersei<- ts(cersei_mean$sentiment, frequency = 10)
+
+ts_cersei %>% decompose(type="additive") %>%
+  autoplot() + xlab("Episode") +
+  ggtitle("Classical multiplicative decomposition
+    of sentiment score: Cersei Lannister")
+
+ts_cersei %>% decompose(type="additive") -> fit
+autoplot(ts_cersei, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Sentiment Score") +
+  ggtitle("Seasonally Adjusted Sentiment: Cersei Lannister") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+
+daenerys_mean[is.na(daenerys_mean)] <- 0
+ts_daenerys<- ts(daenerys_mean$sentiment, frequency = 10)
+
+ts_daenerys %>% decompose(type="additive") %>%
+  autoplot() + xlab("Episode") +
+  ggtitle("Classical multiplicative decomposition
+    of sentiment score: Daenerys Targarian")
+
+ts_daenerys %>% decompose(type="additive") -> fit
+autoplot(ts_daenerys, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Sentiment Score") +
+  ggtitle("Seasonally Adjusted Sentiment: Daenerys Targarian") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+
+```
+
+```{r}
+##JON
+#Fitting a linear model to our data
+fit.ts_jon <- tslm(ts_jon ~ trend)
+summary(fit.ts_jon)
+
+#Linear model with effect of season
+fit.ts_jon_tseason <- tslm(ts_jon ~ trend + season)
+summary(fit.ts_jon_tseason)
+
+#on the data from season
+fit.ts_jon_season <- tslm(ts_jon ~ season)
+summary(fit.ts_jon_season)
+
+AIC(fit.ts_jon, fit.ts_jon_tseason, fit.ts_jon_season)
+# season does not add prediction value - lowest AIC
+
+##Tyrion
+#Fitting a linear model to our data
+fit.ts_tyrion <- tslm(ts_tyrion ~ trend)
+summary(fit.ts_tyrion)
+
+#Linear model with effect of season
+fit.ts_tyrion_tseason <- tslm(ts_tyrion ~ trend + season)
+summary(fit.ts_tyrion_tseason)
+
+#on the data from season
+fit.ts_tyrion_season <- tslm(ts_tyrion ~ season)
+summary(fit.ts_tyrion_season)
+
+
+##Cersei
+#Fitting a linear model to our data
+fit.ts_cersei <- tslm(ts_cersei ~ trend)
+summary(fit.ts_cersei)
+
+#Linear model with effect of season
+fit.ts_cersei_tseason <- tslm(ts_cersei ~ trend + season)
+summary(fit.ts_cersei_tseason)
+
+#on the data from season
+fit.ts_cersei_season <- tslm(ts_cersei ~ season)
+summary(fit.ts_cersei_season)
+
+##Daenerys
+#Fitting a linear model to our data
+fit.ts_daenerys <- tslm(ts_daenerys ~ trend)
+summary(fit.ts_daenerys)
+
+#Linear model with effect of season
+fit.ts_daenerys_tseason <- tslm(ts_daenerys ~ trend + season)
+summary(fit.ts_daenerys_tseason)
+
+#on the data from season
+fit.ts_daenerys_season <- tslm(ts_daenerys ~ season)
+summary(fit.ts_daenerys_season)
+
+
+AIC(fit.ts_jon, fit.ts_jon_tseason, fit.ts_jon_season) # only trend lowest AIC
+AIC(fit.ts_tyrion, fit.ts_tyrion_tseason, fit.ts_tyrion_season) # trend lowest aic
+AIC(fit.ts_cersei, fit.ts_cersei_tseason, fit.ts_cersei_season) # trend lowest AIC
+AIC(fit.ts_daenerys, fit.ts_daenerys_tseason, fit.ts_daenerys_season) # Trend lowest AIC
+
+
+
+
+```
+
+# CHARACTER ARIMA
+# JON
+## checking for stationarity
+```{r}
+# box test of original data
+Box.test(ts_jon, type = "Ljung-Box")
+ggAcf(ts_jon)
+
+# box test of differenced data
+Box.test(diff(ts_jon, type = "Ljung-Box"))
+ggAcf(diff(ts_jon))
+
+#We keep the non-differentiated time-series
+
+
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_jon %>% ur.kpss() %>% summary() #Stationary (below 5 % critical value)
+ts_jon %>% diff() %>% ur.kpss() %>% summary()
+
+# 'normal' differencing
+ndiffs(ts_jon) #This test reveals that 1 differentiating is required
+
+ts_jon %>% diff() %>% ur.kpss() %>% summary() #New test
+
+
+#Is seasonal differntiating required
+nsdiffs(ts_jon)
+
+
+
+```
+
+## autoArima
+```{r}
+
+fit <- auto.arima(ts_jon, seasonal=FALSE) # (0,0,0)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+#Differentiating
+#An autoarima that works harder - gives (3,0,0) with 0 mean
+fit2 <- auto.arima(diff(ts_jon), seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_jon))
+ggPacf(diff(ts_jon))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+# Comparing the models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_jon, frequency = 1)
+
+ts_diff = diff(ts_p)
+
+h <- 10
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+#Exponential
+fit.exp <- tslm(ts_p ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_diff, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+
+```{r}
+h <- 10
+fit.lin <- tslm(ts_jon ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+fit.exp <- tslm(ts_jon ~ trend, lambda = 0)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+t <- time(ts_jon)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_jon ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+fit.spline <- tslm(ts_jon ~ t + I(t^2) + I(t^3) +
+  I(tb1^3))
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_jon, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+autoplot(ts_jon) +
+  autolayer(fitted(fit.lin), series = "Linear") +
+  #autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
+  autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+
+
 
