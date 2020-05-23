@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 library(readr);library(MTS);library(textclean);library(pacman);library(fpp2)
+library(feasts)
 data <-read_delim("got_cleaned.csv",",", escape_double = FALSE, trim_ws = TRUE)
 
 
@@ -107,7 +108,7 @@ ts_sent_ep %>% decompose(type="additive") %>%
     of electrical equipment index")
 ```
 
-## re-trasnforming data based on above
+## re-transforming data based on above
 ```{r}
 ts_sent_ep <- ts(sent_episode$mean_sent)
 
@@ -300,13 +301,13 @@ nsdiffs(ts_sent_ep)
 ## autoArima
 ```{r}
 
-fit <- auto.arima(ts_sent_ep, seasonal=FALSE)
+fit <- auto.arima(ts_sent_ep, seasonal=FALSE) # (2,1,2)
 summary(fit)
 fit %>% forecast(h=10) %>% autoplot(include=80)
 
 
 #Differentiating
-#An autoarima that works harder
+#An autoarima that works harder - gives (2,0,2) with 0 mean
 fit2 <- auto.arima(diff(ts_sent_ep), seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
 summary(fit2)
 fit2 %>% forecast(h=10) %>% autoplot(include=80)
@@ -322,12 +323,117 @@ ggPacf(diff(ts_sent_ep))
 checkresiduals(fit2)
 ```
 
+# Comparing the models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_sent_ep, frequency = 1)
+
+ts_diff = diff(ts_p)
+
+h <- 10
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+#Exponential
+fit.exp <- tslm(ts_p ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_diff, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+## plotting forecasting 
+```{r}
+
+ts_sent_ep <- ts(sent_episode$mean_sent)
+
+
+h <- 10
+fit.lin <- tslm(ts_sent_ep ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+fit.exp <- tslm(ts_sent_ep ~ trend, lambda = 0)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+t <- time(ts_sent_ep)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_sent_ep ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+fit.spline <- tslm(ts_sent_ep ~ t + I(t^2) + I(t^3) +
+  I(tb1^3))
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_sent_ep, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+autoplot(ts_sent_ep) +
+  #autolayer(fitted(fit.lin), series = "Linear") +
+  #autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  #autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  #autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
+  autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  xlab("Episode") + ylab("Proportion of swear words") +
+  ggtitle("Fit of predictions of swear-word proportions in GOT") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+# Cross validation
+```{r}
+
+```
 
 
 
-
-
-## Validating forecasting of season 8
+# Validating forecasting of season 8
 ```{r}
 # sentiment score for all seasons
 
@@ -353,6 +459,8 @@ sent_episode_s8 <- rename(sent_episode_s8, N_serie = Episode)
 
 # appending season 8 to rest of data
 sent_episode_all <- rbind(sent_episode, sent_episode_s8)
+
+# write.csv(data, "got_full_data.csv")
 ```
 
 ## re-transforming data to not have frequency
@@ -363,7 +471,6 @@ ts_all <- ts(sent_episode_all$mean_sent)
 
 ## fit lin, exp, pw - 1 knot
 ```{r}
-
 
 h <- 10
 fit.lin <- tslm(ts_sent_ep ~ trend)
@@ -411,7 +518,47 @@ accuracy(fcasts.exp, all_test)
 
 ```
 
-```{r}
+# GROUP BY CHARACTER 
 
+subsetting by
+  Cercei lannister
+  Tyrion lannister
+  Jon Snow
+  Daenerys Targarian
+
+```{r}
+library(dplyr)
+library(lubridate)
+library(tsibble)
+
+sent_char = data1 %>%
+  group_by(Column1,N_serie, Episode, Name)%>%
+  summarise(mean_sent = mean(sentiment))
+
+
+sent_char_sub <- subset(sent_char, subset = Name %in% c('jon', 'tyrion','cersei','daenerys'))
+
+sent_char_mean = sent_char_sub %>%
+  group_by(N_serie, Episode, Name)%>%
+  summarise(sentiment = mean(mean_sent))
+
+write.csv(sent_char_mean,"sent_char_mean.csv")
+
+sent_char_sub <- readr::read_csv("sent_char_mean.csv")
+
+
+ts_char <- sent_char_sub %>%
+  as_tsibble(key= c(Episode, Name, sentiment), index=N_serie )
+
+```
+
+```{r}
+char_sent <- ts_char %>%
+  group_by(Name) %>%
+  summarise(Sentiment = sum(sentiment))
+
+char_sent %>% autoplot(Sentiment) +
+  ylab("Sentiment score") + xlab("Episode") +
+  ggtitle("Sentiment Score of Main Characters")
 ```
 

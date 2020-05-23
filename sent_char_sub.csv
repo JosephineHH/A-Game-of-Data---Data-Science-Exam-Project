@@ -1,0 +1,3476 @@
+"","Column1","N_serie","Episode","Name","mean_sent"
+"1",16,1,"winter is coming","jon",0
+"2",17,1,"winter is coming","jon",0
+"3",22,1,"winter is coming","jon",0
+"4",38,1,"winter is coming","jon",0
+"5",40,1,"winter is coming","jon",0
+"6",42,1,"winter is coming","jon",0
+"7",52,1,"winter is coming","jon",0
+"8",59,1,"winter is coming","jon",0
+"9",60,1,"winter is coming","jon",0
+"10",70,1,"winter is coming","jon",-0.120604537831105
+"11",73,1,"winter is coming","jon",-0.353553390593274
+"12",77,1,"winter is coming","cersei",0.387298334620742
+"13",79,1,"winter is coming","cersei",0
+"14",81,1,"winter is coming","cersei",0
+"15",83,1,"winter is coming","cersei",0.0707106781186548
+"16",101,1,"winter is coming","jon",-0.0566946709513841
+"17",134,1,"winter is coming","cersei",-0.367423461417477
+"18",137,1,"winter is coming","cersei",0.134164078649987
+"19",146,1,"winter is coming","tyrion",0
+"20",148,1,"winter is coming","tyrion",0
+"21",150,1,"winter is coming","tyrion",0.4
+"22",152,1,"winter is coming","tyrion",0.75
+"23",154,1,"winter is coming","tyrion",-0.433012701892219
+"24",156,1,"winter is coming","tyrion",0.530330085889911
+"25",158,1,"winter is coming","tyrion",0
+"26",159,1,"winter is coming","tyrion",0.375
+"27",162,1,"winter is coming","tyrion",0.163299316185545
+"28",164,1,"winter is coming","tyrion",-0.144337567297406
+"29",166,1,"winter is coming","tyrion",-0.176776695296637
+"30",168,1,"winter is coming","tyrion",-0.282842712474619
+"31",213,1,"winter is coming","jon",0
+"32",215,1,"winter is coming","jon",-0.790569415042095
+"33",217,1,"winter is coming","jon",0
+"34",219,1,"winter is coming","jon",0
+"35",221,1,"winter is coming","jon",0.635085296108588
+"36",223,1,"winter is coming","jon",1
+"37",225,1,"winter is coming","tyrion",0
+"38",226,1,"winter is coming","jon",0
+"39",227,1,"winter is coming","tyrion",0
+"40",228,1,"winter is coming","jon",0.2
+"41",229,1,"winter is coming","tyrion",0
+"42",230,1,"winter is coming","tyrion",-1.125
+"43",231,1,"winter is coming","jon",-0.25
+"44",232,1,"winter is coming","tyrion",0.286769667338202
+"45",233,1,"winter is coming","jon",-0.707106781186547
+"46",234,1,"winter is coming","tyrion",-0.5
+"47",246,1,"winter is coming","cersei",0.89489291724392
+"48",248,1,"winter is coming","cersei",0.0670820393249937
+"49",250,1,"winter is coming","cersei",0.461880215351701
+"50",252,1,"winter is coming","cersei",-0.707106781186547
+"51",254,1,"winter is coming","cersei",0
+"52",255,1,"winter is coming","cersei",0.25
+"53",256,1,"winter is coming","cersei",0.223606797749979
+"54",258,1,"winter is coming","cersei",0.347011046894284
+"55",309,1,"winter is coming","tyrion",0.306186217847897
+"56",311,1,"winter is coming","tyrion",0.84970583144992
+"57",319,1,"winter is coming","cersei",-0.565685424949238
+"58",321,1,"winter is coming","cersei",0
+"59",323,1,"winter is coming","cersei",0
+"60",340,2,"the kingsroad","tyrion",-0.0566946709513841
+"61",342,2,"the kingsroad","tyrion",-0.0447213595499958
+"62",344,2,"the kingsroad","tyrion",-0.144337567297406
+"63",346,2,"the kingsroad","tyrion",-0.0645497224367903
+"64",348,2,"the kingsroad","tyrion",1
+"65",350,2,"the kingsroad","tyrion",0.69923427506707
+"66",351,2,"the kingsroad","tyrion",-0.262314869782654
+"67",353,2,"the kingsroad","tyrion",0.353553390593274
+"68",355,2,"the kingsroad","tyrion",0
+"69",356,2,"the kingsroad","cersei",0
+"70",357,2,"the kingsroad","tyrion",0.111803398874989
+"71",358,2,"the kingsroad","cersei",0.380131556174964
+"72",359,2,"the kingsroad","tyrion",0.235178848770656
+"73",360,2,"the kingsroad","cersei",-0.335410196624968
+"74",361,2,"the kingsroad","tyrion",0.507796359633606
+"75",363,2,"the kingsroad","tyrion",-0.275
+"76",364,2,"the kingsroad","cersei",-0.0670820393249937
+"77",366,2,"the kingsroad","tyrion",0.1560625
+"78",368,2,"the kingsroad","tyrion",0.510252038562457
+"79",369,2,"the kingsroad","cersei",1
+"80",371,2,"the kingsroad","cersei",0.181220608902269
+"81",373,2,"the kingsroad","cersei",0.259639684866252
+"82",375,2,"the kingsroad","cersei",0
+"83",377,2,"the kingsroad","jon",0
+"84",379,2,"the kingsroad","jon",0
+"85",381,2,"the kingsroad","jon",0
+"86",383,2,"the kingsroad","jon",-0.176776695296637
+"87",386,2,"the kingsroad","jon",0.433012701892219
+"88",388,2,"the kingsroad","jon",0.75
+"89",390,2,"the kingsroad","jon",0.144337567297406
+"90",392,2,"the kingsroad","jon",0
+"91",394,2,"the kingsroad","jon",0.316586911806652
+"92",396,2,"the kingsroad","jon",0.551135192126215
+"93",398,2,"the kingsroad","jon",0.178885438199983
+"94",400,2,"the kingsroad","jon",-0.0944911182523068
+"95",402,2,"the kingsroad","jon",0
+"96",404,2,"the kingsroad","jon",0.200189304349053
+"97",411,2,"the kingsroad","jon",-0.577350269189626
+"98",413,2,"the kingsroad","jon",0.5
+"99",415,2,"the kingsroad","jon",0
+"100",417,2,"the kingsroad","jon",-0.5
+"101",419,2,"the kingsroad","jon",0.670820393249937
+"102",449,2,"the kingsroad","tyrion",0.414613991448386
+"103",450,2,"the kingsroad","jon",0
+"104",451,2,"the kingsroad","tyrion",0
+"105",452,2,"the kingsroad","jon",-0.5
+"106",453,2,"the kingsroad","tyrion",-0.153206469257085
+"107",454,2,"the kingsroad","jon",1.60246890531964e-17
+"108",455,2,"the kingsroad","tyrion",0.179299985634369
+"109",456,2,"the kingsroad","jon",0.447213595499958
+"110",457,2,"the kingsroad","tyrion",0.180277563773199
+"111",458,2,"the kingsroad","jon",0.4
+"112",459,2,"the kingsroad","tyrion",0.2875
+"113",570,2,"the kingsroad","cersei",0.05
+"114",572,2,"the kingsroad","cersei",-0.416666666666667
+"115",574,2,"the kingsroad","cersei",0
+"116",581,2,"the kingsroad","cersei",0.288675134594813
+"117",589,2,"the kingsroad","cersei",-0.375
+"118",591,2,"the kingsroad","cersei",-0.223606797749979
+"119",594,2,"the kingsroad","cersei",-0.75
+"120",598,2,"the kingsroad","cersei",-0.176776695296637
+"121",606,2,"the kingsroad","cersei",-0.5
+"122",608,2,"the kingsroad","cersei",0.577350269189626
+"123",610,2,"the kingsroad","cersei",-0.5
+"124",664,3,"lord snow","cersei",0.577350269189626
+"125",666,3,"lord snow","cersei",-0.188982236504614
+"126",668,3,"lord snow","cersei",0.159900537266708
+"127",670,3,"lord snow","cersei",0.152633740776833
+"128",672,3,"lord snow","cersei",0
+"129",674,3,"lord snow","cersei",0
+"130",676,3,"lord snow","cersei",0
+"131",678,3,"lord snow","cersei",-0.353553390593274
+"132",680,3,"lord snow","cersei",-0.223606797749979
+"133",682,3,"lord snow","cersei",-0.245967477524977
+"134",684,3,"lord snow","cersei",0.316415940842189
+"135",686,3,"lord snow","cersei",-0.577350269189626
+"136",774,3,"lord snow","tyrion",0.707106781186547
+"137",776,3,"lord snow","tyrion",0
+"138",778,3,"lord snow","tyrion",0
+"139",789,3,"lord snow","jon",0.75
+"140",793,3,"lord snow","tyrion",0.510310363079829
+"141",795,3,"lord snow","tyrion",0.317542648054294
+"142",797,3,"lord snow","jon",-0.150755672288882
+"143",798,3,"lord snow","tyrion",0.0769800358919501
+"144",799,3,"lord snow","jon",0.0353553390593274
+"145",800,3,"lord snow","tyrion",-0.360624458405139
+"146",808,3,"lord snow","cersei",-0.707106781186547
+"147",810,3,"lord snow","cersei",0.3
+"148",812,3,"lord snow","cersei",0
+"149",814,3,"lord snow","cersei",0
+"150",816,3,"lord snow","cersei",0
+"151",818,3,"lord snow","cersei",0
+"152",820,3,"lord snow","cersei",0
+"153",828,3,"lord snow","cersei",0
+"154",871,3,"lord snow","jon",0
+"155",873,3,"lord snow","jon",0.353553390593274
+"156",875,3,"lord snow","jon",0.565685424949238
+"157",877,3,"lord snow","jon",0.565685424949238
+"158",880,3,"lord snow","tyrion",0.6
+"159",882,3,"lord snow","tyrion",0
+"160",884,3,"lord snow","tyrion",-0.0693375245281536
+"161",886,3,"lord snow","tyrion",0.804984471899924
+"162",888,3,"lord snow","tyrion",-0.144956890143242
+"163",890,3,"lord snow","tyrion",0
+"164",892,3,"lord snow","tyrion",0.648249390842192
+"165",894,3,"lord snow","tyrion",0.103237080241753
+"166",899,3,"lord snow","tyrion",0.25
+"167",901,3,"lord snow","tyrion",0.0577350269189626
+"168",903,3,"lord snow","tyrion",0.408248290463863
+"169",905,3,"lord snow","tyrion",0.166666666666667
+"170",932,3,"lord snow","jon",0.0534522483824849
+"171",934,3,"lord snow","tyrion",0
+"172",936,3,"lord snow","tyrion",0.244948974278318
+"173",939,3,"lord snow","tyrion",0.32659863237109
+"174",947,3,"lord snow","jon",-0.375
+"175",948,3,"lord snow","tyrion",-0.223606797749979
+"176",949,3,"lord snow","jon",-0.2
+"177",950,3,"lord snow","tyrion",0.176776695296637
+"178",951,3,"lord snow","jon",-0.0707106781186547
+"179",952,3,"lord snow","tyrion",0
+"180",953,3,"lord snow","jon",0
+"181",954,3,"lord snow","tyrion",0.282842712474619
+"182",955,3,"lord snow","jon",0
+"183",974,4,"cripples bastards and broken things","tyrion",0.148492424049175
+"184",976,4,"cripples bastards and broken things","tyrion",0.111803398874989
+"185",978,4,"cripples bastards and broken things","tyrion",0.65
+"186",979,4,"cripples bastards and broken things","tyrion",0
+"187",981,4,"cripples bastards and broken things","tyrion",0.4
+"188",983,4,"cripples bastards and broken things","tyrion",0.441941738241592
+"189",985,4,"cripples bastards and broken things","tyrion",0.288675134594813
+"190",988,4,"cripples bastards and broken things","tyrion",0.0204124145231932
+"191",990,4,"cripples bastards and broken things","tyrion",0.603738353924943
+"192",992,4,"cripples bastards and broken things","tyrion",0
+"193",994,4,"cripples bastards and broken things","tyrion",-0.661437827766148
+"194",996,4,"cripples bastards and broken things","tyrion",-0.166410058867569
+"195",998,4,"cripples bastards and broken things","tyrion",0.707106781186547
+"196",1000,4,"cripples bastards and broken things","tyrion",-0.223606797749979
+"197",1002,4,"cripples bastards and broken things","tyrion",0
+"198",1004,4,"cripples bastards and broken things","tyrion",0.0196116135138184
+"199",1006,4,"cripples bastards and broken things","tyrion",0.404145188432738
+"200",1008,4,"cripples bastards and broken things","tyrion",-1.01192885125388
+"201",1010,4,"cripples bastards and broken things","tyrion",-0.6875
+"202",1011,4,"cripples bastards and broken things","jon",0.305085107923876
+"203",1020,4,"cripples bastards and broken things","jon",-0.176776695296637
+"204",1022,4,"cripples bastards and broken things","jon",0
+"205",1028,4,"cripples bastards and broken things","jon",-0.75
+"206",1030,4,"cripples bastards and broken things","jon",0.469574275274956
+"207",1035,4,"cripples bastards and broken things","jon",-0.577350269189626
+"208",1170,4,"cripples bastards and broken things","jon",0.175
+"209",1172,4,"cripples bastards and broken things","jon",-0.75
+"210",1174,4,"cripples bastards and broken things","jon",-0.216666666666667
+"211",1176,4,"cripples bastards and broken things","jon",0.8
+"212",1178,4,"cripples bastards and broken things","jon",-0.530330085889911
+"213",1247,4,"cripples bastards and broken things","jon",0
+"214",1249,4,"cripples bastards and broken things","jon",-0.25
+"215",1251,4,"cripples bastards and broken things","jon",-0.145344418537486
+"216",1253,4,"cripples bastards and broken things","jon",0
+"217",1276,4,"cripples bastards and broken things","jon",-0.75
+"218",1278,4,"cripples bastards and broken things","jon",0
+"219",1280,4,"cripples bastards and broken things","jon",-0.530330085889911
+"220",1282,4,"cripples bastards and broken things","jon",0
+"221",1284,4,"cripples bastards and broken things","jon",-0.244948974278318
+"222",1286,4,"cripples bastards and broken things","jon",0
+"223",1288,4,"cripples bastards and broken things","jon",-0.0447213595499958
+"224",1290,4,"cripples bastards and broken things","jon",0
+"225",1292,4,"cripples bastards and broken things","jon",0
+"226",1294,4,"cripples bastards and broken things","jon",0.8
+"227",1296,4,"cripples bastards and broken things","jon",0
+"228",1298,4,"cripples bastards and broken things","jon",0
+"229",1300,4,"cripples bastards and broken things","jon",-0.327036886298778
+"230",1305,4,"cripples bastards and broken things","jon",-0.106066017177982
+"231",1335,4,"cripples bastards and broken things","cersei",-0.353553390593274
+"232",1337,4,"cripples bastards and broken things","cersei",-0.563489130329947
+"233",1339,4,"cripples bastards and broken things","cersei",0.259383885389976
+"234",1341,4,"cripples bastards and broken things","cersei",0.625
+"235",1343,4,"cripples bastards and broken things","cersei",0.166666666666667
+"236",1345,4,"cripples bastards and broken things","cersei",0.180277563773199
+"237",1347,4,"cripples bastards and broken things","cersei",0
+"238",1355,4,"cripples bastards and broken things","tyrion",0.408248290463863
+"239",1357,4,"cripples bastards and broken things","tyrion",0.176776695296637
+"240",1359,4,"cripples bastards and broken things","tyrion",0.836908995450919
+"241",1362,4,"cripples bastards and broken things","tyrion",-0.577350269189626
+"242",1370,4,"cripples bastards and broken things","tyrion",0.411981275580058
+"243",1438,5,"the wolf and the lion","tyrion",0
+"244",1440,5,"the wolf and the lion","tyrion",0.305505046330389
+"245",1442,5,"the wolf and the lion","tyrion",-0.226133508433323
+"246",1444,5,"the wolf and the lion","tyrion",-0.303169531295416
+"247",1446,5,"the wolf and the lion","tyrion",-0.204124145231932
+"248",1448,5,"the wolf and the lion","tyrion",0
+"249",1450,5,"the wolf and the lion","tyrion",-0.559016994374947
+"250",1452,5,"the wolf and the lion","tyrion",0
+"251",1454,5,"the wolf and the lion","tyrion",-0.433012701892219
+"252",1458,5,"the wolf and the lion","tyrion",0.8
+"253",1633,5,"the wolf and the lion","tyrion",0
+"254",1635,5,"the wolf and the lion","tyrion",0.5
+"255",1687,5,"the wolf and the lion","tyrion",-0.375
+"256",1689,5,"the wolf and the lion","tyrion",-0.156524758424985
+"257",1740,5,"the wolf and the lion","cersei",0.212132034355964
+"258",1742,5,"the wolf and the lion","cersei",-0.111803398874989
+"259",1744,5,"the wolf and the lion","cersei",-0.723627226986633
+"260",1746,5,"the wolf and the lion","cersei",-0.0833333333333333
+"261",1748,5,"the wolf and the lion","cersei",-0.530330085889911
+"262",1750,5,"the wolf and the lion","cersei",0
+"263",1752,5,"the wolf and the lion","cersei",0
+"264",1754,5,"the wolf and the lion","cersei",0
+"265",1756,5,"the wolf and the lion","cersei",0.6
+"266",1758,5,"the wolf and the lion","cersei",0
+"267",1760,5,"the wolf and the lion","cersei",0
+"268",1762,5,"the wolf and the lion","cersei",0.919238815542512
+"269",1764,5,"the wolf and the lion","cersei",-0.0324442842261525
+"270",1766,5,"the wolf and the lion","cersei",-0.407040315179981
+"271",1768,5,"the wolf and the lion","cersei",0
+"272",1770,5,"the wolf and the lion","cersei",-0.0832050294337844
+"273",1772,5,"the wolf and the lion","cersei",0
+"274",1806,6,"a golden crown","cersei",0
+"275",1809,6,"a golden crown","cersei",0.357770876399966
+"276",1811,6,"a golden crown","cersei",0
+"277",1813,6,"a golden crown","cersei",0.461880215351701
+"278",1816,6,"a golden crown","cersei",-0.989949493661166
+"279",1819,6,"a golden crown","cersei",0.0707106781186548
+"280",1821,6,"a golden crown","cersei",-0.653197264742181
+"281",1822,6,"a golden crown","cersei",0.670820393249937
+"282",1879,6,"a golden crown","tyrion",0
+"283",1881,6,"a golden crown","tyrion",0.577350269189626
+"284",1883,6,"a golden crown","tyrion",0.833333333333333
+"285",1885,6,"a golden crown","tyrion",0
+"286",1922,6,"a golden crown","tyrion",0
+"287",1924,6,"a golden crown","tyrion",0.5
+"288",1926,6,"a golden crown","tyrion",0.259807621135332
+"289",1928,6,"a golden crown","tyrion",0.353553390593274
+"290",1930,6,"a golden crown","tyrion",-0.0171498585142509
+"291",1932,6,"a golden crown","tyrion",-0.225
+"292",1934,6,"a golden crown","tyrion",0.461880215351701
+"293",1936,6,"a golden crown","tyrion",-0.744123005704734
+"294",1940,6,"a golden crown","tyrion",-0.530330085889911
+"295",1942,6,"a golden crown","tyrion",-0.25
+"296",1944,6,"a golden crown","tyrion",-0.490577890519606
+"297",1946,6,"a golden crown","tyrion",0.707106781186547
+"298",1949,6,"a golden crown","tyrion",-0.661437827766148
+"299",1959,6,"a golden crown","tyrion",0.5
+"300",1961,6,"a golden crown","tyrion",0.461880215351701
+"301",1963,6,"a golden crown","tyrion",0.434659143960611
+"302",1965,6,"a golden crown","tyrion",0.25
+"303",1967,6,"a golden crown","tyrion",0.8
+"304",1968,6,"a golden crown","tyrion",0
+"305",2016,6,"a golden crown","tyrion",0
+"306",2017,6,"a golden crown","tyrion",-0.425
+"307",2126,7,"you win or you die","cersei",-0.75
+"308",2128,7,"you win or you die","cersei",0
+"309",2131,7,"you win or you die","cersei",-0.223606797749979
+"310",2133,7,"you win or you die","cersei",-0.288675134594813
+"311",2134,7,"you win or you die","cersei",0.975
+"312",2136,7,"you win or you die","cersei",0.529150262212918
+"313",2137,7,"you win or you die","cersei",0.458530260724415
+"314",2139,7,"you win or you die","cersei",0.954594154601839
+"315",2141,7,"you win or you die","cersei",0.530330085889911
+"316",2143,7,"you win or you die","cersei",-0.4375
+"317",2145,7,"you win or you die","cersei",0.131519189844286
+"318",2147,7,"you win or you die","cersei",-0.447346674983784
+"319",2149,7,"you win or you die","cersei",0.123743686707646
+"320",2202,7,"you win or you die","jon",-0.6
+"321",2204,7,"you win or you die","jon",0
+"322",2206,7,"you win or you die","jon",0
+"323",2210,7,"you win or you die","cersei",0.530330085889911
+"324",2278,7,"you win or you die","jon",0
+"325",2280,7,"you win or you die","jon",0.565685424949238
+"326",2290,7,"you win or you die","jon",0.0530330085889911
+"327",2292,7,"you win or you die","jon",0
+"328",2294,7,"you win or you die","jon",0
+"329",2297,7,"you win or you die","jon",0.152542553961938
+"330",2303,7,"you win or you die","jon",0
+"331",2344,7,"you win or you die","cersei",-0.795495128834866
+"332",2346,7,"you win or you die","cersei",-0.346410161513775
+"333",2417,8,"the pointy end","jon",-0.447213595499958
+"334",2422,8,"the pointy end","jon",-0.4
+"335",2429,8,"the pointy end","jon",0
+"336",2432,8,"the pointy end","jon",0.0577350269189626
+"337",2437,8,"the pointy end","cersei",0.301511344577764
+"338",2441,8,"the pointy end","cersei",0.15
+"339",2443,8,"the pointy end","cersei",0.104257207028537
+"340",2445,8,"the pointy end","cersei",-0.633333333333333
+"341",2447,8,"the pointy end","cersei",0.1
+"342",2449,8,"the pointy end","cersei",0.4
+"343",2466,8,"the pointy end","tyrion",0.134164078649987
+"344",2468,8,"the pointy end","tyrion",0.505964425626941
+"345",2469,8,"the pointy end","tyrion",0
+"346",2471,8,"the pointy end","tyrion",-1.06066017177982
+"347",2475,8,"the pointy end","tyrion",-0.0363803437554499
+"348",2477,8,"the pointy end","tyrion",0.357770876399966
+"349",2480,8,"the pointy end","tyrion",0
+"350",2482,8,"the pointy end","tyrion",0.583363094478902
+"351",2484,8,"the pointy end","tyrion",0
+"352",2487,8,"the pointy end","tyrion",-0.255155181539914
+"353",2519,8,"the pointy end","cersei",0
+"354",2521,8,"the pointy end","cersei",0.200831604418561
+"355",2523,8,"the pointy end","cersei",-0.290688837074973
+"356",2526,8,"the pointy end","cersei",0.284604989415154
+"357",2528,8,"the pointy end","cersei",0.176776695296637
+"358",2537,8,"the pointy end","cersei",0.25
+"359",2615,9,"baelor","jon",0
+"360",2617,9,"baelor","jon",0
+"361",2619,9,"baelor","jon",0.577350269189626
+"362",2621,9,"baelor","jon",0.565685424949238
+"363",2623,9,"baelor","jon",0.357770876399966
+"364",2625,9,"baelor","jon",0.4
+"365",2630,9,"baelor","jon",0
+"366",2637,9,"baelor","jon",0
+"367",2639,9,"baelor","jon",0
+"368",2641,9,"baelor","jon",0
+"369",2643,9,"baelor","jon",0
+"370",2645,9,"baelor","jon",0
+"371",2664,9,"baelor","jon",0
+"372",2666,9,"baelor","jon",0
+"373",2668,9,"baelor","jon",0.4
+"374",2670,9,"baelor","jon",0
+"375",2672,9,"baelor","jon",0
+"376",2674,9,"baelor","jon",-0.2
+"377",2676,9,"baelor","jon",0
+"378",2678,9,"baelor","jon",0
+"379",2695,9,"baelor","tyrion",-0.175
+"380",2698,9,"baelor","tyrion",-0.288675134594813
+"381",2700,9,"baelor","tyrion",0.125
+"382",2702,9,"baelor","tyrion",-0.35
+"383",2704,9,"baelor","tyrion",-0.813172798364529
+"384",2706,9,"baelor","tyrion",-0.277350098112615
+"385",2707,9,"baelor","tyrion",0.375
+"386",2709,9,"baelor","tyrion",0
+"387",2711,9,"baelor","tyrion",0
+"388",2713,9,"baelor","tyrion",-0.3
+"389",2715,9,"baelor","tyrion",0
+"390",2717,9,"baelor","tyrion",0
+"391",2719,9,"baelor","tyrion",0.175
+"392",2721,9,"baelor","tyrion",0
+"393",2723,9,"baelor","tyrion",0
+"394",2725,9,"baelor","tyrion",0.0176776695296637
+"395",2727,9,"baelor","tyrion",0.389711431702997
+"396",2729,9,"baelor","tyrion",0.530330085889911
+"397",2788,9,"baelor","tyrion",0
+"398",2790,9,"baelor","tyrion",-0.491934955049954
+"399",2793,9,"baelor","tyrion",0.461880215351701
+"400",2795,9,"baelor","tyrion",-0.375
+"401",2797,9,"baelor","tyrion",0.0377964473009227
+"402",2799,9,"baelor","tyrion",0.223606797749979
+"403",2801,9,"baelor","tyrion",-0.156524758424985
+"404",2803,9,"baelor","tyrion",0.125
+"405",2805,9,"baelor","tyrion",-0.288675134594813
+"406",2807,9,"baelor","tyrion",0
+"407",2810,9,"baelor","tyrion",0.15
+"408",2812,9,"baelor","tyrion",0.204124145231932
+"409",2814,9,"baelor","tyrion",0.151185789203691
+"410",2816,9,"baelor","tyrion",-0.0577350269189626
+"411",2818,9,"baelor","tyrion",0
+"412",2820,9,"baelor","tyrion",0.288675134594813
+"413",2822,9,"baelor","tyrion",0
+"414",2824,9,"baelor","tyrion",0.224536559755125
+"415",2826,9,"baelor","tyrion",0.188982236504614
+"416",2828,9,"baelor","tyrion",0.176776695296637
+"417",2832,9,"baelor","tyrion",0
+"418",2834,9,"baelor","tyrion",0
+"419",2836,9,"baelor","tyrion",0.577350269189626
+"420",2839,9,"baelor","tyrion",-0.267807354680149
+"421",2841,9,"baelor","tyrion",0.132582521472478
+"422",2843,9,"baelor","tyrion",0.0663488802697037
+"423",2846,9,"baelor","tyrion",0.225
+"424",2848,9,"baelor","tyrion",-0.268328157299975
+"425",2850,9,"baelor","tyrion",0
+"426",2852,9,"baelor","tyrion",0
+"427",2854,9,"baelor","tyrion",0
+"428",2856,9,"baelor","tyrion",-0.875
+"429",2858,9,"baelor","tyrion",0
+"430",2862,9,"baelor","tyrion",0
+"431",2864,9,"baelor","tyrion",0.05
+"432",2865,9,"baelor","tyrion",-0.5
+"433",2867,9,"baelor","tyrion",0.353553390593274
+"434",2869,9,"baelor","tyrion",0.5
+"435",2871,9,"baelor","tyrion",0
+"436",2873,9,"baelor","tyrion",0.223606797749979
+"437",2875,9,"baelor","tyrion",0.375
+"438",2877,9,"baelor","tyrion",-0.025
+"439",2879,9,"baelor","tyrion",0
+"440",2881,9,"baelor","tyrion",0
+"441",2916,9,"baelor","cersei",-0.707106781186547
+"442",3021,10,"fire and blood","cersei",-0.178885438199983
+"443",3023,10,"fire and blood","tyrion",-0.102062072615966
+"444",3027,10,"fire and blood","tyrion",0.011180339887499
+"445",3032,10,"fire and blood","tyrion",0.0144337567297407
+"446",3034,10,"fire and blood","tyrion",0
+"447",3036,10,"fire and blood","tyrion",0
+"448",3072,10,"fire and blood","jon",0
+"449",3074,10,"fire and blood","jon",0.8
+"450",3076,10,"fire and blood","jon",0.166666666666667
+"451",3078,10,"fire and blood","jon",0
+"452",3080,10,"fire and blood","jon",0
+"453",3082,10,"fire and blood","jon",0
+"454",3084,10,"fire and blood","tyrion",0
+"455",3086,10,"fire and blood","tyrion",0.0377964473009227
+"456",3088,10,"fire and blood","tyrion",0
+"457",3090,10,"fire and blood","tyrion",-0.447213595499958
+"458",3093,10,"fire and blood","tyrion",0.321158616796836
+"459",3095,10,"fire and blood","jon",-0.346410161513775
+"460",3103,10,"fire and blood","jon",0.23094010767585
+"461",3106,10,"fire and blood","jon",-0.335410196624968
+"462",3109,10,"fire and blood","jon",0
+"463",3111,10,"fire and blood","jon",1
+"464",3113,10,"fire and blood","jon",0
+"465",3173,10,"fire and blood","jon",0.461880215351701
+"466",3175,10,"fire and blood","jon",-0.353553390593274
+"467",3177,10,"fire and blood","jon",0
+"468",3179,10,"fire and blood","jon",0
+"469",3181,10,"fire and blood","jon",0
+"470",3219,11,"the north remembers","tyrion",0.353553390593274
+"471",3220,11,"the north remembers","tyrion",0
+"472",3222,11,"the north remembers","tyrion",0.892652547987497
+"473",3226,11,"the north remembers","tyrion",-1.10679718105893
+"474",3228,11,"the north remembers","tyrion",-0.159099025766973
+"475",3230,11,"the north remembers","tyrion",0
+"476",3231,11,"the north remembers","tyrion",1.04355162785556
+"477",3238,11,"the north remembers","cersei",0
+"478",3240,11,"the north remembers","cersei",0
+"479",3242,11,"the north remembers","cersei",0
+"480",3244,11,"the north remembers","tyrion",0.0790569415042095
+"481",3245,11,"the north remembers","cersei",0
+"482",3246,11,"the north remembers","tyrion",0.735866835779409
+"483",3247,11,"the north remembers","cersei",0.282842712474619
+"484",3248,11,"the north remembers","tyrion",0.636396103067893
+"485",3249,11,"the north remembers","cersei",0.0577350269189626
+"486",3250,11,"the north remembers","tyrion",0.212132034355964
+"487",3252,11,"the north remembers","cersei",-0.111803398874989
+"488",3253,11,"the north remembers","tyrion",0.0408248290463863
+"489",3254,11,"the north remembers","cersei",0
+"490",3255,11,"the north remembers","tyrion",0.415692193816531
+"491",3256,11,"the north remembers","cersei",-0.282842712474619
+"492",3257,11,"the north remembers","tyrion",-0.347011046894284
+"493",3258,11,"the north remembers","cersei",0.0577350269189626
+"494",3259,11,"the north remembers","tyrion",-0.306186217847897
+"495",3260,11,"the north remembers","cersei",-0.353553390593274
+"496",3261,11,"the north remembers","tyrion",-0.537587202228624
+"497",3262,11,"the north remembers","cersei",0.0707106781186548
+"498",3263,11,"the north remembers","tyrion",0.0707106781186548
+"499",3264,11,"the north remembers","cersei",0.8
+"500",3265,11,"the north remembers","tyrion",0.316227766016838
+"501",3266,11,"the north remembers","cersei",0
+"502",3267,11,"the north remembers","tyrion",1.48627050027914
+"503",3268,11,"the north remembers","cersei",0
+"504",3269,11,"the north remembers","tyrion",0
+"505",3270,11,"the north remembers","cersei",-0.06
+"506",3271,11,"the north remembers","tyrion",-0.707106781186548
+"507",3319,11,"the north remembers","jon",-0.176776695296637
+"508",3335,11,"the north remembers","jon",0.176776695296637
+"509",3337,11,"the north remembers","jon",0.346410161513775
+"510",3340,11,"the north remembers","jon",0
+"511",3342,11,"the north remembers","jon",0
+"512",3372,11,"the north remembers","jon",0
+"513",3374,11,"the north remembers","jon",0
+"514",3376,11,"the north remembers","jon",0
+"515",3438,11,"the north remembers","tyrion",0.461880215351701
+"516",3440,11,"the north remembers","tyrion",0
+"517",3442,11,"the north remembers","tyrion",-0.559016994374947
+"518",3444,11,"the north remembers","tyrion",-0.288675134594813
+"519",3446,11,"the north remembers","tyrion",0
+"520",3448,11,"the north remembers","tyrion",0.469574275274956
+"521",3450,11,"the north remembers","tyrion",-0.804315284526582
+"522",3452,11,"the north remembers","tyrion",0.176776695296637
+"523",3454,11,"the north remembers","tyrion",0.0204124145231931
+"524",3455,11,"the north remembers","tyrion",-0.554700196225229
+"525",3456,11,"the north remembers","cersei",0
+"526",3458,11,"the north remembers","cersei",0.8
+"527",3460,11,"the north remembers","cersei",0.226778683805536
+"528",3462,11,"the north remembers","cersei",0.357770876399966
+"529",3464,11,"the north remembers","cersei",-0.346738046264428
+"530",3466,11,"the north remembers","cersei",0
+"531",3468,11,"the north remembers","cersei",0.604743156814764
+"532",3470,11,"the north remembers","cersei",0.55
+"533",3472,11,"the north remembers","cersei",1
+"534",3474,11,"the north remembers","cersei",-0.35921060405355
+"535",3519,11,"the north remembers","cersei",0
+"536",3521,11,"the north remembers","cersei",-0.288675134594813
+"537",3523,11,"the north remembers","cersei",-0.2
+"538",3525,11,"the north remembers","cersei",-0.0753778361444409
+"539",3527,11,"the north remembers","cersei",-0.530330085889911
+"540",3529,11,"the north remembers","cersei",-0.367423461417477
+"541",3531,11,"the north remembers","cersei",-0.559016994374947
+"542",3533,11,"the north remembers","cersei",0
+"543",3562,12,"the night lands","cersei",0
+"544",3564,12,"the night lands","tyrion",0
+"545",3565,12,"the night lands","cersei",0
+"546",3566,12,"the night lands","tyrion",-0.144337567297406
+"547",3573,12,"the night lands","jon",0.144337567297406
+"548",3585,12,"the night lands","cersei",0
+"549",3620,12,"the night lands","tyrion",-0.636396103067893
+"550",3624,12,"the night lands","tyrion",-0.204124145231932
+"551",3628,12,"the night lands","tyrion",0.144337567297406
+"552",3630,12,"the night lands","tyrion",0.775
+"553",3632,12,"the night lands","tyrion",-0.176776695296637
+"554",3634,12,"the night lands","tyrion",0.204124145231932
+"555",3636,12,"the night lands","tyrion",-0.433012701892219
+"556",3638,12,"the night lands","cersei",0.288675134594813
+"557",3639,12,"the night lands","tyrion",0.562916512459885
+"558",3640,12,"the night lands","cersei",0
+"559",3642,12,"the night lands","cersei",0.2
+"560",3644,12,"the night lands","cersei",-0.288675134594813
+"561",3646,12,"the night lands","tyrion",0.433012701892219
+"562",3647,12,"the night lands","tyrion",0.923760430703401
+"563",3648,12,"the night lands","cersei",0
+"564",3653,12,"the night lands","cersei",-0.265361388801511
+"565",3654,12,"the night lands","tyrion",0
+"566",3655,12,"the night lands","cersei",-0.734846922834954
+"567",3656,12,"the night lands","tyrion",-0.670820393249937
+"568",3658,12,"the night lands","tyrion",-0.833333333333333
+"569",3660,12,"the night lands","tyrion",-0.282842712474619
+"570",3661,12,"the night lands","cersei",0.282842712474619
+"571",3662,12,"the night lands","tyrion",-0.144337567297406
+"572",3663,12,"the night lands","cersei",0.707106781186547
+"573",3682,12,"the night lands","jon",0
+"574",3684,12,"the night lands","jon",0
+"575",3686,12,"the night lands","jon",-0.25
+"576",3688,12,"the night lands","jon",0
+"577",3690,12,"the night lands","jon",-0.625
+"578",3692,12,"the night lands","jon",0
+"579",3694,12,"the night lands","jon",0
+"580",3696,12,"the night lands","jon",-0.176776695296637
+"581",3698,12,"the night lands","jon",0
+"582",3700,12,"the night lands","jon",-0.559016994374947
+"583",3702,12,"the night lands","jon",-0.447213595499958
+"584",3704,12,"the night lands","jon",0.154919333848297
+"585",3706,12,"the night lands","jon",-0.288675134594813
+"586",3750,12,"the night lands","tyrion",-0.0944911182523068
+"587",3752,12,"the night lands","tyrion",-0.404145188432738
+"588",3754,12,"the night lands","tyrion",0
+"589",3756,12,"the night lands","tyrion",1.11
+"590",3758,12,"the night lands","tyrion",-0.288675134594813
+"591",3759,12,"the night lands","tyrion",-0.581377674149945
+"592",3761,12,"the night lands","tyrion",-0.0832050294337844
+"593",3763,12,"the night lands","tyrion",0.930204278639913
+"594",3765,12,"the night lands","tyrion",-0.758946638440411
+"595",3767,12,"the night lands","tyrion",-0.268328157299975
+"596",3769,12,"the night lands","tyrion",0.267261241912424
+"597",3771,12,"the night lands","tyrion",0.245373864405591
+"598",3773,12,"the night lands","tyrion",-0.375
+"599",3775,12,"the night lands","tyrion",0.102062072615966
+"600",3777,12,"the night lands","tyrion",0.537587202228625
+"601",3778,12,"the night lands","tyrion",-0.4002082791081
+"602",3780,12,"the night lands","tyrion",0.201246117974981
+"603",3782,12,"the night lands","tyrion",0
+"604",3783,12,"the night lands","tyrion",-0.0312771621085612
+"605",3786,12,"the night lands","tyrion",0.32659863237109
+"606",3789,12,"the night lands","tyrion",0.565685424949238
+"607",3790,12,"the night lands","tyrion",-0.0452267016866646
+"608",3948,12,"the night lands","cersei",0.106066017177982
+"609",3949,12,"the night lands","tyrion",0.45
+"610",3950,12,"the night lands","cersei",0.188982236504614
+"611",3951,12,"the night lands","tyrion",-0.142886901662352
+"612",3952,12,"the night lands","cersei",0.5
+"613",3953,12,"the night lands","tyrion",-0.89489291724392
+"614",3954,12,"the night lands","tyrion",-0.237170824512628
+"615",3955,12,"the night lands","cersei",-0.278915968791783
+"616",3956,12,"the night lands","tyrion",0.0577350269189626
+"617",3957,12,"the night lands","cersei",-0.67175144212722
+"618",3958,12,"the night lands","tyrion",0
+"619",3959,12,"the night lands","cersei",-0.630592625094466
+"620",3960,12,"the night lands","tyrion",0
+"621",3961,12,"the night lands","cersei",0.268328157299975
+"622",3995,13,"what is dead may never die","jon",0
+"623",4000,13,"what is dead may never die","jon",0.268328157299975
+"624",4002,13,"what is dead may never die","jon",0.288675134594813
+"625",4003,13,"what is dead may never die","jon",0
+"626",4005,13,"what is dead may never die","jon",-0.45
+"627",4007,13,"what is dead may never die","jon",0.268328157299975
+"628",4100,13,"what is dead may never die","tyrion",0
+"629",4102,13,"what is dead may never die","tyrion",0
+"630",4104,13,"what is dead may never die","tyrion",0
+"631",4106,13,"what is dead may never die","tyrion",-0.707106781186547
+"632",4108,13,"what is dead may never die","tyrion",0.8
+"633",4110,13,"what is dead may never die","tyrion",-0.4409810491555
+"634",4112,13,"what is dead may never die","tyrion",0.353553390593274
+"635",4114,13,"what is dead may never die","tyrion",-0.577350269189626
+"636",4117,13,"what is dead may never die","cersei",0
+"637",4119,13,"what is dead may never die","cersei",0.424264068711928
+"638",4122,13,"what is dead may never die","cersei",0.288675134594813
+"639",4124,13,"what is dead may never die","cersei",0.0223606797749979
+"640",4150,13,"what is dead may never die","tyrion",-0.0883883476483184
+"641",4152,13,"what is dead may never die","tyrion",1.90116129923641
+"642",4154,13,"what is dead may never die","tyrion",0.353553390593274
+"643",4156,13,"what is dead may never die","tyrion",0.259807621135332
+"644",4158,13,"what is dead may never die","tyrion",0.38829013735766
+"645",4160,13,"what is dead may never die","tyrion",0.490577890519606
+"646",4162,13,"what is dead may never die","tyrion",0
+"647",4164,13,"what is dead may never die","tyrion",0.489897948556636
+"648",4166,13,"what is dead may never die","tyrion",0.0125
+"649",4167,13,"what is dead may never die","tyrion",0
+"650",4169,13,"what is dead may never die","tyrion",0.5875
+"651",4171,13,"what is dead may never die","tyrion",-0.71443450831176
+"652",4173,13,"what is dead may never die","tyrion",0.8
+"653",4175,13,"what is dead may never die","tyrion",0.513097681508337
+"654",4177,13,"what is dead may never die","tyrion",0.277350098112615
+"655",4179,13,"what is dead may never die","tyrion",0
+"656",4181,13,"what is dead may never die","tyrion",0
+"657",4182,13,"what is dead may never die","tyrion",0.530330085889911
+"658",4212,13,"what is dead may never die","tyrion",0.268328157299975
+"659",4213,13,"what is dead may never die","cersei",0
+"660",4214,13,"what is dead may never die","tyrion",0.577350269189626
+"661",4215,13,"what is dead may never die","cersei",-0.75
+"662",4216,13,"what is dead may never die","tyrion",-0.0883883476483184
+"663",4217,13,"what is dead may never die","cersei",-0.5
+"664",4218,13,"what is dead may never die","tyrion",0
+"665",4219,13,"what is dead may never die","cersei",0.0693375245281536
+"666",4220,13,"what is dead may never die","tyrion",0
+"667",4221,13,"what is dead may never die","cersei",0
+"668",4222,13,"what is dead may never die","tyrion",0.282842712474619
+"669",4223,13,"what is dead may never die","cersei",0
+"670",4224,13,"what is dead may never die","tyrion",0.0349148624377588
+"671",4225,13,"what is dead may never die","cersei",0
+"672",4233,13,"what is dead may never die","tyrion",-0.883883476483184
+"673",4235,13,"what is dead may never die","tyrion",-0.259807621135332
+"674",4237,13,"what is dead may never die","tyrion",-0.513097681508337
+"675",4239,13,"what is dead may never die","tyrion",0.377964473009227
+"676",4240,13,"what is dead may never die","tyrion",0
+"677",4242,13,"what is dead may never die","tyrion",0
+"678",4245,13,"what is dead may never die","tyrion",-0.288675134594813
+"679",4247,13,"what is dead may never die","tyrion",0.377964473009227
+"680",4249,13,"what is dead may never die","tyrion",0.2125
+"681",4251,13,"what is dead may never die","tyrion",0
+"682",4254,13,"what is dead may never die","tyrion",0
+"683",4255,13,"what is dead may never die","tyrion",0
+"684",4257,13,"what is dead may never die","tyrion",0.353553390593274
+"685",4260,13,"what is dead may never die","tyrion",-0.530330085889911
+"686",4262,13,"what is dead may never die","tyrion",-0.75
+"687",4264,13,"what is dead may never die","tyrion",-0.603738353924943
+"688",4266,13,"what is dead may never die","tyrion",-0.102062072615966
+"689",4268,13,"what is dead may never die","tyrion",-0.5
+"690",4270,13,"what is dead may never die","tyrion",0.775
+"691",4272,13,"what is dead may never die","tyrion",-0.105528970602217
+"692",4274,13,"what is dead may never die","tyrion",0
+"693",4276,13,"what is dead may never die","tyrion",0.0707106781186548
+"694",4278,13,"what is dead may never die","tyrion",-0.375
+"695",4280,13,"what is dead may never die","tyrion",0.288675134594813
+"696",4416,14,"garden of bones","tyrion",0
+"697",4417,14,"garden of bones","tyrion",0.156524758424985
+"698",4420,14,"garden of bones","tyrion",0.707106781186547
+"699",4422,14,"garden of bones","tyrion",-0.306186217847897
+"700",4424,14,"garden of bones","tyrion",-0.0530330085889911
+"701",4426,14,"garden of bones","tyrion",-0.619677335393187
+"702",4427,14,"garden of bones","tyrion",0.636396103067893
+"703",4429,14,"garden of bones","tyrion",0.122474487139159
+"704",4431,14,"garden of bones","tyrion",0.223606797749979
+"705",4639,14,"garden of bones","tyrion",0.282842712474619
+"706",4641,14,"garden of bones","tyrion",0
+"707",4643,14,"garden of bones","tyrion",-0.2
+"708",4645,14,"garden of bones","tyrion",0.5
+"709",4647,14,"garden of bones","tyrion",0.2
+"710",4649,14,"garden of bones","tyrion",0.265165042944955
+"711",4651,14,"garden of bones","tyrion",0.71443450831176
+"712",4652,14,"garden of bones","tyrion",0.166666666666667
+"713",4654,14,"garden of bones","tyrion",0.606217782649107
+"714",4656,14,"garden of bones","tyrion",0.0333333333333333
+"715",4658,14,"garden of bones","tyrion",0.490747728811182
+"716",4660,14,"garden of bones","tyrion",-0.707106781186547
+"717",4662,14,"garden of bones","tyrion",0.0654653670707977
+"718",4664,14,"garden of bones","tyrion",0.894427190999916
+"719",4666,14,"garden of bones","tyrion",0
+"720",4668,14,"garden of bones","tyrion",0.445668811624924
+"721",4670,14,"garden of bones","tyrion",0.374277080961863
+"722",4672,14,"garden of bones","tyrion",0
+"723",4674,14,"garden of bones","tyrion",-0.100086918747396
+"724",4757,15,"the ghost of harrenhal","cersei",-0.5
+"725",4758,15,"the ghost of harrenhal","tyrion",-0.472455591261534
+"726",4759,15,"the ghost of harrenhal","cersei",0
+"727",4760,15,"the ghost of harrenhal","tyrion",-0.158113883008419
+"728",4761,15,"the ghost of harrenhal","cersei",0
+"729",4762,15,"the ghost of harrenhal","tyrion",0.258198889747161
+"730",4763,15,"the ghost of harrenhal","cersei",0
+"731",4764,15,"the ghost of harrenhal","tyrion",0.549153194262977
+"732",4765,15,"the ghost of harrenhal","cersei",0.41576092031015
+"733",4766,15,"the ghost of harrenhal","tyrion",0
+"734",4767,15,"the ghost of harrenhal","cersei",0.5
+"735",4768,15,"the ghost of harrenhal","tyrion",0.32659863237109
+"736",4769,15,"the ghost of harrenhal","cersei",0.178885438199983
+"737",4770,15,"the ghost of harrenhal","tyrion",-0.371231060122937
+"738",4771,15,"the ghost of harrenhal","cersei",-0.388908729652601
+"739",4772,15,"the ghost of harrenhal","tyrion",0.0447213595499958
+"740",4773,15,"the ghost of harrenhal","cersei",0
+"741",4774,15,"the ghost of harrenhal","tyrion",0.813172798364529
+"742",4775,15,"the ghost of harrenhal","cersei",0.28347335475692
+"743",4777,15,"the ghost of harrenhal","tyrion",-0.375
+"744",4779,15,"the ghost of harrenhal","tyrion",0.212132034355964
+"745",4781,15,"the ghost of harrenhal","tyrion",-0.5075
+"746",4783,15,"the ghost of harrenhal","tyrion",0.55
+"747",4785,15,"the ghost of harrenhal","tyrion",-0.223606797749979
+"748",4787,15,"the ghost of harrenhal","tyrion",0
+"749",4789,15,"the ghost of harrenhal","tyrion",0
+"750",4791,15,"the ghost of harrenhal","tyrion",-0.1
+"751",4793,15,"the ghost of harrenhal","tyrion",0.707106781186547
+"752",4795,15,"the ghost of harrenhal","tyrion",-0.151185789203691
+"753",4796,15,"the ghost of harrenhal","tyrion",0.35
+"754",4831,15,"the ghost of harrenhal","tyrion",0
+"755",4833,15,"the ghost of harrenhal","tyrion",0.335410196624968
+"756",4835,15,"the ghost of harrenhal","tyrion",-0.412478955692153
+"757",4839,15,"the ghost of harrenhal","tyrion",-0.433012701892219
+"758",4841,15,"the ghost of harrenhal","tyrion",-0.626099033699941
+"759",4843,15,"the ghost of harrenhal","tyrion",0.707106781186547
+"760",4845,15,"the ghost of harrenhal","tyrion",-0.353553390593274
+"761",4847,15,"the ghost of harrenhal","tyrion",-0.144337567297406
+"762",4849,15,"the ghost of harrenhal","tyrion",-0.353553390593274
+"763",4920,15,"the ghost of harrenhal","jon",0
+"764",4922,15,"the ghost of harrenhal","jon",0
+"765",4924,15,"the ghost of harrenhal","jon",-0.0883883476483184
+"766",4926,15,"the ghost of harrenhal","jon",0.461880215351701
+"767",4935,15,"the ghost of harrenhal","jon",-0.166666666666667
+"768",4937,15,"the ghost of harrenhal","jon",-0.302371578407382
+"769",4943,15,"the ghost of harrenhal","jon",0
+"770",4946,15,"the ghost of harrenhal","tyrion",-0.466666666666667
+"771",4949,15,"the ghost of harrenhal","tyrion",-0.288675134594813
+"772",4954,15,"the ghost of harrenhal","tyrion",0
+"773",4958,15,"the ghost of harrenhal","tyrion",0.173205080756888
+"774",4963,15,"the ghost of harrenhal","tyrion",0.10914103126635
+"775",5067,15,"the ghost of harrenhal","jon",-0.25
+"776",5071,15,"the ghost of harrenhal","jon",0
+"777",5077,15,"the ghost of harrenhal","jon",0.306186217847897
+"778",5079,15,"the ghost of harrenhal","jon",-0.204124145231932
+"779",5224,16,"the old gods and the new","jon",-0.6
+"780",5226,16,"the old gods and the new","jon",0
+"781",5228,16,"the old gods and the new","jon",-0.424264068711928
+"782",5230,16,"the old gods and the new","jon",-0.111803398874989
+"783",5232,16,"the old gods and the new","jon",0
+"784",5234,16,"the old gods and the new","jon",0
+"785",5235,16,"the old gods and the new","jon",0.6
+"786",5238,16,"the old gods and the new","jon",0.288675134594813
+"787",5240,16,"the old gods and the new","jon",0
+"788",5288,16,"the old gods and the new","jon",0
+"789",5290,16,"the old gods and the new","jon",0
+"790",5292,16,"the old gods and the new","jon",0
+"791",5296,16,"the old gods and the new","jon",0
+"792",5311,16,"the old gods and the new","jon",0
+"793",5314,16,"the old gods and the new","jon",0
+"794",5316,16,"the old gods and the new","jon",-0.125
+"795",5321,16,"the old gods and the new","jon",0
+"796",5324,16,"the old gods and the new","cersei",1.18965999726431
+"797",5341,16,"the old gods and the new","tyrion",0.3
+"798",5349,16,"the old gods and the new","tyrion",0
+"799",5354,16,"the old gods and the new","tyrion",0
+"800",5368,16,"the old gods and the new","tyrion",-1.29903810567666
+"801",5370,16,"the old gods and the new","tyrion",-1.1700427342623
+"802",5372,16,"the old gods and the new","tyrion",0
+"803",5374,16,"the old gods and the new","tyrion",-0.833333333333333
+"804",5376,16,"the old gods and the new","tyrion",-0.434659143960611
+"805",5378,16,"the old gods and the new","tyrion",0
+"806",5381,16,"the old gods and the new","tyrion",-0.204124145231932
+"807",5390,16,"the old gods and the new","tyrion",-0.530330085889911
+"808",5392,16,"the old gods and the new","tyrion",0
+"809",5507,16,"the old gods and the new","jon",-0.447213595499958
+"810",5509,16,"the old gods and the new","jon",0.282842712474619
+"811",5511,16,"the old gods and the new","jon",-0.25
+"812",5513,16,"the old gods and the new","jon",-0.25
+"813",5518,16,"the old gods and the new","jon",0.8
+"814",5520,16,"the old gods and the new","jon",0.8
+"815",5522,16,"the old gods and the new","jon",0
+"816",5523,16,"the old gods and the new","jon",-0.282842712474619
+"817",5525,16,"the old gods and the new","jon",-0.4
+"818",5526,16,"the old gods and the new","jon",0
+"819",5621,17,"a man without honor","jon",0
+"820",5623,17,"a man without honor","jon",0
+"821",5625,17,"a man without honor","jon",0
+"822",5627,17,"a man without honor","jon",0
+"823",5628,17,"a man without honor","jon",0
+"824",5630,17,"a man without honor","jon",0
+"825",5632,17,"a man without honor","jon",0
+"826",5634,17,"a man without honor","jon",-0.23094010767585
+"827",5636,17,"a man without honor","jon",0.577350269189626
+"828",5638,17,"a man without honor","jon",0.102062072615966
+"829",5639,17,"a man without honor","jon",-0.447213595499958
+"830",5641,17,"a man without honor","jon",0.23094010767585
+"831",5643,17,"a man without honor","jon",0.204124145231932
+"832",5644,17,"a man without honor","jon",-0.0408248290463863
+"833",5646,17,"a man without honor","jon",-0.381051177665153
+"834",5648,17,"a man without honor","jon",-0.0883883476483184
+"835",5719,17,"a man without honor","jon",0.0408248290463863
+"836",5722,17,"a man without honor","jon",0
+"837",5724,17,"a man without honor","jon",0
+"838",5799,17,"a man without honor","jon",0
+"839",5801,17,"a man without honor","jon",0
+"840",5803,17,"a man without honor","jon",0
+"841",5805,17,"a man without honor","jon",0
+"842",5807,17,"a man without honor","jon",0.212132034355964
+"843",5810,17,"a man without honor","jon",-0.25
+"844",5812,17,"a man without honor","jon",-0.25
+"845",5824,17,"a man without honor","cersei",0.447213595499958
+"846",5826,17,"a man without honor","cersei",0
+"847",5828,17,"a man without honor","cersei",0.548482755730144
+"848",5829,17,"a man without honor","cersei",0
+"849",5831,17,"a man without honor","cersei",0.407933818161721
+"850",5832,17,"a man without honor","cersei",0.0827345151674922
+"851",5834,17,"a man without honor","cersei",0.304997140665209
+"852",5835,17,"a man without honor","cersei",-0.898146239020499
+"853",5837,17,"a man without honor","cersei",0.81
+"854",5839,17,"a man without honor","cersei",0.0288675134594813
+"855",5840,17,"a man without honor","cersei",0
+"856",5951,17,"a man without honor","tyrion",0
+"857",5952,17,"a man without honor","cersei",0
+"858",5953,17,"a man without honor","cersei",0
+"859",5954,17,"a man without honor","tyrion",-0.0833333333333333
+"860",5955,17,"a man without honor","cersei",0
+"861",5956,17,"a man without honor","tyrion",0.302371578407382
+"862",5957,17,"a man without honor","cersei",0.201246117974981
+"863",5958,17,"a man without honor","tyrion",-0.125
+"864",5959,17,"a man without honor","cersei",0.433012701892219
+"865",5960,17,"a man without honor","tyrion",0.448690906317216
+"866",5961,17,"a man without honor","cersei",0
+"867",5962,17,"a man without honor","tyrion",-0.240535117721182
+"868",5963,17,"a man without honor","cersei",-0.670820393249937
+"869",5964,17,"a man without honor","tyrion",0
+"870",5965,17,"a man without honor","cersei",0
+"871",5966,17,"a man without honor","tyrion",-0.530330085889911
+"872",5967,17,"a man without honor","cersei",0
+"873",5968,17,"a man without honor","tyrion",-0.0944911182523068
+"874",5969,17,"a man without honor","cersei",0.494974746830583
+"875",5970,17,"a man without honor","tyrion",0.144337567297406
+"876",5971,17,"a man without honor","cersei",-0.395284707521047
+"877",5972,17,"a man without honor","tyrion",-0.75
+"878",5973,17,"a man without honor","cersei",-0.640648916710829
+"879",5974,17,"a man without honor","tyrion",0.321269802057843
+"880",6049,18,"the prince of winterfell","jon",0
+"881",6051,18,"the prince of winterfell","jon",0
+"882",6053,18,"the prince of winterfell","jon",-0.5
+"883",6150,18,"the prince of winterfell","jon",-0.353553390593274
+"884",6152,18,"the prince of winterfell","jon",0
+"885",6154,18,"the prince of winterfell","jon",0
+"886",6158,18,"the prince of winterfell","tyrion",0.8
+"887",6159,18,"the prince of winterfell","tyrion",0.25
+"888",6161,18,"the prince of winterfell","tyrion",0.204124145231932
+"889",6163,18,"the prince of winterfell","tyrion",-0.223606797749979
+"890",6165,18,"the prince of winterfell","tyrion",0.5
+"891",6166,18,"the prince of winterfell","tyrion",0
+"892",6168,18,"the prince of winterfell","tyrion",-0.25
+"893",6170,18,"the prince of winterfell","tyrion",0.156524758424985
+"894",6171,18,"the prince of winterfell","tyrion",0
+"895",6173,18,"the prince of winterfell","tyrion",-0.0377964473009227
+"896",6176,18,"the prince of winterfell","tyrion",0.335410196624968
+"897",6178,18,"the prince of winterfell","tyrion",0
+"898",6180,18,"the prince of winterfell","tyrion",0
+"899",6185,18,"the prince of winterfell","tyrion",0.252357307257618
+"900",6191,18,"the prince of winterfell","tyrion",-0.883883476483184
+"901",6245,18,"the prince of winterfell","tyrion",0.353553390593274
+"902",6246,18,"the prince of winterfell","cersei",0
+"903",6247,18,"the prince of winterfell","tyrion",0.111803398874989
+"904",6248,18,"the prince of winterfell","cersei",0
+"905",6249,18,"the prince of winterfell","tyrion",0.104257207028537
+"906",6250,18,"the prince of winterfell","cersei",0.25
+"907",6251,18,"the prince of winterfell","tyrion",-0.4
+"908",6252,18,"the prince of winterfell","cersei",0.8
+"909",6253,18,"the prince of winterfell","tyrion",0
+"910",6254,18,"the prince of winterfell","cersei",0.264575131106459
+"911",6255,18,"the prince of winterfell","tyrion",-0.2
+"912",6256,18,"the prince of winterfell","cersei",-0.707106781186547
+"913",6257,18,"the prince of winterfell","tyrion",0.25
+"914",6258,18,"the prince of winterfell","cersei",-0.265165042944955
+"915",6259,18,"the prince of winterfell","tyrion",0.21242645786248
+"916",6260,18,"the prince of winterfell","cersei",-0.288675134594813
+"917",6261,18,"the prince of winterfell","tyrion",0
+"918",6262,18,"the prince of winterfell","cersei",-0.25
+"919",6263,18,"the prince of winterfell","tyrion",0
+"920",6264,18,"the prince of winterfell","cersei",-0.303108891324554
+"921",6265,18,"the prince of winterfell","tyrion",0
+"922",6266,18,"the prince of winterfell","tyrion",0.75
+"923",6267,18,"the prince of winterfell","cersei",0.75
+"924",6268,18,"the prince of winterfell","tyrion",0.75
+"925",6269,18,"the prince of winterfell","cersei",-0.141421356237309
+"926",6270,18,"the prince of winterfell","tyrion",0.461880215351701
+"927",6271,18,"the prince of winterfell","cersei",0.499639870306604
+"928",6272,18,"the prince of winterfell","tyrion",0
+"929",6273,18,"the prince of winterfell","cersei",-0.85
+"930",6274,18,"the prince of winterfell","tyrion",-0.5
+"931",6275,18,"the prince of winterfell","cersei",0.33203915431768
+"932",6276,18,"the prince of winterfell","tyrion",0
+"933",6277,18,"the prince of winterfell","cersei",-0.15808955592419
+"934",6278,18,"the prince of winterfell","tyrion",-0.375
+"935",6279,18,"the prince of winterfell","cersei",0.346410161513775
+"936",6280,18,"the prince of winterfell","tyrion",0
+"937",6281,18,"the prince of winterfell","cersei",-0.0628618557093712
+"938",6282,18,"the prince of winterfell","tyrion",0.25
+"939",6283,18,"the prince of winterfell","cersei",-0.0316227766016838
+"940",6284,18,"the prince of winterfell","tyrion",-0.375
+"941",6285,18,"the prince of winterfell","tyrion",0.883883476483184
+"942",6287,18,"the prince of winterfell","tyrion",0
+"943",6288,18,"the prince of winterfell","tyrion",0.0970725343394151
+"944",6289,18,"the prince of winterfell","cersei",0
+"945",6290,18,"the prince of winterfell","tyrion",0
+"946",6292,18,"the prince of winterfell","tyrion",0.75
+"947",6294,18,"the prince of winterfell","tyrion",0.25
+"948",6296,18,"the prince of winterfell","tyrion",-0.433012701892219
+"949",6298,18,"the prince of winterfell","tyrion",-0.156524758424985
+"950",6300,18,"the prince of winterfell","tyrion",0.75
+"951",6374,18,"the prince of winterfell","tyrion",0.0416025147168922
+"952",6376,18,"the prince of winterfell","tyrion",1.14145270848787
+"953",6378,18,"the prince of winterfell","tyrion",-0.577350269189626
+"954",6380,18,"the prince of winterfell","tyrion",1.02062072615966
+"955",6382,18,"the prince of winterfell","tyrion",0.963809406173529
+"956",6384,18,"the prince of winterfell","tyrion",0
+"957",6386,18,"the prince of winterfell","tyrion",-0.0848874687627165
+"958",6388,18,"the prince of winterfell","tyrion",-0.1625
+"959",6390,18,"the prince of winterfell","tyrion",0
+"960",6392,18,"the prince of winterfell","tyrion",-0.0944911182523068
+"961",6394,18,"the prince of winterfell","tyrion",-1.34263422668524
+"962",6396,18,"the prince of winterfell","tyrion",0
+"963",6398,18,"the prince of winterfell","tyrion",-0.0670820393249937
+"964",6400,18,"the prince of winterfell","tyrion",0.4
+"965",6442,19,"blackwater","tyrion",-0.466666666666667
+"966",6444,19,"blackwater","tyrion",-0.0577350269189626
+"967",6446,19,"blackwater","tyrion",-0.577350269189626
+"968",6449,19,"blackwater","cersei",0.45
+"969",6451,19,"blackwater","cersei",0
+"970",6453,19,"blackwater","cersei",0
+"971",6455,19,"blackwater","cersei",0.814080630359962
+"972",6487,19,"blackwater","tyrion",0
+"973",6489,19,"blackwater","tyrion",0.28347335475692
+"974",6491,19,"blackwater","tyrion",0
+"975",6493,19,"blackwater","tyrion",-0.601040764008565
+"976",6496,19,"blackwater","tyrion",0
+"977",6498,19,"blackwater","tyrion",-0.265165042944955
+"978",6500,19,"blackwater","tyrion",0
+"979",6502,19,"blackwater","tyrion",0
+"980",6504,19,"blackwater","tyrion",-0.306186217847897
+"981",6506,19,"blackwater","tyrion",0.223606797749979
+"982",6508,19,"blackwater","tyrion",0
+"983",6513,19,"blackwater","tyrion",-0.125
+"984",6515,19,"blackwater","tyrion",-0.144337567297406
+"985",6517,19,"blackwater","tyrion",0.0612372435695795
+"986",6520,19,"blackwater","tyrion",0.8
+"987",6522,19,"blackwater","tyrion",-0.0447213595499958
+"988",6524,19,"blackwater","tyrion",0.581377674149945
+"989",6526,19,"blackwater","tyrion",0
+"990",6528,19,"blackwater","tyrion",0.597670477771824
+"991",6531,19,"blackwater","tyrion",0.5
+"992",6534,19,"blackwater","tyrion",0
+"993",6536,19,"blackwater","tyrion",0.433012701892219
+"994",6551,19,"blackwater","tyrion",0
+"995",6555,19,"blackwater","tyrion",0.06
+"996",6558,19,"blackwater","tyrion",0.142302494707577
+"997",6569,19,"blackwater","cersei",0
+"998",6570,19,"blackwater","cersei",0.0150755672288882
+"999",6572,19,"blackwater","cersei",-0.212132034355964
+"1000",6574,19,"blackwater","cersei",0.0707106781186548
+"1001",6575,19,"blackwater","cersei",-0.25
+"1002",6577,19,"blackwater","cersei",-0.188982236504614
+"1003",6579,19,"blackwater","cersei",-0.144337567297406
+"1004",6580,19,"blackwater","cersei",-0.120267558860591
+"1005",6582,19,"blackwater","cersei",-0.625
+"1006",6584,19,"blackwater","tyrion",0
+"1007",6588,19,"blackwater","tyrion",0.707106781186547
+"1008",6591,19,"blackwater","tyrion",0.707106781186547
+"1009",6613,19,"blackwater","cersei",0.025
+"1010",6615,19,"blackwater","cersei",0.75
+"1011",6617,19,"blackwater","cersei",0.1
+"1012",6619,19,"blackwater","cersei",0
+"1013",6621,19,"blackwater","cersei",0
+"1014",6623,19,"blackwater","cersei",0
+"1015",6625,19,"blackwater","cersei",0.213730309411862
+"1016",6627,19,"blackwater","cersei",0.519615242270663
+"1017",6628,19,"blackwater","cersei",0
+"1018",6629,19,"blackwater","cersei",0
+"1019",6630,19,"blackwater","cersei",0.288675134594813
+"1020",6631,19,"blackwater","cersei",-0.150755672288882
+"1021",6633,19,"blackwater","cersei",0.460817687569033
+"1022",6635,19,"blackwater","cersei",0.250185116648838
+"1023",6636,19,"blackwater","cersei",0.245373864405591
+"1024",6637,19,"blackwater","cersei",0.171498585142509
+"1025",6639,19,"blackwater","tyrion",0
+"1026",6641,19,"blackwater","tyrion",-0.176776695296637
+"1027",6644,19,"blackwater","tyrion",0.206155281280883
+"1028",6660,19,"blackwater","cersei",0.335410196624968
+"1029",6661,19,"blackwater","cersei",0.75
+"1030",6662,19,"blackwater","cersei",-0.126491106406735
+"1031",6663,19,"blackwater","cersei",0.982707629823991
+"1032",6665,19,"blackwater","cersei",-0.176776695296637
+"1033",6666,19,"blackwater","cersei",0
+"1034",6667,19,"blackwater","cersei",0.6
+"1035",6669,19,"blackwater","cersei",0.44744645862196
+"1036",6671,19,"blackwater","cersei",0
+"1037",6674,19,"blackwater","cersei",0
+"1038",6676,19,"blackwater","cersei",0
+"1039",6678,19,"blackwater","cersei",0
+"1040",6680,19,"blackwater","cersei",0
+"1041",6682,19,"blackwater","cersei",0
+"1042",6684,19,"blackwater","cersei",-0.340168025708305
+"1043",6686,19,"blackwater","cersei",0
+"1044",6687,19,"blackwater","cersei",0.341121146168977
+"1045",6694,19,"blackwater","tyrion",0.204124145231932
+"1046",6696,19,"blackwater","tyrion",-0.433012701892219
+"1047",6699,19,"blackwater","tyrion",0.0316227766016838
+"1048",6711,19,"blackwater","tyrion",0.176776695296637
+"1049",6713,19,"blackwater","tyrion",-0.28347335475692
+"1050",6725,19,"blackwater","tyrion",-0.5
+"1051",6728,19,"blackwater","tyrion",0.025
+"1052",6730,19,"blackwater","tyrion",-0.353553390593274
+"1053",6732,19,"blackwater","tyrion",-0.41845449772546
+"1054",6734,19,"blackwater","tyrion",-0.102062072615966
+"1055",6736,19,"blackwater","cersei",0
+"1056",6738,19,"blackwater","cersei",0.707106781186547
+"1057",6763,19,"blackwater","tyrion",-0.75
+"1058",6766,19,"blackwater","tyrion",-0.707106781186547
+"1059",6767,19,"blackwater","cersei",0.866025403784439
+"1060",6769,19,"blackwater","cersei",-0.202465571622209
+"1061",6771,19,"blackwater","cersei",0.305085107923876
+"1062",6773,19,"blackwater","cersei",0.353553390593274
+"1063",6775,19,"blackwater","cersei",-0.25
+"1064",6778,19,"blackwater","cersei",-0.230660284112083
+"1065",6779,19,"blackwater","cersei",0.204124145231932
+"1066",6780,19,"blackwater","cersei",0.491353814911995
+"1067",6781,19,"blackwater","cersei",1.125
+"1068",6785,19,"blackwater","cersei",0
+"1069",6788,19,"blackwater","tyrion",0
+"1070",6789,20,"valar morghulis","tyrion",0.284604989415154
+"1071",6792,20,"valar morghulis","tyrion",0
+"1072",6794,20,"valar morghulis","tyrion",0
+"1073",6808,20,"valar morghulis","cersei",-0.404145188432738
+"1074",6984,20,"valar morghulis","tyrion",0
+"1075",6986,20,"valar morghulis","tyrion",0.0577350269189626
+"1076",6988,20,"valar morghulis","tyrion",0
+"1077",6990,20,"valar morghulis","tyrion",-0.113389341902768
+"1078",6992,20,"valar morghulis","tyrion",0.624037720753383
+"1079",6994,20,"valar morghulis","tyrion",0
+"1080",6996,20,"valar morghulis","tyrion",0.113389341902768
+"1081",7001,20,"valar morghulis","tyrion",0.530330085889911
+"1082",7004,20,"valar morghulis","tyrion",0
+"1083",7007,20,"valar morghulis","tyrion",0
+"1084",7009,20,"valar morghulis","tyrion",-0.25
+"1085",7011,20,"valar morghulis","tyrion",-0.3
+"1086",7013,20,"valar morghulis","tyrion",-0.25
+"1087",7015,20,"valar morghulis","tyrion",0
+"1088",7017,20,"valar morghulis","tyrion",0
+"1089",7019,20,"valar morghulis","tyrion",0.208012573584461
+"1090",7094,20,"valar morghulis","jon",0
+"1091",7095,20,"valar morghulis","jon",-0.510252038562457
+"1092",7097,20,"valar morghulis","jon",-0.4
+"1093",7158,21,"valar dohaeris","jon",0
+"1094",7160,21,"valar dohaeris","jon",0.577350269189626
+"1095",7166,21,"valar dohaeris","jon",0
+"1096",7173,21,"valar dohaeris","jon",0.120604537831105
+"1097",7175,21,"valar dohaeris","jon",0
+"1098",7176,21,"valar dohaeris","jon",1
+"1099",7186,21,"valar dohaeris","jon",0
+"1100",7188,21,"valar dohaeris","jon",0.125
+"1101",7190,21,"valar dohaeris","jon",-0.5
+"1102",7192,21,"valar dohaeris","jon",0.353553390593274
+"1103",7194,21,"valar dohaeris","jon",-0.163299316185545
+"1104",7196,21,"valar dohaeris","jon",0.2
+"1105",7198,21,"valar dohaeris","jon",-0.298481002897855
+"1106",7212,21,"valar dohaeris","tyrion",0
+"1107",7213,21,"valar dohaeris","cersei",0
+"1108",7214,21,"valar dohaeris","tyrion",0
+"1109",7215,21,"valar dohaeris","cersei",0.461880215351701
+"1110",7216,21,"valar dohaeris","tyrion",0
+"1111",7217,21,"valar dohaeris","cersei",-0.434659143960611
+"1112",7218,21,"valar dohaeris","tyrion",0
+"1113",7219,21,"valar dohaeris","cersei",-0.0404145188432738
+"1114",7220,21,"valar dohaeris","tyrion",0
+"1115",7221,21,"valar dohaeris","cersei",-0.472455591261534
+"1116",7222,21,"valar dohaeris","tyrion",-0.5
+"1117",7223,21,"valar dohaeris","cersei",-0.0530330085889911
+"1118",7224,21,"valar dohaeris","tyrion",-0.265361388801511
+"1119",7225,21,"valar dohaeris","cersei",0.133333333333333
+"1120",7226,21,"valar dohaeris","tyrion",0.734977759998429
+"1121",7227,21,"valar dohaeris","cersei",0
+"1122",7228,21,"valar dohaeris","tyrion",0
+"1123",7229,21,"valar dohaeris","cersei",0.482418151324422
+"1124",7230,21,"valar dohaeris","tyrion",1.06424899620621
+"1125",7231,21,"valar dohaeris","cersei",-0.433012701892219
+"1126",7232,21,"valar dohaeris","tyrion",0.707106781186547
+"1127",7233,21,"valar dohaeris","cersei",0
+"1128",7234,21,"valar dohaeris","tyrion",0
+"1129",7235,21,"valar dohaeris","cersei",-0.0944911182523068
+"1130",7236,21,"valar dohaeris","tyrion",-0.111803398874989
+"1131",7237,21,"valar dohaeris","cersei",0
+"1132",7238,21,"valar dohaeris","tyrion",0.025
+"1133",7239,21,"valar dohaeris","cersei",0
+"1134",7240,21,"valar dohaeris","tyrion",-0.636396103067893
+"1135",7241,21,"valar dohaeris","cersei",0.5
+"1136",7242,21,"valar dohaeris","tyrion",-0.375
+"1137",7243,21,"valar dohaeris","cersei",-0.491934955049954
+"1138",7244,21,"valar dohaeris","tyrion",-0.636396103067893
+"1139",7245,21,"valar dohaeris","cersei",0.670820393249937
+"1140",7246,21,"valar dohaeris","tyrion",0.433012701892219
+"1141",7257,21,"valar dohaeris","tyrion",0
+"1142",7259,21,"valar dohaeris","tyrion",0.635085296108588
+"1143",7261,21,"valar dohaeris","tyrion",0.0333333333333333
+"1144",7263,21,"valar dohaeris","tyrion",0
+"1145",7265,21,"valar dohaeris","tyrion",0.565685424949238
+"1146",7267,21,"valar dohaeris","tyrion",0
+"1147",7269,21,"valar dohaeris","tyrion",0
+"1148",7271,21,"valar dohaeris","tyrion",0
+"1149",7324,21,"valar dohaeris","tyrion",0.203333333333333
+"1150",7326,21,"valar dohaeris","tyrion",0.490747728811182
+"1151",7328,21,"valar dohaeris","tyrion",0
+"1152",7330,21,"valar dohaeris","tyrion",-0.577350269189626
+"1153",7332,21,"valar dohaeris","tyrion",0.169774937525433
+"1154",7334,21,"valar dohaeris","tyrion",-0.317901384587392
+"1155",7336,21,"valar dohaeris","tyrion",0.33
+"1156",7338,21,"valar dohaeris","tyrion",0.565685424949238
+"1157",7340,21,"valar dohaeris","tyrion",0
+"1158",7435,21,"valar dohaeris","cersei",0.302371578407382
+"1159",7441,21,"valar dohaeris","cersei",0.0917662935482247
+"1160",7445,21,"valar dohaeris","cersei",-0.220239104515739
+"1161",7447,21,"valar dohaeris","cersei",0.571547606649408
+"1162",7450,21,"valar dohaeris","cersei",0
+"1163",7495,22,"dark wings dark words","jon",0
+"1164",7496,22,"dark wings dark words","jon",0
+"1165",7581,22,"dark wings dark words","cersei",0.65
+"1166",7585,22,"dark wings dark words","cersei",0.0790569415042095
+"1167",7586,22,"dark wings dark words","cersei",0
+"1168",7588,22,"dark wings dark words","cersei",0
+"1169",7590,22,"dark wings dark words","cersei",1.11803398874989
+"1170",7592,22,"dark wings dark words","cersei",0.075
+"1171",7594,22,"dark wings dark words","cersei",-0.25
+"1172",7596,22,"dark wings dark words","cersei",0.0117851130197758
+"1173",7598,22,"dark wings dark words","cersei",0
+"1174",7691,22,"dark wings dark words","jon",0.8
+"1175",7693,22,"dark wings dark words","jon",1
+"1176",7695,22,"dark wings dark words","jon",0.433012701892219
+"1177",7697,22,"dark wings dark words","jon",0
+"1178",7700,22,"dark wings dark words","jon",-0.75
+"1179",7788,22,"dark wings dark words","tyrion",0
+"1180",7790,22,"dark wings dark words","tyrion",0
+"1181",7792,22,"dark wings dark words","tyrion",-0.89489291724392
+"1182",7793,22,"dark wings dark words","tyrion",0.0353553390593274
+"1183",7795,22,"dark wings dark words","tyrion",0.565685424949238
+"1184",7797,22,"dark wings dark words","tyrion",0
+"1185",7799,22,"dark wings dark words","tyrion",0
+"1186",7801,22,"dark wings dark words","tyrion",0.461880215351701
+"1187",7803,22,"dark wings dark words","tyrion",0.734846922834954
+"1188",7804,22,"dark wings dark words","tyrion",0
+"1189",7806,22,"dark wings dark words","tyrion",0.350017856687341
+"1190",7808,22,"dark wings dark words","tyrion",-0.25
+"1191",7810,22,"dark wings dark words","tyrion",0.133333333333333
+"1192",7812,22,"dark wings dark words","tyrion",1.00101766399818
+"1193",7814,22,"dark wings dark words","tyrion",0.23094010767585
+"1194",7816,22,"dark wings dark words","tyrion",0
+"1195",7818,22,"dark wings dark words","tyrion",-1.25
+"1196",7820,22,"dark wings dark words","tyrion",0.565685424949238
+"1197",7822,22,"dark wings dark words","tyrion",-0.282842712474619
+"1198",7823,22,"dark wings dark words","tyrion",-0.5
+"1199",8003,23,"walk of punishment","tyrion",1.0400628679223
+"1200",8014,23,"walk of punishment","tyrion",-0.285572430222572
+"1201",8016,23,"walk of punishment","tyrion",0.707106781186547
+"1202",8018,23,"walk of punishment","tyrion",0.597670477771824
+"1203",8019,23,"walk of punishment","cersei",-0.2
+"1204",8095,23,"walk of punishment","jon",0
+"1205",8099,23,"walk of punishment","jon",0
+"1206",8102,23,"walk of punishment","jon",0
+"1207",8230,23,"walk of punishment","tyrion",0
+"1208",8232,23,"walk of punishment","tyrion",-1
+"1209",8235,23,"walk of punishment","tyrion",0
+"1210",8238,23,"walk of punishment","tyrion",-0.779422863405995
+"1211",8240,23,"walk of punishment","tyrion",0.577350269189626
+"1212",8242,23,"walk of punishment","tyrion",-0.375
+"1213",8244,23,"walk of punishment","tyrion",-1
+"1214",8246,23,"walk of punishment","tyrion",0
+"1215",8248,23,"walk of punishment","tyrion",0.4
+"1216",8250,23,"walk of punishment","tyrion",0.604743156814764
+"1217",8252,23,"walk of punishment","tyrion",0.530330085889911
+"1218",8254,23,"walk of punishment","tyrion",0.734846922834954
+"1219",8257,23,"walk of punishment","tyrion",-0.275
+"1220",8259,23,"walk of punishment","tyrion",0
+"1221",8261,23,"walk of punishment","tyrion",0.357770876399966
+"1222",8263,23,"walk of punishment","tyrion",0
+"1223",8265,23,"walk of punishment","tyrion",0.648181216087669
+"1224",8267,23,"walk of punishment","tyrion",0.335410196624968
+"1225",8270,23,"walk of punishment","tyrion",-0.3
+"1226",8271,23,"walk of punishment","tyrion",-0.397994974842648
+"1227",8273,23,"walk of punishment","tyrion",0.38829013735766
+"1228",8275,23,"walk of punishment","tyrion",-0.0530330085889911
+"1229",8276,23,"walk of punishment","tyrion",0
+"1230",8278,23,"walk of punishment","tyrion",0.293987366103667
+"1231",8280,23,"walk of punishment","tyrion",0
+"1232",8282,23,"walk of punishment","tyrion",-0.530330085889911
+"1233",8284,23,"walk of punishment","tyrion",-0.123743686707646
+"1234",8286,23,"walk of punishment","tyrion",-0.377964473009227
+"1235",8288,23,"walk of punishment","tyrion",0.482418151324422
+"1236",8290,23,"walk of punishment","tyrion",0
+"1237",8292,23,"walk of punishment","tyrion",-0.265361388801511
+"1238",8293,23,"walk of punishment","tyrion",0.0566946709513841
+"1239",8295,23,"walk of punishment","tyrion",1.01192885125388
+"1240",8296,23,"walk of punishment","tyrion",0.223606797749979
+"1241",8298,23,"walk of punishment","tyrion",0
+"1242",8301,23,"walk of punishment","tyrion",0
+"1243",8304,23,"walk of punishment","tyrion",0
+"1244",8306,23,"walk of punishment","tyrion",0.288675134594813
+"1245",8309,23,"walk of punishment","tyrion",0
+"1246",8311,23,"walk of punishment","tyrion",-0.375
+"1247",8312,23,"walk of punishment","tyrion",0
+"1248",8313,23,"walk of punishment","tyrion",0
+"1249",8380,24,"and now his watch is ended","tyrion",0.625
+"1250",8382,24,"and now his watch is ended","tyrion",-0.335410196624968
+"1251",8384,24,"and now his watch is ended","tyrion",0.0424264068711928
+"1252",8386,24,"and now his watch is ended","tyrion",-0.25
+"1253",8388,24,"and now his watch is ended","tyrion",0
+"1254",8390,24,"and now his watch is ended","tyrion",0
+"1255",8392,24,"and now his watch is ended","tyrion",0.0277350098112615
+"1256",8395,24,"and now his watch is ended","tyrion",0
+"1257",8462,24,"and now his watch is ended","cersei",0.755928946018454
+"1258",8464,24,"and now his watch is ended","cersei",0.353553390593274
+"1259",8468,24,"and now his watch is ended","cersei",-0.734846922834954
+"1260",8473,24,"and now his watch is ended","cersei",0.8
+"1261",8475,24,"and now his watch is ended","cersei",0
+"1262",8477,24,"and now his watch is ended","cersei",-0.111803398874989
+"1263",8479,24,"and now his watch is ended","cersei",-0.204124145231932
+"1264",8481,24,"and now his watch is ended","cersei",-0.0166666666666666
+"1265",8484,24,"and now his watch is ended","cersei",0
+"1266",8486,24,"and now his watch is ended","cersei",0.2
+"1267",8492,24,"and now his watch is ended","cersei",-0.176776695296637
+"1268",8544,24,"and now his watch is ended","cersei",0.565685424949238
+"1269",8546,24,"and now his watch is ended","cersei",0
+"1270",8548,24,"and now his watch is ended","cersei",-0.353553390593274
+"1271",8550,24,"and now his watch is ended","cersei",0
+"1272",8553,24,"and now his watch is ended","cersei",0.8
+"1273",8555,24,"and now his watch is ended","cersei",1.21078001110611
+"1274",8557,24,"and now his watch is ended","cersei",-0.530330085889911
+"1275",8559,24,"and now his watch is ended","cersei",-0.491934955049954
+"1276",8561,24,"and now his watch is ended","cersei",0.05
+"1277",8747,25,"kissed by fire","jon",-0.527644853011086
+"1278",8749,25,"kissed by fire","jon",0
+"1279",8752,25,"kissed by fire","jon",0
+"1280",8755,25,"kissed by fire","jon",-0.176776695296637
+"1281",8757,25,"kissed by fire","jon",0
+"1282",8760,25,"kissed by fire","jon",-0.433012701892219
+"1283",8765,25,"kissed by fire","jon",0
+"1284",8767,25,"kissed by fire","jon",0.530330085889911
+"1285",8769,25,"kissed by fire","jon",0
+"1286",8771,25,"kissed by fire","jon",0
+"1287",8772,25,"kissed by fire","jon",-0.4
+"1288",8774,25,"kissed by fire","jon",0
+"1289",8777,25,"kissed by fire","jon",0
+"1290",8781,25,"kissed by fire","jon",0.288675134594813
+"1291",8783,25,"kissed by fire","jon",0.353553390593274
+"1292",8785,25,"kissed by fire","jon",0
+"1293",8787,25,"kissed by fire","jon",0
+"1294",8789,25,"kissed by fire","jon",0
+"1295",8791,25,"kissed by fire","jon",0.283333333333333
+"1296",8835,25,"kissed by fire","cersei",0
+"1297",8837,25,"kissed by fire","cersei",0.8
+"1298",8839,25,"kissed by fire","cersei",0.533333333333333
+"1299",8841,25,"kissed by fire","cersei",0.782623792124926
+"1300",8843,25,"kissed by fire","cersei",0.573539334676404
+"1301",8845,25,"kissed by fire","cersei",0.67175144212722
+"1302",8850,25,"kissed by fire","tyrion",0.176776695296637
+"1303",8852,25,"kissed by fire","tyrion",0.111803398874989
+"1304",8854,25,"kissed by fire","tyrion",0.163299316185545
+"1305",8856,25,"kissed by fire","tyrion",1
+"1306",8858,25,"kissed by fire","tyrion",0.25
+"1307",8860,25,"kissed by fire","tyrion",-0.288675134594813
+"1308",8862,25,"kissed by fire","tyrion",0.7
+"1309",8864,25,"kissed by fire","tyrion",0.670820393249937
+"1310",8866,25,"kissed by fire","tyrion",0
+"1311",8869,25,"kissed by fire","tyrion",0
+"1312",8871,25,"kissed by fire","tyrion",1.55884572681199
+"1313",8873,25,"kissed by fire","tyrion",0
+"1314",9126,25,"kissed by fire","tyrion",0
+"1315",9128,25,"kissed by fire","tyrion",0.708551659757745
+"1316",9130,25,"kissed by fire","tyrion",1.40872282582487
+"1317",9131,25,"kissed by fire","tyrion",-0.66395280956807
+"1318",9133,25,"kissed by fire","tyrion",0.565685424949238
+"1319",9135,25,"kissed by fire","tyrion",0.5
+"1320",9137,25,"kissed by fire","tyrion",0.151185789203691
+"1321",9139,25,"kissed by fire","tyrion",0.0158113883008419
+"1322",9141,25,"kissed by fire","tyrion",0
+"1323",9143,25,"kissed by fire","tyrion",0.75
+"1324",9144,25,"kissed by fire","cersei",0.8
+"1325",9145,25,"kissed by fire","tyrion",0
+"1326",9147,25,"kissed by fire","tyrion",-0.4
+"1327",9149,25,"kissed by fire","tyrion",0.6
+"1328",9150,25,"kissed by fire","cersei",0.4
+"1329",9152,25,"kissed by fire","tyrion",-0.75
+"1330",9154,25,"kissed by fire","tyrion",0
+"1331",9156,25,"kissed by fire","cersei",0.721687836487032
+"1332",9158,25,"kissed by fire","cersei",0
+"1333",9160,25,"kissed by fire","cersei",0
+"1334",9162,25,"kissed by fire","cersei",0
+"1335",9164,25,"kissed by fire","cersei",0.23094010767585
+"1336",9166,25,"kissed by fire","cersei",0.577350269189626
+"1337",9228,26,"the climb","jon",0
+"1338",9230,26,"the climb","jon",0
+"1339",9233,26,"the climb","jon",-0.530330085889911
+"1340",9236,26,"the climb","jon",0.4
+"1341",9238,26,"the climb","jon",-0.288675134594813
+"1342",9240,26,"the climb","jon",0
+"1343",9242,26,"the climb","jon",0
+"1344",9246,26,"the climb","jon",0
+"1345",9434,26,"the climb","jon",0
+"1346",9443,26,"the climb","tyrion",0
+"1347",9444,26,"the climb","cersei",-0.5
+"1348",9445,26,"the climb","tyrion",-0.654846187598099
+"1349",9446,26,"the climb","cersei",-0.25
+"1350",9447,26,"the climb","tyrion",0
+"1351",9448,26,"the climb","cersei",0.102062072615966
+"1352",9449,26,"the climb","tyrion",0.332820117735137
+"1353",9450,26,"the climb","cersei",-0.296928723209235
+"1354",9451,26,"the climb","tyrion",-0.321182027418786
+"1355",9452,26,"the climb","tyrion",-0.779422863405995
+"1356",9453,26,"the climb","cersei",0
+"1357",9454,26,"the climb","tyrion",-0.335410196624968
+"1358",9455,26,"the climb","cersei",0
+"1359",9456,26,"the climb","tyrion",-0.102062072615966
+"1360",9457,26,"the climb","cersei",-0.1775
+"1361",9458,26,"the climb","tyrion",-0.21380899352994
+"1362",9459,26,"the climb","cersei",0.302371578407382
+"1363",9460,26,"the climb","tyrion",-0.831384387633061
+"1364",9461,26,"the climb","cersei",0
+"1365",9471,26,"the climb","tyrion",0.144337567297406
+"1366",9473,26,"the climb","tyrion",0.544268841133287
+"1367",9475,26,"the climb","tyrion",-0.424264068711928
+"1368",9478,26,"the climb","tyrion",-0.0693375245281536
+"1369",9480,26,"the climb","tyrion",-0.353553390593274
+"1370",9493,27,"the bear and the maiden fair","jon",0
+"1371",9495,27,"the bear and the maiden fair","jon",-0.111803398874989
+"1372",9497,27,"the bear and the maiden fair","jon",0.565685424949238
+"1373",9499,27,"the bear and the maiden fair","jon",1.10227038425243
+"1374",9501,27,"the bear and the maiden fair","jon",0.290688837074973
+"1375",9503,27,"the bear and the maiden fair","jon",0
+"1376",9505,27,"the bear and the maiden fair","jon",0
+"1377",9507,27,"the bear and the maiden fair","jon",-0.0790569415042095
+"1378",9510,27,"the bear and the maiden fair","jon",-0.25
+"1379",9512,27,"the bear and the maiden fair","jon",1.1773327906756
+"1380",9587,27,"the bear and the maiden fair","tyrion",0.6
+"1381",9589,27,"the bear and the maiden fair","tyrion",0.424264068711928
+"1382",9591,27,"the bear and the maiden fair","tyrion",0.4
+"1383",9593,27,"the bear and the maiden fair","tyrion",0
+"1384",9595,27,"the bear and the maiden fair","tyrion",0.288675134594813
+"1385",9597,27,"the bear and the maiden fair","tyrion",0
+"1386",9599,27,"the bear and the maiden fair","tyrion",-0.204124145231932
+"1387",9601,27,"the bear and the maiden fair","tyrion",-0.283333333333333
+"1388",9665,27,"the bear and the maiden fair","tyrion",0.265165042944955
+"1389",9667,27,"the bear and the maiden fair","tyrion",0
+"1390",9669,27,"the bear and the maiden fair","tyrion",0
+"1391",9671,27,"the bear and the maiden fair","tyrion",0
+"1392",9673,27,"the bear and the maiden fair","tyrion",0.346410161513775
+"1393",9675,27,"the bear and the maiden fair","tyrion",0.346410161513775
+"1394",9677,27,"the bear and the maiden fair","tyrion",0.282842712474619
+"1395",9679,27,"the bear and the maiden fair","tyrion",0
+"1396",9681,27,"the bear and the maiden fair","tyrion",0.142886901662352
+"1397",9683,27,"the bear and the maiden fair","tyrion",0.282842712474619
+"1398",9685,27,"the bear and the maiden fair","tyrion",0.561248608016091
+"1399",9687,27,"the bear and the maiden fair","tyrion",0
+"1400",9689,27,"the bear and the maiden fair","tyrion",0
+"1401",9789,27,"the bear and the maiden fair","jon",-0.530330085889911
+"1402",9791,27,"the bear and the maiden fair","jon",0
+"1403",9794,27,"the bear and the maiden fair","jon",0
+"1404",9796,27,"the bear and the maiden fair","jon",0
+"1405",9798,27,"the bear and the maiden fair","jon",0
+"1406",9800,27,"the bear and the maiden fair","jon",0.377964473009227
+"1407",9802,27,"the bear and the maiden fair","jon",-0.5
+"1408",9804,27,"the bear and the maiden fair","jon",-0.375
+"1409",9806,27,"the bear and the maiden fair","jon",0.353553390593274
+"1410",9809,27,"the bear and the maiden fair","jon",0.55
+"1411",9811,27,"the bear and the maiden fair","jon",0
+"1412",9813,27,"the bear and the maiden fair","jon",0
+"1413",9815,27,"the bear and the maiden fair","jon",0.188982236504614
+"1414",9817,27,"the bear and the maiden fair","jon",-0.422115882408869
+"1415",9819,27,"the bear and the maiden fair","jon",0.117851130197758
+"1416",9821,27,"the bear and the maiden fair","jon",-0.28347335475692
+"1417",9823,27,"the bear and the maiden fair","jon",-0.75
+"1418",9826,27,"the bear and the maiden fair","jon",0.461880215351701
+"1419",10044,28,"second sons","tyrion",0
+"1420",10046,28,"second sons","tyrion",0.230408843784516
+"1421",10047,28,"second sons","tyrion",0
+"1422",10049,28,"second sons","tyrion",-0.573539334676404
+"1423",10051,28,"second sons","tyrion",0.357770876399966
+"1424",10052,28,"second sons","tyrion",0
+"1425",10054,28,"second sons","tyrion",0
+"1426",10056,28,"second sons","cersei",1.06066017177982
+"1427",10059,28,"second sons","cersei",0.603738353924943
+"1428",10061,28,"second sons","cersei",0
+"1429",10063,28,"second sons","cersei",0
+"1430",10065,28,"second sons","cersei",0.346687622640768
+"1431",10066,28,"second sons","cersei",0.0632455532033676
+"1432",10068,28,"second sons","cersei",0.180906806746658
+"1433",10069,28,"second sons","cersei",-0.436033255612459
+"1434",10070,28,"second sons","cersei",-0.223606797749979
+"1435",10074,28,"second sons","tyrion",0
+"1436",10075,28,"second sons","tyrion",0.5
+"1437",10108,28,"second sons","tyrion",0.375
+"1438",10109,28,"second sons","cersei",0.447213595499958
+"1439",10111,28,"second sons","cersei",0
+"1440",10113,28,"second sons","tyrion",-0.188982236504614
+"1441",10115,28,"second sons","tyrion",0
+"1442",10117,28,"second sons","tyrion",-0.102062072615966
+"1443",10119,28,"second sons","tyrion",-0.3875
+"1444",10122,28,"second sons","cersei",-0.5
+"1445",10130,28,"second sons","tyrion",0.424264068711928
+"1446",10132,28,"second sons","tyrion",0.424264068711928
+"1447",10134,28,"second sons","tyrion",0.1
+"1448",10137,28,"second sons","tyrion",-0.0554700196225229
+"1449",10139,28,"second sons","tyrion",-0.433012701892219
+"1450",10140,28,"second sons","tyrion",-0.306186217847897
+"1451",10141,28,"second sons","tyrion",0.516397779494322
+"1452",10143,28,"second sons","tyrion",0
+"1453",10145,28,"second sons","tyrion",0
+"1454",10146,28,"second sons","tyrion",0.353553390593274
+"1455",10148,28,"second sons","tyrion",0
+"1456",10149,28,"second sons","tyrion",0.530330085889911
+"1457",10150,28,"second sons","tyrion",-0.282842712474619
+"1458",10152,28,"second sons","tyrion",-0.0948683298050514
+"1459",10154,28,"second sons","tyrion",0
+"1460",10190,28,"second sons","tyrion",-1.03923048454133
+"1461",10321,29,"the rains of castamere","jon",0
+"1462",10323,29,"the rains of castamere","jon",0.565685424949238
+"1463",10327,29,"the rains of castamere","jon",-0.306186217847897
+"1464",10330,29,"the rains of castamere","jon",-0.603022689155527
+"1465",10333,29,"the rains of castamere","jon",0
+"1466",10420,29,"the rains of castamere","jon",0.461880215351701
+"1467",10541,30,"mhysa","tyrion",0
+"1468",10543,30,"mhysa","tyrion",0
+"1469",10545,30,"mhysa","tyrion",-0.708551659757745
+"1470",10547,30,"mhysa","tyrion",0.221359436211787
+"1471",10549,30,"mhysa","tyrion",0.0447213595499958
+"1472",10551,30,"mhysa","tyrion",0
+"1473",10553,30,"mhysa","tyrion",-0.124807544150677
+"1474",10555,30,"mhysa","tyrion",0
+"1475",10557,30,"mhysa","tyrion",0
+"1476",10559,30,"mhysa","tyrion",0
+"1477",10561,30,"mhysa","tyrion",0
+"1478",10565,30,"mhysa","tyrion",0.0577350269189626
+"1479",10568,30,"mhysa","tyrion",-0.332652814112315
+"1480",10571,30,"mhysa","cersei",0.346410161513775
+"1481",10573,30,"mhysa","tyrion",-0.530330085889911
+"1482",10575,30,"mhysa","tyrion",-0.422115882408869
+"1483",10577,30,"mhysa","cersei",-0.321269802057843
+"1484",10583,30,"mhysa","cersei",0
+"1485",10585,30,"mhysa","cersei",0.367423461417477
+"1486",10588,30,"mhysa","cersei",0
+"1487",10590,30,"mhysa","tyrion",0.28347335475692
+"1488",10592,30,"mhysa","tyrion",-0.2
+"1489",10594,30,"mhysa","tyrion",0
+"1490",10596,30,"mhysa","tyrion",1.03940230077537
+"1491",10598,30,"mhysa","tyrion",-0.159900537266708
+"1492",10600,30,"mhysa","tyrion",-1.06066017177982
+"1493",10602,30,"mhysa","tyrion",0.353553390593274
+"1494",10604,30,"mhysa","tyrion",0.288675134594813
+"1495",10607,30,"mhysa","tyrion",-0.226778683805536
+"1496",10609,30,"mhysa","tyrion",-1
+"1497",10611,30,"mhysa","tyrion",0.25
+"1498",10614,30,"mhysa","tyrion",0.916666666666667
+"1499",10616,30,"mhysa","tyrion",0.472455591261534
+"1500",10618,30,"mhysa","tyrion",0
+"1501",10777,30,"mhysa","tyrion",0
+"1502",10779,30,"mhysa","tyrion",0.449073119510249
+"1503",10780,30,"mhysa","cersei",-0.25
+"1504",10781,30,"mhysa","cersei",0.433333333333333
+"1505",10782,30,"mhysa","tyrion",0.25
+"1506",10783,30,"mhysa","cersei",0.0668153104781061
+"1507",10784,30,"mhysa","tyrion",-0.268328157299975
+"1508",10785,30,"mhysa","tyrion",0.449073119510249
+"1509",10786,30,"mhysa","cersei",0.346410161513775
+"1510",10787,30,"mhysa","tyrion",0.244948974278318
+"1511",10788,30,"mhysa","cersei",0.529150262212918
+"1512",10789,30,"mhysa","tyrion",0.2
+"1513",10790,30,"mhysa","cersei",0.530330085889911
+"1514",10791,30,"mhysa","tyrion",0.675
+"1515",10792,30,"mhysa","cersei",0.601040764008565
+"1516",10793,30,"mhysa","tyrion",0
+"1517",10794,30,"mhysa","cersei",-0.049130637356206
+"1518",10795,30,"mhysa","tyrion",0
+"1519",10796,30,"mhysa","cersei",-0.707106781186547
+"1520",10797,30,"mhysa","tyrion",-0.0612372435695795
+"1521",10798,30,"mhysa","cersei",0
+"1522",10824,30,"mhysa","jon",0.178885438199983
+"1523",10825,30,"mhysa","jon",-0.375
+"1524",10827,30,"mhysa","jon",0.375
+"1525",10828,30,"mhysa","jon",0.145344418537486
+"1526",10901,30,"mhysa","jon",0
+"1527",10986,31,"two swords","tyrion",1
+"1528",10988,31,"two swords","tyrion",0.571547606649408
+"1529",10990,31,"two swords","tyrion",-0.265165042944955
+"1530",10992,31,"two swords","tyrion",0.111803398874989
+"1531",10994,31,"two swords","tyrion",0
+"1532",10995,31,"two swords","tyrion",0
+"1533",10998,31,"two swords","tyrion",0.125
+"1534",11000,31,"two swords","tyrion",0.0816496580927726
+"1535",11002,31,"two swords","tyrion",0.877733824497306
+"1536",11004,31,"two swords","tyrion",0.874382899275514
+"1537",11006,31,"two swords","tyrion",0.424264068711928
+"1538",11008,31,"two swords","tyrion",0.0833333333333333
+"1539",11009,31,"two swords","tyrion",-0.175
+"1540",11011,31,"two swords","tyrion",-0.0530330085889911
+"1541",11013,31,"two swords","tyrion",-0.115470053837925
+"1542",11059,31,"two swords","tyrion",0.142886901662352
+"1543",11060,31,"two swords","tyrion",-0.5
+"1544",11062,31,"two swords","tyrion",0.353553390593274
+"1545",11064,31,"two swords","tyrion",0
+"1546",11070,31,"two swords","tyrion",0
+"1547",11071,31,"two swords","tyrion",0.268328157299975
+"1548",11073,31,"two swords","tyrion",0.288675134594813
+"1549",11075,31,"two swords","tyrion",0.491934955049954
+"1550",11077,31,"two swords","tyrion",-0.2
+"1551",11078,31,"two swords","tyrion",0.313049516849971
+"1552",11080,31,"two swords","tyrion",0.577350269189626
+"1553",11082,31,"two swords","tyrion",0.176776695296637
+"1554",11085,31,"two swords","tyrion",-0.176776695296637
+"1555",11087,31,"two swords","tyrion",0
+"1556",11113,31,"two swords","tyrion",0.346410161513775
+"1557",11115,31,"two swords","tyrion",-0.3
+"1558",11117,31,"two swords","tyrion",-0.353553390593274
+"1559",11118,31,"two swords","tyrion",0.530330085889911
+"1560",11119,31,"two swords","tyrion",0
+"1561",11121,31,"two swords","tyrion",0
+"1562",11123,31,"two swords","tyrion",0
+"1563",11125,31,"two swords","tyrion",0.465564173879391
+"1564",11127,31,"two swords","tyrion",0.335410196624968
+"1565",11130,31,"two swords","tyrion",0
+"1566",11132,31,"two swords","tyrion",0.2
+"1567",11134,31,"two swords","tyrion",0.288675134594813
+"1568",11136,31,"two swords","tyrion",0.15
+"1569",11138,31,"two swords","tyrion",-0.742462120245875
+"1570",11142,31,"two swords","tyrion",0.433012701892219
+"1571",11144,31,"two swords","tyrion",0
+"1572",11146,31,"two swords","tyrion",0.120747670784989
+"1573",11148,31,"two swords","tyrion",0.530330085889911
+"1574",11150,31,"two swords","tyrion",0
+"1575",11152,31,"two swords","tyrion",0
+"1576",11154,31,"two swords","tyrion",0
+"1577",11158,31,"two swords","cersei",0.0188982236504614
+"1578",11160,31,"two swords","cersei",0.4
+"1579",11162,31,"two swords","cersei",0.707106781186547
+"1580",11165,31,"two swords","cersei",-0.156524758424985
+"1581",11168,31,"two swords","cersei",0.734846922834954
+"1582",11170,31,"two swords","cersei",-0.777817459305202
+"1583",11172,31,"two swords","cersei",-0.75
+"1584",11174,31,"two swords","cersei",-0.553398590529466
+"1585",11176,31,"two swords","cersei",0.144337567297406
+"1586",11178,31,"two swords","cersei",0.8
+"1587",11180,31,"two swords","cersei",-0.998460353205412
+"1588",11182,31,"two swords","cersei",-0.447213595499958
+"1589",11184,31,"two swords","cersei",0.459619407771256
+"1590",11186,31,"two swords","cersei",-0.565685424949238
+"1591",11188,31,"two swords","cersei",0
+"1592",11190,31,"two swords","cersei",0
+"1593",11193,31,"two swords","cersei",0.316227766016838
+"1594",11195,31,"two swords","cersei",0
+"1595",11197,31,"two swords","cersei",-0.3
+"1596",11199,31,"two swords","cersei",0
+"1597",11201,31,"two swords","cersei",0
+"1598",11202,31,"two swords","cersei",0
+"1599",11231,31,"two swords","jon",0
+"1600",11235,31,"two swords","jon",0
+"1601",11237,31,"two swords","jon",-0.433012701892219
+"1602",11239,31,"two swords","jon",-0.75
+"1603",11241,31,"two swords","jon",-0.530330085889911
+"1604",11243,31,"two swords","jon",-0.05
+"1605",11245,31,"two swords","jon",0.150755672288882
+"1606",11247,31,"two swords","jon",0.259807621135332
+"1607",11249,31,"two swords","jon",0
+"1608",11253,31,"two swords","jon",-0.25
+"1609",11255,31,"two swords","jon",-0.106066017177982
+"1610",11257,31,"two swords","jon",0
+"1611",11259,31,"two swords","jon",0.433012701892219
+"1612",11261,31,"two swords","jon",-0.0416666666666667
+"1613",11262,31,"two swords","jon",0.25
+"1614",11445,32,"the lion and the rose","tyrion",0.869318287921223
+"1615",11448,32,"the lion and the rose","tyrion",-0.406586399182265
+"1616",11450,32,"the lion and the rose","tyrion",-0.433012701892219
+"1617",11451,32,"the lion and the rose","tyrion",-0.14142135623731
+"1618",11455,32,"the lion and the rose","tyrion",0
+"1619",11457,32,"the lion and the rose","tyrion",0
+"1620",11459,32,"the lion and the rose","tyrion",-0.241209075662211
+"1621",11461,32,"the lion and the rose","tyrion",0.15
+"1622",11463,32,"the lion and the rose","tyrion",0.204124145231932
+"1623",11526,32,"the lion and the rose","tyrion",0.05
+"1624",11528,32,"the lion and the rose","tyrion",-0.176776695296637
+"1625",11531,32,"the lion and the rose","tyrion",-0.158113883008419
+"1626",11533,32,"the lion and the rose","tyrion",-0.353553390593274
+"1627",11535,32,"the lion and the rose","tyrion",-0.265165042944955
+"1628",11541,32,"the lion and the rose","cersei",-0.715541752799933
+"1629",11544,32,"the lion and the rose","tyrion",0.458257569495584
+"1630",11555,32,"the lion and the rose","tyrion",0
+"1631",11557,32,"the lion and the rose","tyrion",0
+"1632",11559,32,"the lion and the rose","tyrion",0.0866025403784439
+"1633",11561,32,"the lion and the rose","tyrion",-0.111803398874989
+"1634",11564,32,"the lion and the rose","tyrion",0.0534522483824849
+"1635",11566,32,"the lion and the rose","tyrion",0.565685424949238
+"1636",11568,32,"the lion and the rose","tyrion",0.6
+"1637",11570,32,"the lion and the rose","tyrion",-0.75
+"1638",11573,32,"the lion and the rose","tyrion",0
+"1639",11575,32,"the lion and the rose","tyrion",-0.195982373975546
+"1640",11577,32,"the lion and the rose","tyrion",0.894427190999916
+"1641",11578,32,"the lion and the rose","tyrion",0.150755672288882
+"1642",11640,32,"the lion and the rose","cersei",0
+"1643",11646,32,"the lion and the rose","tyrion",0.8
+"1644",11660,32,"the lion and the rose","tyrion",0
+"1645",11662,32,"the lion and the rose","tyrion",0
+"1646",11664,32,"the lion and the rose","tyrion",0
+"1647",11666,32,"the lion and the rose","tyrion",0
+"1648",11669,32,"the lion and the rose","tyrion",0
+"1649",11672,32,"the lion and the rose","tyrion",0
+"1650",11678,32,"the lion and the rose","cersei",0
+"1651",11691,32,"the lion and the rose","cersei",0
+"1652",11699,32,"the lion and the rose","cersei",0.189736659610103
+"1653",11701,32,"the lion and the rose","cersei",0.661437827766148
+"1654",11703,32,"the lion and the rose","cersei",0
+"1655",11705,32,"the lion and the rose","cersei",0.533001790889026
+"1656",11707,32,"the lion and the rose","cersei",0.75
+"1657",11710,32,"the lion and the rose","cersei",0
+"1658",11712,32,"the lion and the rose","cersei",0.675
+"1659",11715,32,"the lion and the rose","cersei",-0.804984471899924
+"1660",11717,32,"the lion and the rose","cersei",-0.19
+"1661",11719,32,"the lion and the rose","cersei",0.223860752173391
+"1662",11721,32,"the lion and the rose","cersei",0
+"1663",11724,32,"the lion and the rose","cersei",0
+"1664",11726,32,"the lion and the rose","cersei",0.353553390593274
+"1665",11732,32,"the lion and the rose","cersei",0
+"1666",11735,32,"the lion and the rose","cersei",0.5
+"1667",11737,32,"the lion and the rose","cersei",0.173925271309261
+"1668",11764,32,"the lion and the rose","tyrion",0.268328157299975
+"1669",11772,32,"the lion and the rose","tyrion",0.390721183810477
+"1670",11773,32,"the lion and the rose","tyrion",-0.25
+"1671",11777,32,"the lion and the rose","tyrion",1.44337567297406
+"1672",11787,32,"the lion and the rose","tyrion",0
+"1673",11789,32,"the lion and the rose","tyrion",0.408248290463863
+"1674",11793,32,"the lion and the rose","tyrion",0.559016994374947
+"1675",11795,32,"the lion and the rose","tyrion",1
+"1676",11802,32,"the lion and the rose","cersei",0
+"1677",11803,32,"the lion and the rose","cersei",0
+"1678",11805,32,"the lion and the rose","cersei",0
+"1679",11807,32,"the lion and the rose","cersei",0
+"1680",11808,32,"the lion and the rose","cersei",0.1
+"1681",11809,32,"the lion and the rose","cersei",0
+"1682",11811,32,"the lion and the rose","cersei",-0.245676907455998
+"1683",11812,33,"breaker of chains","cersei",0
+"1684",11814,33,"breaker of chains","cersei",0
+"1685",11815,33,"breaker of chains","cersei",0
+"1686",11817,33,"breaker of chains","cersei",0
+"1687",11859,33,"breaker of chains","cersei",0
+"1688",11884,33,"breaker of chains","cersei",0.318198051533946
+"1689",11886,33,"breaker of chains","cersei",-0.111803398874989
+"1690",11888,33,"breaker of chains","cersei",0.293987366103667
+"1691",11890,33,"breaker of chains","cersei",1.15470053837925
+"1692",11891,33,"breaker of chains","cersei",-0.692820323027551
+"1693",11893,33,"breaker of chains","cersei",-0.565685424949238
+"1694",11894,33,"breaker of chains","cersei",0
+"1695",11895,33,"breaker of chains","cersei",1.13137084989848
+"1696",11897,33,"breaker of chains","cersei",0
+"1697",11899,33,"breaker of chains","cersei",0
+"1698",12119,33,"breaker of chains","tyrion",-0.23094010767585
+"1699",12121,33,"breaker of chains","tyrion",0.530330085889911
+"1700",12123,33,"breaker of chains","tyrion",0.375
+"1701",12125,33,"breaker of chains","tyrion",0.375
+"1702",12127,33,"breaker of chains","tyrion",-0.577350269189626
+"1703",12129,33,"breaker of chains","tyrion",0.03
+"1704",12131,33,"breaker of chains","tyrion",0
+"1705",12133,33,"breaker of chains","tyrion",0
+"1706",12135,33,"breaker of chains","tyrion",0.166666666666667
+"1707",12137,33,"breaker of chains","tyrion",0.306186217847897
+"1708",12139,33,"breaker of chains","tyrion",0
+"1709",12141,33,"breaker of chains","tyrion",-0.745601135079326
+"1710",12143,33,"breaker of chains","tyrion",0
+"1711",12145,33,"breaker of chains","tyrion",0.595124334045393
+"1712",12147,33,"breaker of chains","tyrion",0.5
+"1713",12149,33,"breaker of chains","tyrion",0
+"1714",12151,33,"breaker of chains","tyrion",0
+"1715",12153,33,"breaker of chains","tyrion",0.0581377674149945
+"1716",12156,33,"breaker of chains","tyrion",0.204124145231932
+"1717",12158,33,"breaker of chains","tyrion",0.635085296108588
+"1718",12160,33,"breaker of chains","tyrion",0.388908729652601
+"1719",12162,33,"breaker of chains","tyrion",0
+"1720",12164,33,"breaker of chains","tyrion",-0.471495166791445
+"1721",12166,33,"breaker of chains","tyrion",0.133630620956212
+"1722",12168,33,"breaker of chains","tyrion",-0.447213595499958
+"1723",12186,33,"breaker of chains","jon",-0.318952612829507
+"1724",12189,33,"breaker of chains","jon",0
+"1725",12196,33,"breaker of chains","jon",0
+"1726",12198,33,"breaker of chains","jon",-0.375
+"1727",12200,33,"breaker of chains","jon",-0.0790569415042095
+"1728",12280,34,"oathkeeper","tyrion",0.4
+"1729",12282,34,"oathkeeper","tyrion",0.173205080756888
+"1730",12284,34,"oathkeeper","tyrion",0
+"1731",12286,34,"oathkeeper","tyrion",-0.463006479436303
+"1732",12288,34,"oathkeeper","tyrion",0
+"1733",12290,34,"oathkeeper","tyrion",0.459619407771256
+"1734",12292,34,"oathkeeper","tyrion",0.288675134594813
+"1735",12294,34,"oathkeeper","tyrion",0
+"1736",12296,34,"oathkeeper","tyrion",-1.00623058987491
+"1737",12298,34,"oathkeeper","tyrion",0
+"1738",12301,34,"oathkeeper","tyrion",-0.144337567297406
+"1739",12302,34,"oathkeeper","tyrion",-0.5
+"1740",12340,34,"oathkeeper","jon",0
+"1741",12341,34,"oathkeeper","jon",0.883883476483184
+"1742",12342,34,"oathkeeper","jon",-0.317542648054294
+"1743",12343,34,"oathkeeper","jon",0
+"1744",12344,34,"oathkeeper","jon",0
+"1745",12346,34,"oathkeeper","jon",0.204124145231932
+"1746",12349,34,"oathkeeper","jon",-0.380131556174964
+"1747",12350,34,"oathkeeper","jon",0.134164078649987
+"1748",12353,34,"oathkeeper","jon",0.353553390593274
+"1749",12355,34,"oathkeeper","jon",0
+"1750",12362,34,"oathkeeper","jon",0
+"1751",12364,34,"oathkeeper","jon",0
+"1752",12365,34,"oathkeeper","jon",-0.5
+"1753",12370,34,"oathkeeper","cersei",0.353553390593274
+"1754",12372,34,"oathkeeper","cersei",0.0408248290463863
+"1755",12374,34,"oathkeeper","cersei",0.302371578407382
+"1756",12376,34,"oathkeeper","cersei",0.301511344577764
+"1757",12378,34,"oathkeeper","cersei",0.530330085889911
+"1758",12380,34,"oathkeeper","cersei",-0.2
+"1759",12382,34,"oathkeeper","cersei",0.125
+"1760",12384,34,"oathkeeper","cersei",-0.472455591261534
+"1761",12386,34,"oathkeeper","cersei",0
+"1762",12388,34,"oathkeeper","cersei",-0.260104873953845
+"1763",12430,34,"oathkeeper","jon",0.75
+"1764",12432,34,"oathkeeper","jon",-0.125
+"1765",12434,34,"oathkeeper","jon",-0.125
+"1766",12436,34,"oathkeeper","jon",0.0545544725589981
+"1767",12438,34,"oathkeeper","jon",0.265165042944955
+"1768",12440,34,"oathkeeper","jon",0
+"1769",12444,34,"oathkeeper","jon",0.288675134594813
+"1770",12445,34,"oathkeeper","jon",0.282842712474619
+"1771",12446,34,"oathkeeper","jon",-0.0877876225140348
+"1772",12447,34,"oathkeeper","jon",0
+"1773",12449,34,"oathkeeper","jon",0.636396103067893
+"1774",12525,35,"first of his name","cersei",0
+"1775",12527,35,"first of his name","cersei",0
+"1776",12529,35,"first of his name","cersei",0.565685424949238
+"1777",12531,35,"first of his name","cersei",-0.577350269189626
+"1778",12533,35,"first of his name","cersei",-0.530330085889911
+"1779",12535,35,"first of his name","cersei",-0.490577890519606
+"1780",12537,35,"first of his name","cersei",0.883246851112417
+"1781",12539,35,"first of his name","cersei",0
+"1782",12541,35,"first of his name","cersei",0.102062072615966
+"1783",12543,35,"first of his name","cersei",0.357770876399966
+"1784",12628,35,"first of his name","cersei",-0.0288675134594813
+"1785",12630,35,"first of his name","cersei",0.353553390593274
+"1786",12633,35,"first of his name","cersei",0
+"1787",12635,35,"first of his name","cersei",0
+"1788",12637,35,"first of his name","cersei",0
+"1789",12639,35,"first of his name","cersei",0.5
+"1790",12642,35,"first of his name","cersei",0.519615242270663
+"1791",12644,35,"first of his name","cersei",0
+"1792",12646,35,"first of his name","cersei",0
+"1793",12648,35,"first of his name","cersei",0
+"1794",12650,35,"first of his name","cersei",0
+"1795",12652,35,"first of his name","cersei",-0.0707106781186548
+"1796",12654,35,"first of his name","cersei",0
+"1797",12656,35,"first of his name","cersei",0
+"1798",12658,35,"first of his name","cersei",0.125
+"1799",12660,35,"first of his name","cersei",1.46238845728486
+"1800",12662,35,"first of his name","cersei",0.288675134594813
+"1801",12663,35,"first of his name","cersei",0.263828093951146
+"1802",12746,35,"first of his name","cersei",0.3
+"1803",12748,35,"first of his name","cersei",0.346410161513775
+"1804",12750,35,"first of his name","cersei",0
+"1805",12751,35,"first of his name","cersei",0
+"1806",12753,35,"first of his name","cersei",0
+"1807",12755,35,"first of his name","cersei",0
+"1808",12757,35,"first of his name","cersei",0.346410161513775
+"1809",12759,35,"first of his name","cersei",0.530330085889911
+"1810",12761,35,"first of his name","cersei",-0.0612372435695795
+"1811",12763,35,"first of his name","cersei",0.55749759768861
+"1812",12765,35,"first of his name","cersei",0.742462120245875
+"1813",12767,35,"first of his name","cersei",0
+"1814",12769,35,"first of his name","cersei",-0.244948974278318
+"1815",12771,35,"first of his name","cersei",0.335410196624968
+"1816",12773,35,"first of his name","cersei",-0.0144337567297406
+"1817",12775,35,"first of his name","cersei",0.505964425626941
+"1818",12777,35,"first of his name","cersei",-0.32659863237109
+"1819",12820,35,"first of his name","jon",0
+"1820",12826,35,"first of his name","jon",0
+"1821",12829,35,"first of his name","jon",0
+"1822",12892,35,"first of his name","jon",0.461880215351701
+"1823",12893,35,"first of his name","jon",-0.202072594216369
+"1824",12896,35,"first of his name","jon",-0.577350269189626
+"1825",12901,35,"first of his name","jon",-0.461880215351701
+"1826",12902,35,"first of his name","jon",-0.176776695296637
+"1827",12904,35,"first of his name","jon",0.1875
+"1828",12906,35,"first of his name","jon",0
+"1829",13045,36,"the laws of gods and men","cersei",-1.06066017177982
+"1830",13054,36,"the laws of gods and men","cersei",0
+"1831",13056,36,"the laws of gods and men","cersei",0.653197264742181
+"1832",13059,36,"the laws of gods and men","cersei",0.514295634824952
+"1833",13061,36,"the laws of gods and men","cersei",-0.0612372435695795
+"1834",13093,36,"the laws of gods and men","tyrion",0.461880215351701
+"1835",13094,36,"the laws of gods and men","tyrion",0
+"1836",13096,36,"the laws of gods and men","tyrion",-0.178885438199983
+"1837",13100,36,"the laws of gods and men","tyrion",0
+"1838",13102,36,"the laws of gods and men","tyrion",0
+"1839",13104,36,"the laws of gods and men","tyrion",-0.577350269189626
+"1840",13106,36,"the laws of gods and men","tyrion",-0.176776695296637
+"1841",13109,36,"the laws of gods and men","tyrion",0
+"1842",13111,36,"the laws of gods and men","tyrion",-0.176776695296637
+"1843",13123,36,"the laws of gods and men","cersei",0.0970725343394151
+"1844",13125,36,"the laws of gods and men","cersei",-0.0959403223600247
+"1845",13127,36,"the laws of gods and men","cersei",-0.429892652074553
+"1846",13134,36,"the laws of gods and men","tyrion",0
+"1847",13136,36,"the laws of gods and men","tyrion",-0.106715675015987
+"1848",13162,36,"the laws of gods and men","tyrion",0
+"1849",13164,36,"the laws of gods and men","tyrion",0
+"1850",13168,36,"the laws of gods and men","tyrion",0
+"1851",13197,36,"the laws of gods and men","tyrion",0.707106781186547
+"1852",13199,36,"the laws of gods and men","tyrion",0.268328157299975
+"1853",13201,36,"the laws of gods and men","tyrion",-0.053033008588991
+"1854",13203,36,"the laws of gods and men","tyrion",-0.285773803324704
+"1855",13205,36,"the laws of gods and men","tyrion",-0.737030722367993
+"1856",13207,36,"the laws of gods and men","tyrion",0.357770876399966
+"1857",13209,36,"the laws of gods and men","tyrion",0.025
+"1858",13210,36,"the laws of gods and men","tyrion",-1.23743686707646
+"1859",13211,36,"the laws of gods and men","tyrion",0.160356745147455
+"1860",13214,37,"mockingbird","tyrion",-0.416666666666667
+"1861",13216,37,"mockingbird","tyrion",0.318198051533946
+"1862",13218,37,"mockingbird","tyrion",0.318198051533946
+"1863",13220,37,"mockingbird","tyrion",0
+"1864",13222,37,"mockingbird","tyrion",0.133333333333333
+"1865",13224,37,"mockingbird","tyrion",0
+"1866",13225,37,"mockingbird","tyrion",0
+"1867",13227,37,"mockingbird","tyrion",0.0566946709513841
+"1868",13229,37,"mockingbird","tyrion",0.4625
+"1869",13234,37,"mockingbird","cersei",0.755928946018454
+"1870",13235,37,"mockingbird","cersei",0.433012701892219
+"1871",13237,37,"mockingbird","cersei",0
+"1872",13276,37,"mockingbird","jon",0.5
+"1873",13282,37,"mockingbird","jon",-0.424264068711928
+"1874",13283,37,"mockingbird","jon",0
+"1875",13285,37,"mockingbird","jon",0.0707106781186548
+"1876",13287,37,"mockingbird","jon",-0.14142135623731
+"1877",13289,37,"mockingbird","jon",0
+"1878",13293,37,"mockingbird","jon",0
+"1879",13295,37,"mockingbird","jon",-0.4
+"1880",13297,37,"mockingbird","jon",0
+"1881",13299,37,"mockingbird","jon",0
+"1882",13301,37,"mockingbird","jon",0
+"1883",13308,37,"mockingbird","tyrion",0.565685424949238
+"1884",13310,37,"mockingbird","tyrion",0
+"1885",13312,37,"mockingbird","tyrion",0
+"1886",13314,37,"mockingbird","tyrion",-0.335410196624968
+"1887",13316,37,"mockingbird","tyrion",-0.707106781186547
+"1888",13318,37,"mockingbird","tyrion",0.265165042944955
+"1889",13320,37,"mockingbird","tyrion",0.923760430703401
+"1890",13322,37,"mockingbird","tyrion",0
+"1891",13325,37,"mockingbird","tyrion",-0.25
+"1892",13327,37,"mockingbird","tyrion",0
+"1893",13329,37,"mockingbird","tyrion",0.510252038562457
+"1894",13331,37,"mockingbird","tyrion",-0.347011046894284
+"1895",13333,37,"mockingbird","tyrion",0.0606339062590832
+"1896",13335,37,"mockingbird","tyrion",-0.954594154601839
+"1897",13337,37,"mockingbird","tyrion",0.8
+"1898",13340,37,"mockingbird","tyrion",1
+"1899",13342,37,"mockingbird","tyrion",-0.618718433538229
+"1900",13344,37,"mockingbird","tyrion",0.8
+"1901",13346,37,"mockingbird","tyrion",-0.102062072615966
+"1902",13479,37,"mockingbird","tyrion",-0.4
+"1903",13481,37,"mockingbird","tyrion",0.25
+"1904",13483,37,"mockingbird","tyrion",0
+"1905",13485,37,"mockingbird","tyrion",0.265165042944955
+"1906",13487,37,"mockingbird","tyrion",0.267261241912424
+"1907",13489,37,"mockingbird","tyrion",0
+"1908",13491,37,"mockingbird","tyrion",0.3
+"1909",13493,37,"mockingbird","tyrion",0.64398757751994
+"1910",13495,37,"mockingbird","tyrion",0
+"1911",13497,37,"mockingbird","tyrion",0.111803398874989
+"1912",13577,38,"the mountain and the viper","jon",0
+"1913",13586,38,"the mountain and the viper","jon",0
+"1914",13591,38,"the mountain and the viper","jon",-0.229809703885628
+"1915",13818,38,"the mountain and the viper","tyrion",-0.152752523165195
+"1916",13820,38,"the mountain and the viper","tyrion",0.158771324027147
+"1917",13822,38,"the mountain and the viper","tyrion",-0.670820393249937
+"1918",13824,38,"the mountain and the viper","tyrion",-0.45
+"1919",13826,38,"the mountain and the viper","tyrion",-0.388057000058133
+"1920",13828,38,"the mountain and the viper","tyrion",0.0150755672288882
+"1921",13830,38,"the mountain and the viper","tyrion",-0.14142135623731
+"1922",13832,38,"the mountain and the viper","tyrion",0.288675134594813
+"1923",13834,38,"the mountain and the viper","tyrion",-0.0753778361444409
+"1924",13836,38,"the mountain and the viper","tyrion",0
+"1925",13838,38,"the mountain and the viper","tyrion",0.65
+"1926",13840,38,"the mountain and the viper","tyrion",-0.28297266548514
+"1927",13842,38,"the mountain and the viper","tyrion",0.38120680404602
+"1928",13844,38,"the mountain and the viper","tyrion",-0.365092190675599
+"1929",13846,38,"the mountain and the viper","tyrion",-0.129099444873581
+"1930",13849,38,"the mountain and the viper","tyrion",0.25
+"1931",13851,38,"the mountain and the viper","tyrion",-0.0408248290463863
+"1932",13853,38,"the mountain and the viper","tyrion",-0.408248290463863
+"1933",13859,38,"the mountain and the viper","tyrion",0.353553390593274
+"1934",13874,39,"the watchers on the wall","jon",0
+"1935",13876,39,"the watchers on the wall","jon",0
+"1936",13878,39,"the watchers on the wall","jon",0
+"1937",13880,39,"the watchers on the wall","jon",-0.106066017177982
+"1938",13882,39,"the watchers on the wall","jon",0
+"1939",13884,39,"the watchers on the wall","jon",0.734846922834954
+"1940",13886,39,"the watchers on the wall","jon",0
+"1941",13888,39,"the watchers on the wall","jon",0
+"1942",13890,39,"the watchers on the wall","jon",0
+"1943",13892,39,"the watchers on the wall","jon",0
+"1944",13950,39,"the watchers on the wall","jon",0.0721687836487032
+"1945",13952,39,"the watchers on the wall","jon",0.742462120245875
+"1946",13954,39,"the watchers on the wall","jon",-0.223606797749979
+"1947",14009,39,"the watchers on the wall","jon",-0.433012701892219
+"1948",14011,39,"the watchers on the wall","jon",-0.3
+"1949",14015,39,"the watchers on the wall","jon",-0.559016994374947
+"1950",14016,39,"the watchers on the wall","jon",0.353553390593274
+"1951",14018,39,"the watchers on the wall","jon",0
+"1952",14020,39,"the watchers on the wall","jon",-0.721687836487032
+"1953",14026,39,"the watchers on the wall","jon",0
+"1954",14028,39,"the watchers on the wall","jon",0
+"1955",14030,39,"the watchers on the wall","jon",0
+"1956",14032,39,"the watchers on the wall","jon",0
+"1957",14043,39,"the watchers on the wall","jon",0
+"1958",14045,39,"the watchers on the wall","jon",-0.0753778361444409
+"1959",14046,39,"the watchers on the wall","jon",-0.0577350269189626
+"1960",14058,39,"the watchers on the wall","jon",0
+"1961",14060,39,"the watchers on the wall","jon",0
+"1962",14063,39,"the watchers on the wall","jon",0.282842712474619
+"1963",14066,39,"the watchers on the wall","jon",0
+"1964",14072,39,"the watchers on the wall","jon",0
+"1965",14074,39,"the watchers on the wall","jon",0
+"1966",14076,39,"the watchers on the wall","jon",0
+"1967",14079,39,"the watchers on the wall","jon",0
+"1968",14081,39,"the watchers on the wall","jon",0.223860752173391
+"1969",14083,39,"the watchers on the wall","jon",0
+"1970",14085,39,"the watchers on the wall","jon",-0.456646566784994
+"1971",14087,39,"the watchers on the wall","jon",0
+"1972",14089,39,"the watchers on the wall","jon",-0.850420064270761
+"1973",14091,39,"the watchers on the wall","jon",0.025
+"1974",14092,39,"the watchers on the wall","jon",0
+"1975",14094,39,"the watchers on the wall","jon",-0.0833333333333333
+"1976",14096,40,"the children","jon",-0.282842712474619
+"1977",14098,40,"the children","jon",0.412478955692153
+"1978",14100,40,"the children","jon",0
+"1979",14102,40,"the children","jon",0.8
+"1980",14104,40,"the children","jon",-1
+"1981",14106,40,"the children","jon",0
+"1982",14110,40,"the children","jon",0
+"1983",14111,40,"the children","jon",0
+"1984",14113,40,"the children","jon",-0.35
+"1985",14115,40,"the children","jon",0
+"1986",14117,40,"the children","jon",0
+"1987",14119,40,"the children","jon",0
+"1988",14121,40,"the children","jon",0
+"1989",14125,40,"the children","jon",0.288675134594813
+"1990",14139,40,"the children","jon",0.0408248290463863
+"1991",14141,40,"the children","jon",0.180906806746658
+"1992",14143,40,"the children","jon",1
+"1993",14145,40,"the children","jon",-0.793856620135735
+"1994",14147,40,"the children","jon",-0.126491106406735
+"1995",14149,40,"the children","cersei",-0.530330085889911
+"1996",14159,40,"the children","cersei",0.288675134594813
+"1997",14161,40,"the children","cersei",0
+"1998",14162,40,"the children","cersei",0.5
+"1999",14164,40,"the children","cersei",0
+"2000",14166,40,"the children","cersei",-0.5
+"2001",14168,40,"the children","cersei",0
+"2002",14170,40,"the children","cersei",0
+"2003",14172,40,"the children","cersei",0
+"2004",14174,40,"the children","cersei",0.453557367611073
+"2005",14176,40,"the children","cersei",-0.0790569415042095
+"2006",14178,40,"the children","cersei",0
+"2007",14180,40,"the children","cersei",-0.585844933164302
+"2008",14182,40,"the children","cersei",0.577350269189626
+"2009",14184,40,"the children","cersei",0.23094010767585
+"2010",14186,40,"the children","cersei",0
+"2011",14188,40,"the children","cersei",0.0707106781186547
+"2012",14190,40,"the children","cersei",0.8
+"2013",14191,40,"the children","cersei",0
+"2014",14193,40,"the children","cersei",0
+"2015",14195,40,"the children","cersei",0
+"2016",14197,40,"the children","cersei",-0.306186217847897
+"2017",14199,40,"the children","cersei",-0.816496580927726
+"2018",14201,40,"the children","cersei",0
+"2019",14203,40,"the children","cersei",0.530722777603022
+"2020",14205,40,"the children","cersei",0
+"2021",14207,40,"the children","cersei",0.494974746830583
+"2022",14209,40,"the children","cersei",0
+"2023",14211,40,"the children","cersei",0.847115202712516
+"2024",14213,40,"the children","cersei",1
+"2025",14248,40,"the children","jon",0.122474487139159
+"2026",14250,40,"the children","jon",-0.577350269189626
+"2027",14252,40,"the children","jon",-0.433012701892219
+"2028",14254,40,"the children","jon",0
+"2029",14256,40,"the children","jon",0.1
+"2030",14258,40,"the children","jon",-0.529150262212918
+"2031",14260,40,"the children","jon",-0.134164078649987
+"2032",14262,40,"the children","jon",0
+"2033",14265,40,"the children","jon",0
+"2034",14362,40,"the children","tyrion",-0.5
+"2035",14364,40,"the children","tyrion",0
+"2036",14366,40,"the children","tyrion",0.5
+"2037",14368,40,"the children","tyrion",0
+"2038",14371,40,"the children","tyrion",0
+"2039",14373,40,"the children","tyrion",0.288675134594813
+"2040",14376,40,"the children","tyrion",-0.707106781186547
+"2041",14378,40,"the children","tyrion",-0.577350269189626
+"2042",14380,40,"the children","tyrion",0.5
+"2043",14382,40,"the children","tyrion",0
+"2044",14384,40,"the children","tyrion",-0.707106781186547
+"2045",14386,40,"the children","tyrion",0
+"2046",14388,40,"the children","tyrion",0
+"2047",14390,40,"the children","tyrion",-0.755928946018454
+"2048",14392,40,"the children","tyrion",0
+"2049",14395,40,"the children","tyrion",0
+"2050",14412,41,"the wars to come","cersei",0
+"2051",14414,41,"the wars to come","cersei",0
+"2052",14416,41,"the wars to come","cersei",-0.433012701892219
+"2053",14418,41,"the wars to come","cersei",0.8
+"2054",14420,41,"the wars to come","cersei",0
+"2055",14423,41,"the wars to come","cersei",0
+"2056",14425,41,"the wars to come","cersei",-1.06066017177982
+"2057",14427,41,"the wars to come","cersei",-0.163299316185545
+"2058",14429,41,"the wars to come","cersei",-0.316227766016838
+"2059",14432,41,"the wars to come","cersei",0.981495457622364
+"2060",14434,41,"the wars to come","cersei",0
+"2061",14436,41,"the wars to come","cersei",0.494974746830583
+"2062",14438,41,"the wars to come","cersei",0
+"2063",14442,41,"the wars to come","cersei",-0.268328157299975
+"2064",14445,41,"the wars to come","cersei",-0.25
+"2065",14446,41,"the wars to come","cersei",0.170084012854152
+"2066",14448,41,"the wars to come","cersei",0
+"2067",14450,41,"the wars to come","cersei",-0.505181485540923
+"2068",14452,41,"the wars to come","cersei",0.0666666666666667
+"2069",14453,41,"the wars to come","cersei",-0.469157431628418
+"2070",14455,41,"the wars to come","tyrion",-0.0566946709513841
+"2071",14457,41,"the wars to come","tyrion",-0.0944911182523068
+"2072",14459,41,"the wars to come","tyrion",0
+"2073",14461,41,"the wars to come","tyrion",1.01823376490863
+"2074",14463,41,"the wars to come","tyrion",-0.873652809054736
+"2075",14465,41,"the wars to come","tyrion",-0.282842712474619
+"2076",14467,41,"the wars to come","tyrion",-0.125
+"2077",14489,41,"the wars to come","jon",0
+"2078",14491,41,"the wars to come","jon",-0.32199378875997
+"2079",14492,41,"the wars to come","jon",0.166666666666667
+"2080",14505,41,"the wars to come","jon",0.408248290463863
+"2081",14507,41,"the wars to come","jon",-0.353553390593274
+"2082",14511,41,"the wars to come","jon",0
+"2083",14515,41,"the wars to come","jon",0
+"2084",14517,41,"the wars to come","jon",0.633333333333333
+"2085",14519,41,"the wars to come","jon",0.530330085889911
+"2086",14521,41,"the wars to come","jon",0
+"2087",14523,41,"the wars to come","jon",-0.510310363079829
+"2088",14525,41,"the wars to come","jon",0
+"2089",14527,41,"the wars to come","jon",0.447213595499958
+"2090",14531,41,"the wars to come","jon",0
+"2091",14533,41,"the wars to come","jon",0.5
+"2092",14535,41,"the wars to come","jon",1
+"2093",14537,41,"the wars to come","jon",0
+"2094",14578,41,"the wars to come","cersei",0.9
+"2095",14581,41,"the wars to come","cersei",0
+"2096",14584,41,"the wars to come","cersei",0
+"2097",14586,41,"the wars to come","cersei",0.045
+"2098",14588,41,"the wars to come","cersei",-0.25
+"2099",14590,41,"the wars to come","cersei",0
+"2100",14592,41,"the wars to come","cersei",0
+"2101",14594,41,"the wars to come","cersei",-0.156524758424985
+"2102",14596,41,"the wars to come","cersei",0
+"2103",14598,41,"the wars to come","cersei",0
+"2104",14625,41,"the wars to come","tyrion",0.5
+"2105",14628,41,"the wars to come","tyrion",-1
+"2106",14630,41,"the wars to come","tyrion",-0.25
+"2107",14632,41,"the wars to come","tyrion",0
+"2108",14634,41,"the wars to come","tyrion",-0.166666666666667
+"2109",14636,41,"the wars to come","tyrion",-0.204124145231932
+"2110",14638,41,"the wars to come","tyrion",0
+"2111",14640,41,"the wars to come","tyrion",0.176776695296637
+"2112",14642,41,"the wars to come","tyrion",0.383333333333333
+"2113",14644,41,"the wars to come","tyrion",0
+"2114",14646,41,"the wars to come","tyrion",-0.0774596669241484
+"2115",14648,41,"the wars to come","tyrion",-0.3
+"2116",14650,41,"the wars to come","tyrion",0.866025403784439
+"2117",14652,41,"the wars to come","tyrion",-0.375
+"2118",14687,41,"the wars to come","jon",0
+"2119",14689,41,"the wars to come","jon",0
+"2120",14691,41,"the wars to come","jon",0
+"2121",14693,41,"the wars to come","jon",0.247487373415292
+"2122",14695,41,"the wars to come","jon",-0.510310363079829
+"2123",14697,41,"the wars to come","jon",0.114904851942814
+"2124",14699,41,"the wars to come","jon",0.25
+"2125",14701,41,"the wars to come","jon",0.0416025147168922
+"2126",14703,41,"the wars to come","jon",0.0707106781186547
+"2127",14705,41,"the wars to come","jon",0.583840359359809
+"2128",14707,41,"the wars to come","jon",-0.75
+"2129",14798,42,"the house of black and white","cersei",0.176776695296637
+"2130",14800,42,"the house of black and white","cersei",-0.75
+"2131",14802,42,"the house of black and white","cersei",-0.841872912024137
+"2132",14804,42,"the house of black and white","cersei",0
+"2133",14806,42,"the house of black and white","cersei",-0.670820393249937
+"2134",14808,42,"the house of black and white","cersei",-0.3
+"2135",14810,42,"the house of black and white","cersei",-2.77555756156289e-17
+"2136",14812,42,"the house of black and white","cersei",-0.4
+"2137",14814,42,"the house of black and white","cersei",0.41576092031015
+"2138",14816,42,"the house of black and white","cersei",-0.25
+"2139",14818,42,"the house of black and white","cersei",0.3
+"2140",14820,42,"the house of black and white","cersei",-0.244948974278318
+"2141",14915,42,"the house of black and white","tyrion",-0.5
+"2142",14917,42,"the house of black and white","tyrion",-0.0530330085889911
+"2143",14919,42,"the house of black and white","tyrion",0
+"2144",14921,42,"the house of black and white","tyrion",0.245373864405591
+"2145",14923,42,"the house of black and white","tyrion",0.282842712474619
+"2146",14925,42,"the house of black and white","tyrion",0.223606797749979
+"2147",14927,42,"the house of black and white","tyrion",-0.25
+"2148",14929,42,"the house of black and white","tyrion",0
+"2149",14931,42,"the house of black and white","tyrion",-0.375
+"2150",14933,42,"the house of black and white","tyrion",-0.0612372435695795
+"2151",14935,42,"the house of black and white","tyrion",0.25
+"2152",14937,42,"the house of black and white","tyrion",-0.288675134594813
+"2153",14939,42,"the house of black and white","tyrion",0.461880215351701
+"2154",14941,42,"the house of black and white","tyrion",-0.306186217847897
+"2155",14942,42,"the house of black and white","cersei",0
+"2156",14944,42,"the house of black and white","cersei",-0.551135192126215
+"2157",14946,42,"the house of black and white","cersei",0
+"2158",14948,42,"the house of black and white","cersei",0.75
+"2159",14952,42,"the house of black and white","cersei",0.400891862868637
+"2160",14954,42,"the house of black and white","cersei",0.790447779620952
+"2161",14956,42,"the house of black and white","cersei",0.938194187433142
+"2162",14959,42,"the house of black and white","cersei",0.734846922834954
+"2163",14961,42,"the house of black and white","cersei",0.395284707521047
+"2164",14963,42,"the house of black and white","cersei",0.550597761289348
+"2165",14965,42,"the house of black and white","cersei",0.0577350269189626
+"2166",14967,42,"the house of black and white","cersei",0.302371578407382
+"2167",14969,42,"the house of black and white","cersei",0.529150262212918
+"2168",14971,42,"the house of black and white","cersei",-0.0577350269189626
+"2169",14973,42,"the house of black and white","cersei",-0.290688837074973
+"2170",15007,42,"the house of black and white","jon",0.603022689155527
+"2171",15009,42,"the house of black and white","jon",0
+"2172",15011,42,"the house of black and white","jon",0
+"2173",15013,42,"the house of black and white","jon",-0.1
+"2174",15015,42,"the house of black and white","jon",1.1667261889578
+"2175",15018,42,"the house of black and white","jon",0
+"2176",15020,42,"the house of black and white","jon",-0.247487373415292
+"2177",15022,42,"the house of black and white","jon",0.476313972081441
+"2178",15024,42,"the house of black and white","jon",-0.5
+"2179",15027,42,"the house of black and white","jon",0.154919333848297
+"2180",15029,42,"the house of black and white","jon",-0.530330085889911
+"2181",15031,42,"the house of black and white","jon",0.180906806746658
+"2182",15131,43,"high sparrow","cersei",2.36575992019478
+"2183",15133,43,"high sparrow","cersei",0
+"2184",15135,43,"high sparrow","cersei",0
+"2185",15137,43,"high sparrow","cersei",0
+"2186",15139,43,"high sparrow","cersei",0.5
+"2187",15143,43,"high sparrow","cersei",0.925
+"2188",15145,43,"high sparrow","cersei",0
+"2189",15147,43,"high sparrow","cersei",0.587877538267963
+"2190",15149,43,"high sparrow","cersei",1.34164078649987
+"2191",15151,43,"high sparrow","cersei",-0.25
+"2192",15153,43,"high sparrow","cersei",0
+"2193",15155,43,"high sparrow","cersei",0.530330085889911
+"2194",15157,43,"high sparrow","cersei",0
+"2195",15222,43,"high sparrow","jon",1
+"2196",15224,43,"high sparrow","jon",0.206559111797729
+"2197",15226,43,"high sparrow","jon",0.566946709513841
+"2198",15228,43,"high sparrow","jon",-0.306186217847897
+"2199",15230,43,"high sparrow","jon",0.249615088301353
+"2200",15232,43,"high sparrow","jon",0.433012701892219
+"2201",15234,43,"high sparrow","jon",0.265165042944955
+"2202",15236,43,"high sparrow","jon",0.0802955068546966
+"2203",15238,43,"high sparrow","jon",0
+"2204",15240,43,"high sparrow","jon",0.200041662327293
+"2205",15243,43,"high sparrow","jon",-0.223606797749979
+"2206",15246,43,"high sparrow","jon",-1.06066017177982
+"2207",15248,43,"high sparrow","jon",0
+"2208",15250,43,"high sparrow","jon",0.204124145231932
+"2209",15256,43,"high sparrow","jon",0
+"2210",15284,43,"high sparrow","jon",0
+"2211",15286,43,"high sparrow","jon",0.633090492290456
+"2212",15287,43,"high sparrow","jon",-0.18190171877725
+"2213",15288,43,"high sparrow","jon",0.111803398874989
+"2214",15290,43,"high sparrow","jon",0.391964747951093
+"2215",15293,43,"high sparrow","jon",-0.195982373975546
+"2216",15295,43,"high sparrow","jon",-0.288675134594813
+"2217",15297,43,"high sparrow","jon",0
+"2218",15298,43,"high sparrow","jon",0
+"2219",15301,43,"high sparrow","jon",0
+"2220",15323,43,"high sparrow","cersei",-1
+"2221",15330,43,"high sparrow","cersei",0
+"2222",15332,43,"high sparrow","cersei",0
+"2223",15334,43,"high sparrow","cersei",-0.510252038562457
+"2224",15339,43,"high sparrow","cersei",0.14142135623731
+"2225",15343,43,"high sparrow","cersei",0
+"2226",15345,43,"high sparrow","cersei",0.0447213595499958
+"2227",15347,43,"high sparrow","cersei",0.565685424949238
+"2228",15349,43,"high sparrow","cersei",-0.0530330085889911
+"2229",15351,43,"high sparrow","cersei",-0.166666666666667
+"2230",15353,43,"high sparrow","cersei",0.185933936040274
+"2231",15355,43,"high sparrow","cersei",0
+"2232",15357,43,"high sparrow","cersei",0.144337567297406
+"2233",15359,43,"high sparrow","cersei",0.530330085889911
+"2234",15361,43,"high sparrow","cersei",0.4
+"2235",15386,43,"high sparrow","tyrion",0
+"2236",15388,43,"high sparrow","tyrion",0
+"2237",15390,43,"high sparrow","tyrion",0
+"2238",15392,43,"high sparrow","tyrion",-0.0833333333333333
+"2239",15394,43,"high sparrow","tyrion",-0.530330085889911
+"2240",15396,43,"high sparrow","tyrion",-0.188982236504614
+"2241",15397,43,"high sparrow","tyrion",-0.75
+"2242",15406,43,"high sparrow","tyrion",0.56604770117014
+"2243",15408,43,"high sparrow","tyrion",0.596302710942121
+"2244",15410,43,"high sparrow","tyrion",0
+"2245",15411,43,"high sparrow","tyrion",-0.461880215351701
+"2246",15413,43,"high sparrow","tyrion",0.224536559755125
+"2247",15414,43,"high sparrow","tyrion",-0.0755928946018454
+"2248",15416,43,"high sparrow","tyrion",0.282842712474619
+"2249",15418,43,"high sparrow","tyrion",0.433012701892219
+"2250",15423,43,"high sparrow","tyrion",0
+"2251",15425,43,"high sparrow","tyrion",0
+"2252",15426,43,"high sparrow","tyrion",0
+"2253",15428,43,"high sparrow","tyrion",0
+"2254",15430,43,"high sparrow","tyrion",-0.0104257207028537
+"2255",15432,43,"high sparrow","tyrion",0
+"2256",15434,43,"high sparrow","tyrion",-0.353553390593274
+"2257",15436,43,"high sparrow","tyrion",-0.530330085889911
+"2258",15439,43,"high sparrow","tyrion",-0.5
+"2259",15441,43,"high sparrow","tyrion",0
+"2260",15443,43,"high sparrow","tyrion",-0.0301511344577764
+"2261",15444,43,"high sparrow","tyrion",-0.0277350098112615
+"2262",15445,43,"high sparrow","tyrion",-0.111803398874989
+"2263",15470,44,"sons of the harpy","cersei",0.519615242270663
+"2264",15472,44,"sons of the harpy","cersei",0.519615242270663
+"2265",15474,44,"sons of the harpy","cersei",0.455367983064247
+"2266",15476,44,"sons of the harpy","cersei",0
+"2267",15478,44,"sons of the harpy","cersei",0.65
+"2268",15480,44,"sons of the harpy","cersei",0.124807544150677
+"2269",15482,44,"sons of the harpy","cersei",0.375
+"2270",15485,44,"sons of the harpy","cersei",-0.176776695296637
+"2271",15486,44,"sons of the harpy","cersei",0.55
+"2272",15488,44,"sons of the harpy","cersei",0
+"2273",15490,44,"sons of the harpy","cersei",0
+"2274",15492,44,"sons of the harpy","cersei",-0.101036297108185
+"2275",15494,44,"sons of the harpy","cersei",0.603022689155527
+"2276",15496,44,"sons of the harpy","cersei",0.181865334794732
+"2277",15498,44,"sons of the harpy","cersei",0.226778683805536
+"2278",15500,44,"sons of the harpy","cersei",-0.129099444873581
+"2279",15502,44,"sons of the harpy","cersei",0.333333333333333
+"2280",15526,44,"sons of the harpy","cersei",-0.5
+"2281",15528,44,"sons of the harpy","cersei",-0.391964747951093
+"2282",15530,44,"sons of the harpy","cersei",-0.193412340178525
+"2283",15555,44,"sons of the harpy","jon",0.75
+"2284",15573,44,"sons of the harpy","jon",0
+"2285",15575,44,"sons of the harpy","jon",0
+"2286",15577,44,"sons of the harpy","jon",0
+"2287",15579,44,"sons of the harpy","jon",-0.424264068711928
+"2288",15583,44,"sons of the harpy","jon",0
+"2289",15585,44,"sons of the harpy","jon",-0.237170824512628
+"2290",15587,44,"sons of the harpy","jon",0.618718433538229
+"2291",15591,44,"sons of the harpy","jon",0.402492235949962
+"2292",15593,44,"sons of the harpy","jon",0
+"2293",15595,44,"sons of the harpy","jon",0.55
+"2294",15597,44,"sons of the harpy","jon",0.433012701892219
+"2295",15705,44,"sons of the harpy","tyrion",0.5
+"2296",15707,44,"sons of the harpy","tyrion",0
+"2297",15709,44,"sons of the harpy","tyrion",0
+"2298",15711,44,"sons of the harpy","tyrion",-0.25
+"2299",15713,44,"sons of the harpy","tyrion",0
+"2300",15715,44,"sons of the harpy","tyrion",-0.447213595499958
+"2301",15717,44,"sons of the harpy","tyrion",0.566843232296197
+"2302",15764,45,"kill the boy","jon",0
+"2303",15766,45,"kill the boy","jon",-0.0447213595499958
+"2304",15767,45,"kill the boy","jon",0.25
+"2305",15769,45,"kill the boy","jon",-0.451848057057532
+"2306",15771,45,"kill the boy","jon",0
+"2307",15773,45,"kill the boy","jon",0.335410196624968
+"2308",15775,45,"kill the boy","jon",0
+"2309",15777,45,"kill the boy","jon",0
+"2310",15779,45,"kill the boy","jon",-1
+"2311",15781,45,"kill the boy","jon",0.0125
+"2312",15783,45,"kill the boy","jon",0
+"2313",15785,45,"kill the boy","jon",0
+"2314",15787,45,"kill the boy","jon",0.117851130197758
+"2315",15789,45,"kill the boy","jon",-0.204124145231932
+"2316",15791,45,"kill the boy","jon",-0.378535960886427
+"2317",15793,45,"kill the boy","jon",0.37
+"2318",15795,45,"kill the boy","jon",0
+"2319",15797,45,"kill the boy","jon",0.111803398874989
+"2320",15800,45,"kill the boy","jon",-0.0612372435695795
+"2321",15808,45,"kill the boy","jon",-1
+"2322",15810,45,"kill the boy","jon",-0.146993683051833
+"2323",15811,45,"kill the boy","jon",0.491353814911995
+"2324",15813,45,"kill the boy","jon",-0.5
+"2325",15815,45,"kill the boy","jon",0.0416025147168922
+"2326",15817,45,"kill the boy","jon",0
+"2327",15975,45,"kill the boy","jon",0.963809406173529
+"2328",15996,45,"kill the boy","tyrion",-0.50137741307804
+"2329",15998,45,"kill the boy","tyrion",0.636396103067893
+"2330",16000,45,"kill the boy","tyrion",0
+"2331",16001,45,"kill the boy","tyrion",0
+"2332",16003,45,"kill the boy","tyrion",0
+"2333",16005,45,"kill the boy","tyrion",0.0530330085889911
+"2334",16007,45,"kill the boy","tyrion",-0.869626356546304
+"2335",16009,45,"kill the boy","tyrion",0
+"2336",16010,45,"kill the boy","tyrion",0.387298334620742
+"2337",16012,45,"kill the boy","tyrion",-0.463046179884774
+"2338",16014,45,"kill the boy","tyrion",0.176776695296637
+"2339",16015,45,"kill the boy","tyrion",0
+"2340",16016,45,"kill the boy","tyrion",0
+"2341",16019,45,"kill the boy","tyrion",0.125
+"2342",16020,45,"kill the boy","tyrion",0
+"2343",16023,45,"kill the boy","tyrion",0.25
+"2344",16025,45,"kill the boy","tyrion",0.335658556671309
+"2345",16027,45,"kill the boy","tyrion",0.530330085889911
+"2346",16067,46,"unbowed unbent unbroken","tyrion",0
+"2347",16069,46,"unbowed unbent unbroken","tyrion",-0.25
+"2348",16071,46,"unbowed unbent unbroken","tyrion",-0.0158113883008419
+"2349",16073,46,"unbowed unbent unbroken","tyrion",0
+"2350",16075,46,"unbowed unbent unbroken","tyrion",0
+"2351",16077,46,"unbowed unbent unbroken","tyrion",-0.361813613493316
+"2352",16079,46,"unbowed unbent unbroken","tyrion",-0.383333333333333
+"2353",16080,46,"unbowed unbent unbroken","tyrion",-0.0204124145231931
+"2354",16082,46,"unbowed unbent unbroken","tyrion",-0.114707866935281
+"2355",16083,46,"unbowed unbent unbroken","tyrion",-0.353553390593274
+"2356",16085,46,"unbowed unbent unbroken","tyrion",0
+"2357",16087,46,"unbowed unbent unbroken","tyrion",-0.434659143960611
+"2358",16097,46,"unbowed unbent unbroken","tyrion",0.0530330085889911
+"2359",16099,46,"unbowed unbent unbroken","tyrion",0
+"2360",16101,46,"unbowed unbent unbroken","tyrion",0
+"2361",16103,46,"unbowed unbent unbroken","tyrion",0
+"2362",16105,46,"unbowed unbent unbroken","tyrion",0.25
+"2363",16107,46,"unbowed unbent unbroken","tyrion",0.353553390593274
+"2364",16109,46,"unbowed unbent unbroken","tyrion",-0.233486892634807
+"2365",16111,46,"unbowed unbent unbroken","tyrion",0.226133508433323
+"2366",16113,46,"unbowed unbent unbroken","tyrion",1.1331166295921e-17
+"2367",16115,46,"unbowed unbent unbroken","tyrion",0
+"2368",16123,46,"unbowed unbent unbroken","tyrion",-0.441941738241592
+"2369",16125,46,"unbowed unbent unbroken","tyrion",-0.22391714737574
+"2370",16127,46,"unbowed unbent unbroken","tyrion",0
+"2371",16131,46,"unbowed unbent unbroken","tyrion",0.105528970602217
+"2372",16132,46,"unbowed unbent unbroken","tyrion",0
+"2373",16134,46,"unbowed unbent unbroken","tyrion",-0.443760156980183
+"2374",16136,46,"unbowed unbent unbroken","tyrion",0
+"2375",16137,46,"unbowed unbent unbroken","tyrion",0
+"2376",16152,46,"unbowed unbent unbroken","cersei",0.25
+"2377",16154,46,"unbowed unbent unbroken","cersei",-0.529150262212918
+"2378",16156,46,"unbowed unbent unbroken","cersei",0
+"2379",16158,46,"unbowed unbent unbroken","cersei",-0.0301511344577764
+"2380",16160,46,"unbowed unbent unbroken","cersei",0.859785304149105
+"2381",16162,46,"unbowed unbent unbroken","cersei",-0.113389341902768
+"2382",16164,46,"unbowed unbent unbroken","cersei",0.433012701892219
+"2383",16166,46,"unbowed unbent unbroken","cersei",0
+"2384",16168,46,"unbowed unbent unbroken","cersei",0.244948974278318
+"2385",16170,46,"unbowed unbent unbroken","cersei",-0.144337567297406
+"2386",16172,46,"unbowed unbent unbroken","cersei",-0.71443450831176
+"2387",16174,46,"unbowed unbent unbroken","cersei",0.0176776695296637
+"2388",16176,46,"unbowed unbent unbroken","cersei",0
+"2389",16178,46,"unbowed unbent unbroken","cersei",0.335410196624968
+"2390",16180,46,"unbowed unbent unbroken","cersei",0.28347335475692
+"2391",16182,46,"unbowed unbent unbroken","cersei",0.411096095821889
+"2392",16184,46,"unbowed unbent unbroken","cersei",0.5
+"2393",16186,46,"unbowed unbent unbroken","cersei",-0.367423461417477
+"2394",16188,46,"unbowed unbent unbroken","cersei",0
+"2395",16251,46,"unbowed unbent unbroken","cersei",-0.530330085889911
+"2396",16253,46,"unbowed unbent unbroken","cersei",0.396862696659689
+"2397",16255,46,"unbowed unbent unbroken","cersei",0.176776695296637
+"2398",16257,46,"unbowed unbent unbroken","cersei",0.461880215351701
+"2399",16259,46,"unbowed unbent unbroken","cersei",0.0790569415042095
+"2400",16261,46,"unbowed unbent unbroken","cersei",0.357770876399966
+"2401",16263,46,"unbowed unbent unbroken","cersei",-0.559016994374947
+"2402",16265,46,"unbowed unbent unbroken","cersei",-0.2875
+"2403",16267,46,"unbowed unbent unbroken","cersei",0.713865066615067
+"2404",16307,46,"unbowed unbent unbroken","cersei",0.144337567297406
+"2405",16355,47,"the gift","jon",-0.111803398874989
+"2406",16357,47,"the gift","jon",0.577350269189626
+"2407",16359,47,"the gift","jon",0.353553390593274
+"2408",16362,47,"the gift","jon",0
+"2409",16490,47,"the gift","tyrion",-0.176776695296637
+"2410",16492,47,"the gift","tyrion",0.288675134594813
+"2411",16495,47,"the gift","tyrion",0.577350269189626
+"2412",16497,47,"the gift","tyrion",-0.458393935387457
+"2413",16548,47,"the gift","cersei",0.469574275274956
+"2414",16550,47,"the gift","cersei",0.155188057959797
+"2415",16552,47,"the gift","cersei",-0.559016994374947
+"2416",16554,47,"the gift","cersei",-0.204124145231932
+"2417",16556,47,"the gift","cersei",0.711512473537885
+"2418",16557,47,"the gift","cersei",0.433012701892219
+"2419",16559,47,"the gift","cersei",-0.0117851130197758
+"2420",16633,47,"the gift","tyrion",0
+"2421",16636,47,"the gift","tyrion",0
+"2422",16638,47,"the gift","tyrion",0.755928946018454
+"2423",16639,47,"the gift","cersei",0.00928476690885259
+"2424",16641,47,"the gift","cersei",-0.0377964473009227
+"2425",16643,47,"the gift","cersei",0.469485534033442
+"2426",16645,47,"the gift","cersei",-0.242535625036333
+"2427",16647,47,"the gift","cersei",0.0204124145231932
+"2428",16649,47,"the gift","cersei",0
+"2429",16651,47,"the gift","cersei",0.8
+"2430",16653,47,"the gift","cersei",0.7
+"2431",16655,47,"the gift","cersei",0
+"2432",16657,47,"the gift","cersei",0
+"2433",16659,47,"the gift","cersei",-0.288675134594813
+"2434",16661,47,"the gift","cersei",0.577350269189626
+"2435",16663,47,"the gift","cersei",1.05
+"2436",16665,47,"the gift","cersei",0
+"2437",16668,47,"the gift","cersei",-0.75
+"2438",16672,47,"the gift","cersei",0
+"2439",16673,47,"the gift","cersei",-0.346687622640768
+"2440",16676,48,"hardhome","tyrion",0
+"2441",16678,48,"hardhome","tyrion",-0.573539334676404
+"2442",16680,48,"hardhome","tyrion",0.472455591261534
+"2443",16682,48,"hardhome","tyrion",0.710276533206038
+"2444",16684,48,"hardhome","tyrion",0.361478445646026
+"2445",16686,48,"hardhome","tyrion",0.42
+"2446",16688,48,"hardhome","tyrion",0
+"2447",16690,48,"hardhome","tyrion",-0.32659863237109
+"2448",16691,48,"hardhome","tyrion",-0.433012701892219
+"2449",16693,48,"hardhome","tyrion",0
+"2450",16695,48,"hardhome","tyrion",1.6
+"2451",16697,48,"hardhome","tyrion",0.791484281853438
+"2452",16700,48,"hardhome","cersei",0
+"2453",16702,48,"hardhome","cersei",0
+"2454",16736,48,"hardhome","cersei",0
+"2455",16738,48,"hardhome","cersei",-0.5
+"2456",16740,48,"hardhome","cersei",0.32659863237109
+"2457",16742,48,"hardhome","cersei",0
+"2458",16744,48,"hardhome","cersei",0.482990683139955
+"2459",16746,48,"hardhome","cersei",0.25298221281347
+"2460",16748,48,"hardhome","cersei",0
+"2461",16750,48,"hardhome","cersei",-0.49749371855331
+"2462",16781,48,"hardhome","tyrion",-0.223606797749979
+"2463",16783,48,"hardhome","tyrion",0
+"2464",16785,48,"hardhome","tyrion",-0.316227766016838
+"2465",16787,48,"hardhome","tyrion",-0.150755672288882
+"2466",16789,48,"hardhome","tyrion",-0.340168025708305
+"2467",16791,48,"hardhome","tyrion",0
+"2468",16793,48,"hardhome","tyrion",0.275
+"2469",16795,48,"hardhome","tyrion",0.375
+"2470",16797,48,"hardhome","tyrion",0.750466521571749
+"2471",16799,48,"hardhome","tyrion",0.173205080756888
+"2472",16801,48,"hardhome","tyrion",0.391964747951093
+"2473",16803,48,"hardhome","tyrion",0.0176776695296637
+"2474",16805,48,"hardhome","tyrion",0.388908729652601
+"2475",16807,48,"hardhome","tyrion",0
+"2476",16809,48,"hardhome","tyrion",0.494433297537985
+"2477",16811,48,"hardhome","tyrion",-0.75
+"2478",16813,48,"hardhome","tyrion",-1
+"2479",16815,48,"hardhome","tyrion",0.8
+"2480",16817,48,"hardhome","tyrion",0.226778683805536
+"2481",16819,48,"hardhome","tyrion",0.596302710942121
+"2482",16821,48,"hardhome","tyrion",0.25
+"2483",16823,48,"hardhome","tyrion",0.421428571428571
+"2484",16825,48,"hardhome","tyrion",0.226778683805536
+"2485",16833,48,"hardhome","cersei",0
+"2486",16835,48,"hardhome","cersei",0.223606797749979
+"2487",16837,48,"hardhome","cersei",-1.09098579275809
+"2488",16874,48,"hardhome","jon",-0.530330085889911
+"2489",16884,48,"hardhome","jon",-0.75
+"2490",16886,48,"hardhome","jon",0.8
+"2491",16889,48,"hardhome","jon",-0.0707106781186547
+"2492",16892,48,"hardhome","jon",-0.542115198909687
+"2493",16895,48,"hardhome","jon",0.475
+"2494",16897,48,"hardhome","jon",0.125
+"2495",16898,48,"hardhome","jon",-0.516666666666667
+"2496",16900,48,"hardhome","jon",0.353553390593274
+"2497",16904,48,"hardhome","jon",0.288675134594813
+"2498",16906,48,"hardhome","jon",0.360843918243516
+"2499",16907,48,"hardhome","jon",0.65
+"2500",16909,48,"hardhome","jon",-0.224536559755125
+"2501",16911,48,"hardhome","jon",-0.5
+"2502",16913,48,"hardhome","jon",0
+"2503",16917,48,"hardhome","jon",-0.33166247903554
+"2504",16927,48,"hardhome","jon",0
+"2505",16929,48,"hardhome","jon",0
+"2506",16931,48,"hardhome","jon",0.461880215351701
+"2507",16941,48,"hardhome","jon",0
+"2508",16942,48,"hardhome","jon",0
+"2509",16944,48,"hardhome","jon",0
+"2510",16946,48,"hardhome","jon",0
+"2511",16947,48,"hardhome","jon",0
+"2512",16949,48,"hardhome","jon",0
+"2513",16952,48,"hardhome","jon",0
+"2514",16953,48,"hardhome","jon",0
+"2515",16956,48,"hardhome","jon",0
+"2516",16958,48,"hardhome","jon",0
+"2517",16960,48,"hardhome","jon",0
+"2518",16972,49,"the dance of dragons","jon",-0.75
+"2519",16974,49,"the dance of dragons","jon",0
+"2520",16976,49,"the dance of dragons","jon",-0.433012701892219
+"2521",17171,49,"the dance of dragons","tyrion",0
+"2522",17179,49,"the dance of dragons","tyrion",-0.0707106781186547
+"2523",17181,49,"the dance of dragons","tyrion",0.400083324654586
+"2524",17185,49,"the dance of dragons","tyrion",0.288675134594813
+"2525",17196,49,"the dance of dragons","tyrion",0.0832050294337844
+"2526",17201,49,"the dance of dragons","tyrion",0
+"2527",17203,49,"the dance of dragons","tyrion",0
+"2528",17206,49,"the dance of dragons","tyrion",0
+"2529",17226,50,"mothers mercy","jon",0
+"2530",17228,50,"mothers mercy","jon",0.581377674149945
+"2531",17230,50,"mothers mercy","jon",0
+"2532",17232,50,"mothers mercy","jon",-0.353553390593274
+"2533",17234,50,"mothers mercy","jon",0.164991582276861
+"2534",17236,50,"mothers mercy","jon",-0.335410196624968
+"2535",17237,50,"mothers mercy","jon",0
+"2536",17239,50,"mothers mercy","jon",0.0944911182523068
+"2537",17244,50,"mothers mercy","jon",-0.0447213595499958
+"2538",17246,50,"mothers mercy","jon",0
+"2539",17248,50,"mothers mercy","jon",0
+"2540",17249,50,"mothers mercy","jon",-1.01036297108185
+"2541",17251,50,"mothers mercy","jon",0.447213595499958
+"2542",17253,50,"mothers mercy","jon",0
+"2543",17328,50,"mothers mercy","tyrion",-0.483189633810807
+"2544",17337,50,"mothers mercy","tyrion",0.226778683805536
+"2545",17339,50,"mothers mercy","tyrion",0.176776695296637
+"2546",17343,50,"mothers mercy","tyrion",0.302371578407382
+"2547",17345,50,"mothers mercy","tyrion",0
+"2548",17347,50,"mothers mercy","tyrion",-1
+"2549",17349,50,"mothers mercy","tyrion",0
+"2550",17351,50,"mothers mercy","tyrion",-0.866025403784439
+"2551",17353,50,"mothers mercy","tyrion",0.25
+"2552",17356,50,"mothers mercy","tyrion",1
+"2553",17358,50,"mothers mercy","tyrion",1.05
+"2554",17360,50,"mothers mercy","tyrion",-0.05
+"2555",17362,50,"mothers mercy","tyrion",0
+"2556",17364,50,"mothers mercy","tyrion",0.23094010767585
+"2557",17376,50,"mothers mercy","tyrion",0.3
+"2558",17378,50,"mothers mercy","tyrion",0.658407168855261
+"2559",17380,50,"mothers mercy","tyrion",0
+"2560",17382,50,"mothers mercy","tyrion",-1
+"2561",17390,50,"mothers mercy","cersei",0.1375
+"2562",17392,50,"mothers mercy","cersei",0.353553390593274
+"2563",17394,50,"mothers mercy","cersei",0.388908729652601
+"2564",17396,50,"mothers mercy","cersei",0
+"2565",17398,50,"mothers mercy","cersei",-1.06066017177982
+"2566",17400,50,"mothers mercy","cersei",0.111803398874989
+"2567",17402,50,"mothers mercy","cersei",0.288675134594813
+"2568",17404,50,"mothers mercy","cersei",0
+"2569",17406,50,"mothers mercy","cersei",0
+"2570",17408,50,"mothers mercy","cersei",0
+"2571",17410,50,"mothers mercy","cersei",-0.0707106781186548
+"2572",17412,50,"mothers mercy","cersei",0
+"2573",17414,50,"mothers mercy","cersei",0.921635375138065
+"2574",17416,50,"mothers mercy","cersei",0.707106781186547
+"2575",17418,50,"mothers mercy","cersei",-0.0577350269189626
+"2576",17420,50,"mothers mercy","cersei",0.353553390593274
+"2577",17422,50,"mothers mercy","cersei",-0.25
+"2578",17432,50,"mothers mercy","jon",-0.125
+"2579",17434,50,"mothers mercy","jon",-0.223606797749979
+"2580",17436,50,"mothers mercy","jon",-0.5
+"2581",17437,50,"mothers mercy","jon",0
+"2582",17440,50,"mothers mercy","jon",0
+"2583",17443,50,"mothers mercy","jon",-0.353553390593274
+"2584",17445,50,"mothers mercy","jon",0
+"2585",17452,50,"mothers mercy","jon",0
+"2586",17520,51,"the red woman","cersei",0
+"2587",17521,51,"the red woman","cersei",-0.408248290463863
+"2588",17523,51,"the red woman","cersei",-0.403703096936586
+"2589",17524,51,"the red woman","cersei",-0.4
+"2590",17525,51,"the red woman","cersei",0
+"2591",17527,51,"the red woman","cersei",-0.317542648054294
+"2592",17529,51,"the red woman","cersei",0.301511344577764
+"2593",17531,51,"the red woman","cersei",0.441941738241592
+"2594",17533,51,"the red woman","cersei",-0.129278936715386
+"2595",17535,51,"the red woman","cersei",-0.109108945117996
+"2596",17573,51,"the red woman","tyrion",-0.0883883476483184
+"2597",17574,51,"the red woman","tyrion",0.335410196624968
+"2598",17576,51,"the red woman","tyrion",0.0883883476483184
+"2599",17578,51,"the red woman","tyrion",0.335410196624968
+"2600",17579,51,"the red woman","tyrion",0.848528137423857
+"2601",17583,51,"the red woman","tyrion",0
+"2602",17585,51,"the red woman","tyrion",0.102062072615966
+"2603",17587,51,"the red woman","tyrion",0.122983738762488
+"2604",17590,51,"the red woman","tyrion",-0.510310363079829
+"2605",17593,51,"the red woman","tyrion",-0.75
+"2606",17594,51,"the red woman","tyrion",-0.935414346693485
+"2607",17596,51,"the red woman","tyrion",0
+"2608",17598,51,"the red woman","tyrion",0
+"2609",17733,52,"home","cersei",0.0577350269189626
+"2610",17735,52,"home","cersei",0.0577350269189626
+"2611",17737,52,"home","cersei",-0.313049516849971
+"2612",17739,52,"home","cersei",0.268328157299975
+"2613",17778,52,"home","cersei",0.25
+"2614",17780,52,"home","cersei",0.433012701892219
+"2615",17782,52,"home","cersei",1.01036297108185
+"2616",17784,52,"home","cersei",0.8
+"2617",17787,52,"home","cersei",0
+"2618",17788,52,"home","tyrion",-0.447213595499958
+"2619",17789,52,"home","tyrion",0.247487373415292
+"2620",17791,52,"home","tyrion",0
+"2621",17794,52,"home","tyrion",-0.201246117974981
+"2622",17796,52,"home","tyrion",0
+"2623",17798,52,"home","tyrion",0
+"2624",17800,52,"home","tyrion",-0.188982236504614
+"2625",17802,52,"home","tyrion",-0.424264068711928
+"2626",17804,52,"home","tyrion",0
+"2627",17805,52,"home","tyrion",-0.0188982236504614
+"2628",17807,52,"home","tyrion",-0.530330085889911
+"2629",17809,52,"home","tyrion",0.934685168191067
+"2630",17811,52,"home","tyrion",0
+"2631",17812,52,"home","tyrion",0.626099033699941
+"2632",17813,52,"home","tyrion",0.351676656302683
+"2633",17814,52,"home","tyrion",0.1455213750218
+"2634",17815,52,"home","tyrion",0
+"2635",17816,52,"home","tyrion",0
+"2636",17960,53,"oathbreaker","jon",-0.402492235949962
+"2637",17963,53,"oathbreaker","jon",0
+"2638",17967,53,"oathbreaker","jon",-0.0894427190999916
+"2639",17969,53,"oathbreaker","jon",-0.288675134594813
+"2640",17972,53,"oathbreaker","jon",0
+"2641",17976,53,"oathbreaker","jon",-0.2
+"2642",18069,53,"oathbreaker","tyrion",0.075
+"2643",18070,53,"oathbreaker","tyrion",0.151185789203691
+"2644",18071,53,"oathbreaker","tyrion",0.265165042944955
+"2645",18073,53,"oathbreaker","tyrion",1.06066017177982
+"2646",18074,53,"oathbreaker","tyrion",0.801783725737273
+"2647",18076,53,"oathbreaker","tyrion",0.32659863237109
+"2648",18077,53,"oathbreaker","tyrion",0
+"2649",18080,53,"oathbreaker","tyrion",0
+"2650",18082,53,"oathbreaker","tyrion",0.548007755419574
+"2651",18084,53,"oathbreaker","tyrion",0
+"2652",18085,53,"oathbreaker","tyrion",0.368951216287465
+"2653",18086,53,"oathbreaker","tyrion",0
+"2654",18090,53,"oathbreaker","tyrion",-0.557795987468863
+"2655",18092,53,"oathbreaker","tyrion",0.237170824512628
+"2656",18095,53,"oathbreaker","tyrion",0.565685424949238
+"2657",18097,53,"oathbreaker","tyrion",0
+"2658",18099,53,"oathbreaker","tyrion",0
+"2659",18100,53,"oathbreaker","tyrion",0.628063918494197
+"2660",18115,53,"oathbreaker","cersei",0
+"2661",18122,53,"oathbreaker","cersei",0.542720420239975
+"2662",18124,53,"oathbreaker","cersei",0
+"2663",18126,53,"oathbreaker","cersei",-0.0566946709513841
+"2664",18130,53,"oathbreaker","cersei",0
+"2665",18133,53,"oathbreaker","cersei",-0.188982236504614
+"2666",18137,53,"oathbreaker","cersei",0.102062072615966
+"2667",18139,53,"oathbreaker","cersei",-1.06066017177982
+"2668",18141,53,"oathbreaker","cersei",-0.0944911182523068
+"2669",18229,53,"oathbreaker","jon",0
+"2670",18231,53,"oathbreaker","jon",0.530330085889911
+"2671",18234,53,"oathbreaker","jon",0
+"2672",18237,53,"oathbreaker","jon",0
+"2673",18239,53,"oathbreaker","jon",-0.265361388801511
+"2674",18241,54,"book of the stranger","jon",0
+"2675",18243,54,"book of the stranger","jon",0.353553390593274
+"2676",18245,54,"book of the stranger","jon",0
+"2677",18247,54,"book of the stranger","jon",0
+"2678",18249,54,"book of the stranger","jon",-0.0447213595499958
+"2679",18253,54,"book of the stranger","jon",0
+"2680",18255,54,"book of the stranger","jon",0
+"2681",18257,54,"book of the stranger","jon",0
+"2682",18259,54,"book of the stranger","jon",0.6
+"2683",18261,54,"book of the stranger","jon",-0.284604989415154
+"2684",18263,54,"book of the stranger","jon",0.353553390593274
+"2685",18265,54,"book of the stranger","jon",1.21243556529821
+"2686",18266,54,"book of the stranger","jon",0.226133508433323
+"2687",18268,54,"book of the stranger","jon",-0.510252038562457
+"2688",18270,54,"book of the stranger","jon",0
+"2689",18272,54,"book of the stranger","jon",-0.125
+"2690",18274,54,"book of the stranger","jon",0
+"2691",18276,54,"book of the stranger","jon",0
+"2692",18279,54,"book of the stranger","jon",0
+"2693",18281,54,"book of the stranger","jon",-1.09601551083915
+"2694",18282,54,"book of the stranger","jon",-0.0802955068546966
+"2695",18327,54,"book of the stranger","tyrion",0.491353814911995
+"2696",18329,54,"book of the stranger","tyrion",0.548007755419574
+"2697",18332,54,"book of the stranger","tyrion",-0.144337567297406
+"2698",18335,54,"book of the stranger","tyrion",0.850420064270761
+"2699",18337,54,"book of the stranger","tyrion",0
+"2700",18339,54,"book of the stranger","tyrion",0
+"2701",18345,54,"book of the stranger","tyrion",1.7
+"2702",18346,54,"book of the stranger","tyrion",0.166666666666667
+"2703",18348,54,"book of the stranger","tyrion",0.342997170285018
+"2704",18350,54,"book of the stranger","tyrion",-0.116666666666667
+"2705",18351,54,"book of the stranger","tyrion",0.0753778361444409
+"2706",18353,54,"book of the stranger","tyrion",1.15
+"2707",18354,54,"book of the stranger","tyrion",0.437191449637757
+"2708",18355,54,"book of the stranger","tyrion",0.583333333333333
+"2709",18356,54,"book of the stranger","tyrion",-0.183711730708738
+"2710",18359,54,"book of the stranger","tyrion",1
+"2711",18361,54,"book of the stranger","tyrion",0
+"2712",18363,54,"book of the stranger","tyrion",-0.28347335475692
+"2713",18364,54,"book of the stranger","tyrion",0
+"2714",18366,54,"book of the stranger","tyrion",0
+"2715",18368,54,"book of the stranger","tyrion",0
+"2716",18370,54,"book of the stranger","tyrion",-0.1375
+"2717",18372,54,"book of the stranger","tyrion",0
+"2718",18379,54,"book of the stranger","tyrion",0.353553390593274
+"2719",18381,54,"book of the stranger","tyrion",0
+"2720",18383,54,"book of the stranger","tyrion",0.111803398874989
+"2721",18385,54,"book of the stranger","tyrion",0
+"2722",18387,54,"book of the stranger","tyrion",-0.866205806953521
+"2723",18389,54,"book of the stranger","tyrion",0.58502136713115
+"2724",18391,54,"book of the stranger","tyrion",0.0554700196225229
+"2725",18484,54,"book of the stranger","cersei",0
+"2726",18486,54,"book of the stranger","cersei",-0.25
+"2727",18488,54,"book of the stranger","cersei",0.23094010767585
+"2728",18492,54,"book of the stranger","cersei",-0.158113883008419
+"2729",18494,54,"book of the stranger","cersei",-1
+"2730",18496,54,"book of the stranger","cersei",0
+"2731",18497,54,"book of the stranger","cersei",0.69923427506707
+"2732",18499,54,"book of the stranger","cersei",0.350017856687341
+"2733",18501,54,"book of the stranger","cersei",0
+"2734",18503,54,"book of the stranger","cersei",0.416025147168922
+"2735",18504,54,"book of the stranger","cersei",0
+"2736",18506,54,"book of the stranger","cersei",0.176776695296637
+"2737",18509,54,"book of the stranger","cersei",-0.240098019199512
+"2738",18511,54,"book of the stranger","cersei",0.5
+"2739",18517,54,"book of the stranger","cersei",-0.859307332046626
+"2740",18519,54,"book of the stranger","cersei",-0.306186217847897
+"2741",18573,54,"book of the stranger","jon",0
+"2742",18574,54,"book of the stranger","jon",-0.894693349967569
+"2743",18575,54,"book of the stranger","jon",-0.0673575314054563
+"2744",18577,54,"book of the stranger","jon",0
+"2745",18579,54,"book of the stranger","jon",-0.2
+"2746",18581,54,"book of the stranger","jon",0
+"2747",18585,54,"book of the stranger","jon",0
+"2748",18799,55,"the door","tyrion",-0.25
+"2749",18801,55,"the door","tyrion",0.149240501448927
+"2750",18803,55,"the door","tyrion",0.2
+"2751",18805,55,"the door","tyrion",0
+"2752",18807,55,"the door","tyrion",0.353553390593274
+"2753",18808,55,"the door","tyrion",0
+"2754",18809,55,"the door","tyrion",0.0530330085889911
+"2755",18810,55,"the door","tyrion",0.377964473009227
+"2756",18813,55,"the door","tyrion",0.8
+"2757",18815,55,"the door","tyrion",0
+"2758",18817,55,"the door","tyrion",0.317542648054294
+"2759",18819,55,"the door","tyrion",0
+"2760",18821,55,"the door","tyrion",0.707106781186547
+"2761",18823,55,"the door","tyrion",0.938971068066885
+"2762",18827,55,"the door","tyrion",1.15279164267814
+"2763",18847,55,"the door","jon",0.291217603018245
+"2764",18856,55,"the door","jon",0.025
+"2765",18863,55,"the door","jon",0
+"2766",18877,55,"the door","jon",0.565685424949238
+"2767",18879,55,"the door","jon",0.125
+"2768",18882,55,"the door","jon",0.353553390593274
+"2769",18884,55,"the door","jon",-0.707106781186547
+"2770",19168,56,"blood of my blood","cersei",0.122474487139159
+"2771",19170,56,"blood of my blood","cersei",0
+"2772",19172,56,"blood of my blood","cersei",0
+"2773",19174,56,"blood of my blood","cersei",0.0835629021796733
+"2774",19176,56,"blood of my blood","cersei",0
+"2775",19177,56,"blood of my blood","cersei",0.25
+"2776",19178,56,"blood of my blood","cersei",0
+"2777",19293,57,"the broken man","jon",0.327165152540788
+"2778",19296,57,"the broken man","jon",0
+"2779",19298,57,"the broken man","cersei",0
+"2780",19300,57,"the broken man","cersei",-0.816496580927726
+"2781",19302,57,"the broken man","cersei",-0.247487373415292
+"2782",19304,57,"the broken man","cersei",-0.333333333333333
+"2783",19306,57,"the broken man","cersei",0.972271824131503
+"2784",19308,57,"the broken man","cersei",-0.125
+"2785",19349,57,"the broken man","jon",0
+"2786",19353,57,"the broken man","jon",0.0416025147168922
+"2787",19355,57,"the broken man","jon",-0.200445931434318
+"2788",19357,57,"the broken man","jon",0.138675049056307
+"2789",19361,57,"the broken man","jon",-0.0606339062590832
+"2790",19372,57,"the broken man","jon",-0.406586399182265
+"2791",19375,57,"the broken man","jon",0.0408248290463863
+"2792",19377,57,"the broken man","jon",0
+"2793",19400,57,"the broken man","jon",0
+"2794",19402,57,"the broken man","jon",-0.25
+"2795",19404,57,"the broken man","jon",0
+"2796",19406,57,"the broken man","jon",0
+"2797",19408,57,"the broken man","jon",-0.3
+"2798",19410,57,"the broken man","jon",0
+"2799",19443,57,"the broken man","jon",-0.188982236504614
+"2800",19445,57,"the broken man","jon",0
+"2801",19451,57,"the broken man","jon",0.212132034355964
+"2802",19454,57,"the broken man","jon",0
+"2803",19456,57,"the broken man","jon",-0.353553390593274
+"2804",19552,58,"no one","tyrion",0.375
+"2805",19554,58,"no one","tyrion",0
+"2806",19556,58,"no one","tyrion",0.25
+"2807",19558,58,"no one","tyrion",-0.223606797749979
+"2808",19559,58,"no one","tyrion",-0.707106781186547
+"2809",19561,58,"no one","tyrion",1.09696551146029
+"2810",19564,58,"no one","tyrion",0
+"2811",19567,58,"no one","tyrion",0
+"2812",19568,58,"no one","tyrion",0.288675134594813
+"2813",19570,58,"no one","cersei",-0.335410196624968
+"2814",19572,58,"no one","cersei",0
+"2815",19573,58,"no one","cersei",0.288675134594813
+"2816",19576,58,"no one","cersei",1.02050407712491
+"2817",19578,58,"no one","cersei",-0.204124145231932
+"2818",19580,58,"no one","cersei",0.204124145231932
+"2819",19582,58,"no one","cersei",0
+"2820",19585,58,"no one","cersei",-0.353553390593274
+"2821",19586,58,"no one","cersei",1.97297454910817
+"2822",19673,58,"no one","cersei",0
+"2823",19675,58,"no one","cersei",0
+"2824",19678,58,"no one","cersei",0
+"2825",19684,58,"no one","cersei",-0.176776695296637
+"2826",19687,58,"no one","tyrion",0.469485534033442
+"2827",19688,58,"no one","tyrion",0.635085296108588
+"2828",19690,58,"no one","tyrion",0
+"2829",19692,58,"no one","tyrion",0
+"2830",19694,58,"no one","tyrion",0.5
+"2831",19695,58,"no one","tyrion",-0.71443450831176
+"2832",19696,58,"no one","tyrion",-0.75
+"2833",19698,58,"no one","tyrion",0.176776695296637
+"2834",19699,58,"no one","tyrion",-0.408248290463863
+"2835",19700,58,"no one","tyrion",-0.0753778361444409
+"2836",19702,58,"no one","tyrion",0.5
+"2837",19704,58,"no one","tyrion",0.872066511224918
+"2838",19705,58,"no one","tyrion",0.3
+"2839",19707,58,"no one","tyrion",-0.176776695296637
+"2840",19708,58,"no one","tyrion",0.0948683298050514
+"2841",19709,58,"no one","tyrion",-0.577350269189626
+"2842",19710,58,"no one","tyrion",0.353553390593274
+"2843",19712,58,"no one","tyrion",0.8
+"2844",19714,58,"no one","tyrion",0.41576092031015
+"2845",19715,58,"no one","tyrion",0.288675134594813
+"2846",19717,58,"no one","tyrion",0.424264068711928
+"2847",19723,58,"no one","tyrion",-0.353553390593274
+"2848",19726,58,"no one","tyrion",-0.530722777603022
+"2849",19790,58,"no one","tyrion",-0.106066017177982
+"2850",19792,58,"no one","tyrion",-0.13228756555323
+"2851",19794,58,"no one","tyrion",0
+"2852",19796,58,"no one","tyrion",0.565685424949238
+"2853",19798,58,"no one","tyrion",0
+"2854",19853,59,"battle of the bastards","tyrion",0
+"2855",19854,59,"battle of the bastards","tyrion",0.23094010767585
+"2856",19856,59,"battle of the bastards","tyrion",0.188982236504614
+"2857",19857,59,"battle of the bastards","tyrion",-0.260643017571343
+"2858",19858,59,"battle of the bastards","tyrion",0.5
+"2859",19860,59,"battle of the bastards","tyrion",0
+"2860",19863,59,"battle of the bastards","tyrion",0
+"2861",19864,59,"battle of the bastards","tyrion",0.148556270541641
+"2862",19866,59,"battle of the bastards","tyrion",-0.0790569415042095
+"2863",19868,59,"battle of the bastards","tyrion",-0.670820393249937
+"2864",19876,59,"battle of the bastards","tyrion",-0.298481002897855
+"2865",19878,59,"battle of the bastards","tyrion",-0.204124145231932
+"2866",19883,59,"battle of the bastards","tyrion",0.428660704987056
+"2867",19884,59,"battle of the bastards","jon",0
+"2868",19888,59,"battle of the bastards","jon",-0.120267558860591
+"2869",19890,59,"battle of the bastards","jon",-0.353553390593274
+"2870",19896,59,"battle of the bastards","jon",0.0883883476483184
+"2871",19898,59,"battle of the bastards","jon",-0.833333333333333
+"2872",19901,59,"battle of the bastards","jon",-0.296928723209235
+"2873",19902,59,"battle of the bastards","jon",0
+"2874",19903,59,"battle of the bastards","jon",-0.125
+"2875",19907,59,"battle of the bastards","jon",-0.265165042944955
+"2876",19911,59,"battle of the bastards","jon",0.530330085889911
+"2877",19913,59,"battle of the bastards","jon",0.8
+"2878",19915,59,"battle of the bastards","jon",0
+"2879",19917,59,"battle of the bastards","jon",-0.322748612183951
+"2880",19919,59,"battle of the bastards","jon",0.357770876399966
+"2881",19921,59,"battle of the bastards","jon",0.282842712474619
+"2882",19923,59,"battle of the bastards","jon",0
+"2883",19925,59,"battle of the bastards","jon",0.433012701892219
+"2884",19927,59,"battle of the bastards","jon",0
+"2885",19929,59,"battle of the bastards","jon",-0.0721687836487032
+"2886",19931,59,"battle of the bastards","jon",-0.125
+"2887",19949,59,"battle of the bastards","jon",-0.0577350269189626
+"2888",19951,59,"battle of the bastards","jon",0
+"2889",19953,59,"battle of the bastards","jon",-0.144337567297406
+"2890",19955,59,"battle of the bastards","jon",0
+"2891",19957,59,"battle of the bastards","jon",0
+"2892",19959,59,"battle of the bastards","jon",0
+"2893",19961,59,"battle of the bastards","jon",0
+"2894",19963,59,"battle of the bastards","jon",0.447213595499958
+"2895",19965,59,"battle of the bastards","tyrion",0.583363094478902
+"2896",19967,59,"battle of the bastards","tyrion",-0.376889180722205
+"2897",19970,59,"battle of the bastards","tyrion",0.117434589696319
+"2898",19975,59,"battle of the bastards","tyrion",0.0577350269189626
+"2899",19983,59,"battle of the bastards","tyrion",-0.0353553390593274
+"2900",19991,59,"battle of the bastards","tyrion",0
+"2901",19998,59,"battle of the bastards","tyrion",0.15
+"2902",20014,59,"battle of the bastards","jon",0
+"2903",20034,59,"battle of the bastards","jon",-0.163299316185545
+"2904",20088,60,"the winds of winter","cersei",-0.707106781186547
+"2905",20090,60,"the winds of winter","cersei",-0.5
+"2906",20091,60,"the winds of winter","cersei",0.351676656302683
+"2907",20092,60,"the winds of winter","cersei",0.176776695296637
+"2908",20093,60,"the winds of winter","cersei",-0.176776695296637
+"2909",20095,60,"the winds of winter","cersei",-0.7
+"2910",20096,60,"the winds of winter","cersei",0.125
+"2911",20097,60,"the winds of winter","cersei",-0.288675134594813
+"2912",20099,60,"the winds of winter","cersei",-0.75
+"2913",20100,60,"the winds of winter","cersei",-0.75
+"2914",20101,60,"the winds of winter","cersei",-0.75
+"2915",20134,60,"the winds of winter","cersei",0
+"2916",20136,60,"the winds of winter","cersei",0
+"2917",20138,60,"the winds of winter","cersei",-0.14142135623731
+"2918",20151,60,"the winds of winter","jon",0
+"2919",20153,60,"the winds of winter","jon",0.750555349946514
+"2920",20154,60,"the winds of winter","jon",0
+"2921",20171,60,"the winds of winter","jon",0
+"2922",20173,60,"the winds of winter","jon",-0.377964473009227
+"2923",20175,60,"the winds of winter","jon",0.288675134594813
+"2924",20177,60,"the winds of winter","jon",-0.5
+"2925",20179,60,"the winds of winter","jon",-0.103279555898864
+"2926",20180,60,"the winds of winter","jon",0.5
+"2927",20182,60,"the winds of winter","jon",-0.566946709513841
+"2928",20185,60,"the winds of winter","jon",0.288675134594813
+"2929",20230,60,"the winds of winter","tyrion",0
+"2930",20232,60,"the winds of winter","tyrion",0.341768277573498
+"2931",20234,60,"the winds of winter","tyrion",-0.202072594216369
+"2932",20236,60,"the winds of winter","tyrion",-0.0485071250072666
+"2933",20237,60,"the winds of winter","tyrion",-0.288675134594813
+"2934",20239,60,"the winds of winter","tyrion",0.433012701892219
+"2935",20241,60,"the winds of winter","tyrion",0.0639602149066831
+"2936",20242,60,"the winds of winter","tyrion",-0.540936687607709
+"2937",20244,60,"the winds of winter","tyrion",0
+"2938",20300,60,"the winds of winter","jon",0.615
+"2939",20302,60,"the winds of winter","jon",-0.286666666666667
+"2940",20306,60,"the winds of winter","jon",0.288675134594813
+"2941",20329,61,"dragonstone","jon",0.0456435464587638
+"2942",20331,61,"dragonstone","jon",0.25
+"2943",20332,61,"dragonstone","jon",-0.245967477524977
+"2944",20338,61,"dragonstone","jon",0.0235702260395516
+"2945",20339,61,"dragonstone","jon",0.4
+"2946",20341,61,"dragonstone","jon",0.0301511344577764
+"2947",20343,61,"dragonstone","jon",-0.05
+"2948",20347,61,"dragonstone","jon",0.569209978830308
+"2949",20349,61,"dragonstone","jon",-0.530330085889911
+"2950",20351,61,"dragonstone","jon",-1.17873791697861
+"2951",20353,61,"dragonstone","jon",-0.534296708742411
+"2952",20354,61,"dragonstone","jon",0
+"2953",20355,61,"dragonstone","jon",0
+"2954",20356,61,"dragonstone","jon",0.212132034355964
+"2955",20357,61,"dragonstone","jon",0
+"2956",20358,61,"dragonstone","jon",-0.125
+"2957",20360,61,"dragonstone","jon",0.0707106781186548
+"2958",20362,61,"dragonstone","jon",-0.204124145231932
+"2959",20364,61,"dragonstone","jon",0
+"2960",20366,61,"dragonstone","jon",0
+"2961",20368,61,"dragonstone","jon",0.5
+"2962",20370,61,"dragonstone","jon",0
+"2963",20372,61,"dragonstone","jon",0
+"2964",20375,61,"dragonstone","jon",-0.28347335475692
+"2965",20377,61,"dragonstone","jon",0.25
+"2966",20379,61,"dragonstone","jon",0.0944911182523068
+"2967",20382,61,"dragonstone","jon",0.353553390593274
+"2968",20385,61,"dragonstone","jon",0.23094010767585
+"2969",20387,61,"dragonstone","jon",-0.494974746830583
+"2970",20389,61,"dragonstone","jon",0.0353553390593274
+"2971",20391,61,"dragonstone","jon",0
+"2972",20393,61,"dragonstone","jon",0.115470053837925
+"2973",20396,61,"dragonstone","cersei",0
+"2974",20398,61,"dragonstone","cersei",0
+"2975",20399,61,"dragonstone","cersei",-0.223606797749979
+"2976",20401,61,"dragonstone","cersei",-0.75
+"2977",20403,61,"dragonstone","cersei",0.235221060639606
+"2978",20406,61,"dragonstone","cersei",-0.707106781186547
+"2979",20407,61,"dragonstone","cersei",-1.06144555520604
+"2980",20408,61,"dragonstone","cersei",-0.944911182523068
+"2981",20409,61,"dragonstone","cersei",-1.17837660727436
+"2982",20411,61,"dragonstone","cersei",-0.5
+"2983",20413,61,"dragonstone","cersei",0
+"2984",20415,61,"dragonstone","cersei",0.625
+"2985",20417,61,"dragonstone","cersei",0
+"2986",20419,61,"dragonstone","cersei",0
+"2987",20421,61,"dragonstone","cersei",-0.91706052144883
+"2988",20423,61,"dragonstone","cersei",0.0316227766016838
+"2989",20425,61,"dragonstone","cersei",0.408248290463863
+"2990",20427,61,"dragonstone","cersei",0
+"2991",20429,61,"dragonstone","cersei",0
+"2992",20431,61,"dragonstone","cersei",0.866025403784439
+"2993",20433,61,"dragonstone","cersei",0
+"2994",20435,61,"dragonstone","cersei",0
+"2995",20437,61,"dragonstone","cersei",0
+"2996",20447,61,"dragonstone","cersei",0.6
+"2997",20449,61,"dragonstone","cersei",0
+"2998",20451,61,"dragonstone","cersei",-0.530330085889911
+"2999",20453,61,"dragonstone","cersei",0.233333333333333
+"3000",20599,62,"stormborn","tyrion",0.25
+"3001",20603,62,"stormborn","tyrion",0
+"3002",20610,62,"stormborn","tyrion",0.163299316185545
+"3003",20612,62,"stormborn","tyrion",0.401477534273483
+"3004",20622,62,"stormborn","tyrion",0.379473319220206
+"3005",20633,62,"stormborn","tyrion",0.670820393249937
+"3006",20654,62,"stormborn","tyrion",0
+"3007",20658,62,"stormborn","tyrion",-0.447213595499958
+"3008",20660,62,"stormborn","tyrion",0.268328157299975
+"3009",20665,62,"stormborn","tyrion",0.753778361444409
+"3010",20666,62,"stormborn","tyrion",-0.0471404520791032
+"3011",20669,62,"stormborn","jon",0
+"3012",20671,62,"stormborn","jon",0.266666666666667
+"3013",20674,62,"stormborn","jon",0
+"3014",20678,62,"stormborn","jon",0
+"3015",20680,62,"stormborn","cersei",-0.445477272147525
+"3016",20681,62,"stormborn","cersei",-0.198088693354221
+"3017",20682,62,"stormborn","cersei",0.166410058867569
+"3018",20724,62,"stormborn","cersei",-0.212132034355964
+"3019",20726,62,"stormborn","cersei",-0.193649167310371
+"3020",20731,62,"stormborn","tyrion",-0.680336051416609
+"3021",20733,62,"stormborn","tyrion",-0.0318198051533946
+"3022",20741,62,"stormborn","tyrion",0
+"3023",20742,62,"stormborn","tyrion",0.3875
+"3024",20744,62,"stormborn","tyrion",0
+"3025",20745,62,"stormborn","tyrion",-0.0416025147168922
+"3026",20746,62,"stormborn","tyrion",0.115470053837925
+"3027",20748,62,"stormborn","tyrion",0.0344123600805843
+"3028",20847,62,"stormborn","jon",0.226778683805536
+"3029",20848,62,"stormborn","jon",0.32742309379905
+"3030",20849,62,"stormborn","jon",0.353553390593274
+"3031",20850,62,"stormborn","jon",-0.0277350098112615
+"3032",20851,62,"stormborn","jon",-0.0944911182523068
+"3033",20853,62,"stormborn","jon",0
+"3034",20855,62,"stormborn","jon",0.28347335475692
+"3035",20859,62,"stormborn","jon",0.243708718337977
+"3036",20861,62,"stormborn","jon",0.244948974278318
+"3037",20863,62,"stormborn","jon",0.433012701892219
+"3038",20865,62,"stormborn","jon",-0.223606797749979
+"3039",20868,62,"stormborn","jon",0
+"3040",20870,62,"stormborn","jon",0
+"3041",20872,62,"stormborn","jon",-0.433012701892219
+"3042",20912,63,"the queens justice","tyrion",-0.707106781186547
+"3043",20913,63,"the queens justice","jon",0
+"3044",20914,63,"the queens justice","tyrion",0.447213595499958
+"3045",20915,63,"the queens justice","jon",-0.106066017177982
+"3046",20916,63,"the queens justice","tyrion",0
+"3047",20917,63,"the queens justice","tyrion",0
+"3048",20919,63,"the queens justice","tyrion",0.0333333333333333
+"3049",20921,63,"the queens justice","tyrion",0.25
+"3050",20923,63,"the queens justice","jon",0
+"3051",20929,63,"the queens justice","tyrion",0.288675134594813
+"3052",20930,63,"the queens justice","jon",0
+"3053",20931,63,"the queens justice","tyrion",-1.06066017177982
+"3054",20932,63,"the queens justice","tyrion",0.0577350269189626
+"3055",20933,63,"the queens justice","jon",0
+"3056",20934,63,"the queens justice","tyrion",0.519615242270663
+"3057",20935,63,"the queens justice","jon",0
+"3058",20936,63,"the queens justice","tyrion",0.458530260724415
+"3059",20937,63,"the queens justice","jon",0
+"3060",20938,63,"the queens justice","tyrion",-0.223606797749979
+"3061",20939,63,"the queens justice","jon",-0.375
+"3062",20940,63,"the queens justice","tyrion",-0.0288675134594813
+"3063",20941,63,"the queens justice","jon",-0.636396103067893
+"3064",20942,63,"the queens justice","tyrion",0
+"3065",20943,63,"the queens justice","tyrion",0
+"3066",20962,63,"the queens justice","jon",0.866025403784439
+"3067",20965,63,"the queens justice","tyrion",0.5
+"3068",20969,63,"the queens justice","tyrion",0
+"3069",20971,63,"the queens justice","jon",0
+"3070",20973,63,"the queens justice","jon",-0.0138675049056307
+"3071",20975,63,"the queens justice","jon",-0.0944911182523068
+"3072",20977,63,"the queens justice","jon",0
+"3073",20979,63,"the queens justice","jon",0
+"3074",20981,63,"the queens justice","jon",-0.883883476483184
+"3075",20984,63,"the queens justice","tyrion",0
+"3076",20985,63,"the queens justice","jon",0.174355957741627
+"3077",20987,63,"the queens justice","jon",0.521775813927782
+"3078",20989,63,"the queens justice","tyrion",0
+"3079",20991,63,"the queens justice","tyrion",0.347011046894284
+"3080",20992,63,"the queens justice","jon",-0.548007755419574
+"3081",20994,63,"the queens justice","jon",-1.73205080756888
+"3082",20997,63,"the queens justice","jon",-0.577350269189626
+"3083",20998,63,"the queens justice","tyrion",-0.707106781186547
+"3084",20999,63,"the queens justice","jon",-0.782623792124926
+"3085",21000,63,"the queens justice","tyrion",0
+"3086",21001,63,"the queens justice","jon",-0.573201535238698
+"3087",21002,63,"the queens justice","jon",0
+"3088",21006,63,"the queens justice","jon",-0.313049516849971
+"3089",21007,63,"the queens justice","tyrion",-0.569209978830308
+"3090",21008,63,"the queens justice","tyrion",0
+"3091",21013,63,"the queens justice","tyrion",0
+"3092",21014,63,"the queens justice","tyrion",0.105528970602217
+"3093",21015,63,"the queens justice","jon",0
+"3094",21016,63,"the queens justice","tyrion",0.102062072615966
+"3095",21017,63,"the queens justice","jon",0
+"3096",21018,63,"the queens justice","jon",0.229365855462782
+"3097",21021,63,"the queens justice","jon",-0.75
+"3098",21039,63,"the queens justice","cersei",0.922233314142515
+"3099",21041,63,"the queens justice","cersei",1.25
+"3100",21043,63,"the queens justice","cersei",0.346410161513775
+"3101",21044,63,"the queens justice","cersei",-0.5
+"3102",21045,63,"the queens justice","cersei",-0.0258198889747161
+"3103",21053,63,"the queens justice","cersei",-0.127920429813366
+"3104",21054,63,"the queens justice","cersei",0.900767278569135
+"3105",21055,63,"the queens justice","cersei",0
+"3106",21056,63,"the queens justice","cersei",0.830850467894193
+"3107",21057,63,"the queens justice","cersei",0.530330085889911
+"3108",21058,63,"the queens justice","cersei",0.795495128834866
+"3109",21059,63,"the queens justice","cersei",0
+"3110",21060,63,"the queens justice","cersei",0.442718872423573
+"3111",21061,63,"the queens justice","cersei",-0.109544511501033
+"3112",21062,63,"the queens justice","cersei",-0.2
+"3113",21063,63,"the queens justice","cersei",0.758946638440411
+"3114",21065,63,"the queens justice","cersei",0.166410058867569
+"3115",21067,63,"the queens justice","cersei",0
+"3116",21068,63,"the queens justice","cersei",-0.433012701892219
+"3117",21070,63,"the queens justice","cersei",-0.954594154601839
+"3118",21072,63,"the queens justice","cersei",-0.102062072615966
+"3119",21073,63,"the queens justice","cersei",-0.458530260724415
+"3120",21078,63,"the queens justice","cersei",0.5
+"3121",21080,63,"the queens justice","cersei",0.559016994374947
+"3122",21085,63,"the queens justice","cersei",-0.122474487139159
+"3123",21087,63,"the queens justice","cersei",-0.894427190999916
+"3124",21089,63,"the queens justice","cersei",0.223606797749979
+"3125",21091,63,"the queens justice","cersei",0
+"3126",21093,63,"the queens justice","cersei",0.335410196624968
+"3127",21095,63,"the queens justice","cersei",-0.0606339062590832
+"3128",21097,63,"the queens justice","cersei",0.577350269189626
+"3129",21099,63,"the queens justice","cersei",0.174574312188794
+"3130",21101,63,"the queens justice","cersei",0.0833333333333333
+"3131",21102,63,"the queens justice","cersei",-0.154919333848297
+"3132",21104,63,"the queens justice","cersei",0.0693375245281536
+"3133",21105,63,"the queens justice","tyrion",-1.03708994574027
+"3134",21106,63,"the queens justice","jon",-0.530330085889911
+"3135",21107,63,"the queens justice","tyrion",-0.0790569415042095
+"3136",21108,63,"the queens justice","jon",0
+"3137",21109,63,"the queens justice","tyrion",0
+"3138",21110,63,"the queens justice","jon",-0.408248290463863
+"3139",21111,63,"the queens justice","tyrion",-0.65
+"3140",21112,63,"the queens justice","jon",0.123333333333333
+"3141",21113,63,"the queens justice","jon",0
+"3142",21114,63,"the queens justice","tyrion",0
+"3143",21115,63,"the queens justice","jon",-0.306186217847897
+"3144",21116,63,"the queens justice","tyrion",0.277350098112615
+"3145",21117,63,"the queens justice","jon",-0.0944911182523068
+"3146",21118,63,"the queens justice","tyrion",0.530330085889911
+"3147",21119,63,"the queens justice","jon",0.335410196624968
+"3148",21120,63,"the queens justice","tyrion",-0.0730677007226099
+"3149",21121,63,"the queens justice","jon",0.123743686707646
+"3150",21122,63,"the queens justice","tyrion",-0.0566946709513841
+"3151",21123,63,"the queens justice","jon",-0.4375
+"3152",21124,63,"the queens justice","tyrion",0.336533381674288
+"3153",21125,63,"the queens justice","tyrion",0.288675134594813
+"3154",21126,63,"the queens justice","jon",0
+"3155",21127,63,"the queens justice","tyrion",-0.306186217847897
+"3156",21129,63,"the queens justice","tyrion",0.302371578407382
+"3157",21131,63,"the queens justice","tyrion",0.357770876399966
+"3158",21133,63,"the queens justice","tyrion",-0.505181485540923
+"3159",21135,63,"the queens justice","tyrion",0.012909944487358
+"3160",21137,63,"the queens justice","tyrion",0
+"3161",21139,63,"the queens justice","tyrion",-0.0694365074829413
+"3162",21141,63,"the queens justice","tyrion",0
+"3163",21146,63,"the queens justice","jon",0
+"3164",21148,63,"the queens justice","jon",0.353553390593274
+"3165",21150,63,"the queens justice","jon",0
+"3166",21152,63,"the queens justice","jon",0
+"3167",21154,63,"the queens justice","jon",0
+"3168",21156,63,"the queens justice","jon",0.5
+"3169",21157,63,"the queens justice","jon",-0.402492235949962
+"3170",21238,63,"the queens justice","tyrion",-0.133630620956212
+"3171",21241,63,"the queens justice","tyrion",0.288675134594813
+"3172",21246,63,"the queens justice","tyrion",0.423745206462563
+"3173",21247,63,"the queens justice","tyrion",0
+"3174",21248,63,"the queens justice","tyrion",0
+"3175",21249,63,"the queens justice","tyrion",0.8
+"3176",21251,63,"the queens justice","tyrion",0
+"3177",21252,63,"the queens justice","tyrion",-0.755928946018454
+"3178",21253,63,"the queens justice","tyrion",-0.0376889180722204
+"3179",21254,63,"the queens justice","tyrion",0.05
+"3180",21255,63,"the queens justice","tyrion",0.0530330085889911
+"3181",21256,63,"the queens justice","tyrion",0.35
+"3182",21257,63,"the queens justice","tyrion",-0.189736659610103
+"3183",21258,63,"the queens justice","tyrion",-0.457627661885814
+"3184",21322,64,"the spoils of war","cersei",0.353553390593274
+"3185",21324,64,"the spoils of war","cersei",0.2
+"3186",21326,64,"the spoils of war","cersei",0.223606797749979
+"3187",21328,64,"the spoils of war","cersei",0
+"3188",21330,64,"the spoils of war","cersei",0.490747728811182
+"3189",21332,64,"the spoils of war","cersei",0.850420064270761
+"3190",21447,64,"the spoils of war","jon",0.25
+"3191",21449,64,"the spoils of war","jon",-0.401477534273483
+"3192",21450,64,"the spoils of war","jon",0
+"3193",21451,64,"the spoils of war","jon",0.0277350098112615
+"3194",21452,64,"the spoils of war","jon",0.346410161513775
+"3195",21454,64,"the spoils of war","jon",0
+"3196",21456,64,"the spoils of war","jon",0.0894427190999916
+"3197",21457,64,"the spoils of war","jon",0.3
+"3198",21460,64,"the spoils of war","jon",-0.9
+"3199",21462,64,"the spoils of war","jon",0.268328157299975
+"3200",21464,64,"the spoils of war","jon",0
+"3201",21467,64,"the spoils of war","tyrion",0
+"3202",21472,64,"the spoils of war","tyrion",0
+"3203",21474,64,"the spoils of war","tyrion",-0.37
+"3204",21476,64,"the spoils of war","tyrion",-0.989949493661166
+"3205",21480,64,"the spoils of war","tyrion",0
+"3206",21482,64,"the spoils of war","tyrion",0.223606797749979
+"3207",21484,64,"the spoils of war","jon",0
+"3208",21487,64,"the spoils of war","jon",-0.296348748344179
+"3209",21488,64,"the spoils of war","jon",-0.277160931262294
+"3210",21507,64,"the spoils of war","jon",0
+"3211",21509,64,"the spoils of war","jon",0.433012701892219
+"3212",21511,64,"the spoils of war","jon",-0.115470053837925
+"3213",21513,64,"the spoils of war","jon",0
+"3214",21517,64,"the spoils of war","jon",0
+"3215",21519,64,"the spoils of war","jon",0
+"3216",21521,64,"the spoils of war","jon",-0.5
+"3217",21525,64,"the spoils of war","jon",0.106066017177982
+"3218",21527,64,"the spoils of war","jon",-0.5
+"3219",21532,64,"the spoils of war","jon",0
+"3220",21534,64,"the spoils of war","jon",0
+"3221",21537,64,"the spoils of war","jon",-0.0087038827977849
+"3222",21540,64,"the spoils of war","jon",-0.0670820393249937
+"3223",21545,64,"the spoils of war","jon",0
+"3224",21591,64,"the spoils of war","tyrion",-0.33587572106361
+"3225",21610,65,"eastwatch","tyrion",-0.201395134002786
+"3226",21613,65,"eastwatch","tyrion",0.736121593216773
+"3227",21620,65,"eastwatch","tyrion",0
+"3228",21622,65,"eastwatch","tyrion",0.346738046264428
+"3229",21624,65,"eastwatch","tyrion",0.447213595499958
+"3230",21626,65,"eastwatch","tyrion",0.25
+"3231",21630,65,"eastwatch","cersei",-0.144337567297406
+"3232",21632,65,"eastwatch","cersei",0.0753778361444409
+"3233",21633,65,"eastwatch","cersei",-0.288675134594813
+"3234",21635,65,"eastwatch","cersei",-0.212132034355964
+"3235",21636,65,"eastwatch","cersei",-0.126491106406735
+"3236",21638,65,"eastwatch","cersei",0
+"3237",21640,65,"eastwatch","cersei",0.288675134594813
+"3238",21642,65,"eastwatch","cersei",-0.125
+"3239",21644,65,"eastwatch","cersei",0
+"3240",21646,65,"eastwatch","cersei",-0.577350269189626
+"3241",21648,65,"eastwatch","cersei",-0.565685424949238
+"3242",21651,65,"eastwatch","jon",0.357770876399966
+"3243",21653,65,"eastwatch","jon",0
+"3244",21655,65,"eastwatch","jon",0
+"3245",21658,65,"eastwatch","jon",0
+"3246",21660,65,"eastwatch","jon",0
+"3247",21662,65,"eastwatch","jon",0
+"3248",21668,65,"eastwatch","jon",0.188982236504614
+"3249",21702,65,"eastwatch","tyrion",-0.0267261241912424
+"3250",21704,65,"eastwatch","tyrion",0
+"3251",21707,65,"eastwatch","tyrion",0
+"3252",21709,65,"eastwatch","tyrion",0
+"3253",21711,65,"eastwatch","tyrion",0
+"3254",21713,65,"eastwatch","tyrion",0
+"3255",21715,65,"eastwatch","jon",-0.816496580927726
+"3256",21717,65,"eastwatch","jon",0.0301511344577764
+"3257",21719,65,"eastwatch","jon",0
+"3258",21721,65,"eastwatch","jon",-0.111803398874989
+"3259",21723,65,"eastwatch","tyrion",-0.414254924964258
+"3260",21724,65,"eastwatch","jon",-0.226133508433323
+"3261",21725,65,"eastwatch","tyrion",-0.707106781186547
+"3262",21727,65,"eastwatch","tyrion",0
+"3263",21729,65,"eastwatch","jon",0.05
+"3264",21730,65,"eastwatch","tyrion",0.41576092031015
+"3265",21732,65,"eastwatch","tyrion",0
+"3266",21739,65,"eastwatch","jon",0.646666666666667
+"3267",21741,65,"eastwatch","jon",0
+"3268",21743,65,"eastwatch","jon",0
+"3269",21745,65,"eastwatch","jon",0.842749828079053
+"3270",21771,65,"eastwatch","tyrion",-0.223606797749979
+"3271",21774,65,"eastwatch","tyrion",0
+"3272",21776,65,"eastwatch","tyrion",0
+"3273",21788,65,"eastwatch","tyrion",-0.474341649025257
+"3274",21789,65,"eastwatch","tyrion",0.261861468283191
+"3275",21791,65,"eastwatch","tyrion",0
+"3276",21793,65,"eastwatch","tyrion",-0.316227766016838
+"3277",21794,65,"eastwatch","tyrion",-0.0727606875108999
+"3278",21796,65,"eastwatch","tyrion",0.0802955068546966
+"3279",21798,65,"eastwatch","tyrion",0.125723711418742
+"3280",21846,65,"eastwatch","tyrion",0.2
+"3281",21851,65,"eastwatch","tyrion",0
+"3282",21853,65,"eastwatch","cersei",-0.0833333333333333
+"3283",21856,65,"eastwatch","cersei",0
+"3284",21858,65,"eastwatch","cersei",0.282842712474619
+"3285",21860,65,"eastwatch","cersei",-0.353553390593274
+"3286",21862,65,"eastwatch","cersei",0.827345151674922
+"3287",21864,65,"eastwatch","cersei",-0.530330085889911
+"3288",21866,65,"eastwatch","cersei",-0.25
+"3289",21867,65,"eastwatch","cersei",0.416025147168922
+"3290",21869,65,"eastwatch","cersei",-0.175
+"3291",21871,65,"eastwatch","cersei",0
+"3292",21873,65,"eastwatch","cersei",0
+"3293",21875,65,"eastwatch","cersei",-0.206155281280883
+"3294",21883,65,"eastwatch","jon",0.288675134594813
+"3295",21885,65,"eastwatch","jon",0.715541752799933
+"3296",21889,65,"eastwatch","jon",0
+"3297",21891,65,"eastwatch","jon",0
+"3298",21893,65,"eastwatch","jon",0
+"3299",21897,65,"eastwatch","jon",-0.408248290463863
+"3300",21898,65,"eastwatch","jon",-0.75
+"3301",21901,65,"eastwatch","jon",0
+"3302",21905,65,"eastwatch","tyrion",0.13824530627071
+"3303",21906,65,"eastwatch","tyrion",0.133333333333333
+"3304",21908,65,"eastwatch","tyrion",0
+"3305",21911,65,"eastwatch","jon",0.0285773803324704
+"3306",21913,65,"eastwatch","jon",0.658407168855261
+"3307",21914,65,"eastwatch","jon",0
+"3308",21941,65,"eastwatch","jon",0
+"3309",21943,65,"eastwatch","jon",0
+"3310",21945,65,"eastwatch","jon",-0.25
+"3311",21954,65,"eastwatch","jon",0
+"3312",21974,65,"eastwatch","jon",0.565685424949238
+"3313",21976,65,"eastwatch","jon",0
+"3314",21978,66,"beyond the wall","jon",0.1
+"3315",21979,66,"beyond the wall","jon",0
+"3316",21982,66,"beyond the wall","jon",0
+"3317",21984,66,"beyond the wall","jon",0.361813613493316
+"3318",21987,66,"beyond the wall","jon",0
+"3319",21990,66,"beyond the wall","jon",0.25
+"3320",21993,66,"beyond the wall","jon",-0.223606797749979
+"3321",22012,66,"beyond the wall","jon",0
+"3322",22014,66,"beyond the wall","jon",0.283333333333333
+"3323",22016,66,"beyond the wall","jon",-0.471495166791445
+"3324",22018,66,"beyond the wall","jon",0
+"3325",22020,66,"beyond the wall","jon",0.106066017177982
+"3326",22022,66,"beyond the wall","jon",-0.252357307257618
+"3327",22023,66,"beyond the wall","jon",0.110940039245046
+"3328",22024,66,"beyond the wall","jon",0.302371578407382
+"3329",22026,66,"beyond the wall","jon",0
+"3330",22095,66,"beyond the wall","jon",0
+"3331",22097,66,"beyond the wall","jon",0
+"3332",22099,66,"beyond the wall","jon",0
+"3333",22101,66,"beyond the wall","jon",0
+"3334",22103,66,"beyond the wall","jon",0
+"3335",22105,66,"beyond the wall","jon",0
+"3336",22107,66,"beyond the wall","jon",-0.8
+"3337",22109,66,"beyond the wall","jon",-0.75
+"3338",22111,66,"beyond the wall","jon",-0.125
+"3339",22113,66,"beyond the wall","jon",-0.346738046264428
+"3340",22119,66,"beyond the wall","tyrion",0
+"3341",22121,66,"beyond the wall","tyrion",0.237170824512628
+"3342",22122,66,"beyond the wall","tyrion",-0.0670820393249937
+"3343",22124,66,"beyond the wall","tyrion",0.527644853011086
+"3344",22145,67,"the dragon and the wolf","jon",0
+"3345",22146,67,"the dragon and the wolf","tyrion",0
+"3346",22147,67,"the dragon and the wolf","jon",0
+"3347",22148,67,"the dragon and the wolf","tyrion",0.0894427190999916
+"3348",22149,67,"the dragon and the wolf","cersei",0
+"3349",22151,67,"the dragon and the wolf","cersei",0
+"3350",22153,67,"the dragon and the wolf","cersei",0.707106781186547
+"3351",22155,67,"the dragon and the wolf","cersei",-0.866025403784439
+"3352",22158,67,"the dragon and the wolf","tyrion",-0.44783429475148
+"3353",22162,67,"the dragon and the wolf","tyrion",0.425
+"3354",22164,67,"the dragon and the wolf","tyrion",-0.144337567297406
+"3355",22166,67,"the dragon and the wolf","tyrion",0
+"3356",22181,67,"the dragon and the wolf","tyrion",0.428660704987056
+"3357",22183,67,"the dragon and the wolf","tyrion",0.158113883008419
+"3358",22185,67,"the dragon and the wolf","tyrion",0.461880215351701
+"3359",22188,67,"the dragon and the wolf","tyrion",-0.0944911182523068
+"3360",22190,67,"the dragon and the wolf","tyrion",0.530330085889911
+"3361",22195,67,"the dragon and the wolf","tyrion",0
+"3362",22197,67,"the dragon and the wolf","tyrion",-0.5
+"3363",22199,67,"the dragon and the wolf","cersei",0
+"3364",22200,67,"the dragon and the wolf","tyrion",0
+"3365",22201,67,"the dragon and the wolf","cersei",0
+"3366",22202,67,"the dragon and the wolf","tyrion",0
+"3367",22203,67,"the dragon and the wolf","cersei",0
+"3368",22205,67,"the dragon and the wolf","tyrion",0.424264068711928
+"3369",22207,67,"the dragon and the wolf","tyrion",-0.268328157299975
+"3370",22209,67,"the dragon and the wolf","tyrion",0.606217782649107
+"3371",22213,67,"the dragon and the wolf","cersei",-0.176776695296637
+"3372",22214,67,"the dragon and the wolf","tyrion",-0.0944911182523068
+"3373",22215,67,"the dragon and the wolf","cersei",0.176776695296637
+"3374",22216,67,"the dragon and the wolf","tyrion",0
+"3375",22217,67,"the dragon and the wolf","cersei",0
+"3376",22218,67,"the dragon and the wolf","jon",-0.27
+"3377",22219,67,"the dragon and the wolf","cersei",0.433012701892219
+"3378",22220,67,"the dragon and the wolf","jon",0
+"3379",22221,67,"the dragon and the wolf","cersei",0.534048999000404
+"3380",22223,67,"the dragon and the wolf","cersei",-0.141841628653395
+"3381",22225,67,"the dragon and the wolf","cersei",-0.461880215351701
+"3382",22226,67,"the dragon and the wolf","tyrion",-0.204124145231932
+"3383",22227,67,"the dragon and the wolf","jon",-0.636396103067893
+"3384",22228,67,"the dragon and the wolf","jon",-0.265165042944955
+"3385",22229,67,"the dragon and the wolf","jon",-0.223606797749979
+"3386",22234,67,"the dragon and the wolf","jon",0
+"3387",22236,67,"the dragon and the wolf","cersei",0
+"3388",22239,67,"the dragon and the wolf","cersei",-1.42844479958259
+"3389",22240,67,"the dragon and the wolf","cersei",0
+"3390",22242,67,"the dragon and the wolf","cersei",0
+"3391",22243,67,"the dragon and the wolf","jon",0
+"3392",22244,67,"the dragon and the wolf","cersei",0
+"3393",22255,67,"the dragon and the wolf","jon",0
+"3394",22256,67,"the dragon and the wolf","tyrion",0.175
+"3395",22257,67,"the dragon and the wolf","jon",0.530722777603022
+"3396",22258,67,"the dragon and the wolf","tyrion",-1.0285912696499
+"3397",22260,67,"the dragon and the wolf","tyrion",0.163299316185545
+"3398",22262,67,"the dragon and the wolf","tyrion",0.0904534033733291
+"3399",22263,67,"the dragon and the wolf","jon",0
+"3400",22264,67,"the dragon and the wolf","tyrion",-0.603738353924943
+"3401",22265,67,"the dragon and the wolf","tyrion",0
+"3402",22267,67,"the dragon and the wolf","tyrion",-0.82915619758885
+"3403",22269,67,"the dragon and the wolf","cersei",-0.265165042944955
+"3404",22270,67,"the dragon and the wolf","tyrion",-0.944911182523068
+"3405",22271,67,"the dragon and the wolf","cersei",0.268328157299975
+"3406",22272,67,"the dragon and the wolf","tyrion",0
+"3407",22273,67,"the dragon and the wolf","cersei",0.166666666666667
+"3408",22274,67,"the dragon and the wolf","tyrion",0
+"3409",22275,67,"the dragon and the wolf","cersei",-0.530330085889911
+"3410",22276,67,"the dragon and the wolf","tyrion",0.0223606797749979
+"3411",22277,67,"the dragon and the wolf","cersei",-0.353553390593274
+"3412",22278,67,"the dragon and the wolf","tyrion",-1.26634764722661
+"3413",22279,67,"the dragon and the wolf","cersei",-0.350230338952211
+"3414",22280,67,"the dragon and the wolf","tyrion",0.288675134594813
+"3415",22281,67,"the dragon and the wolf","cersei",0
+"3416",22282,67,"the dragon and the wolf","cersei",0
+"3417",22283,67,"the dragon and the wolf","tyrion",0.0176776695296637
+"3418",22284,67,"the dragon and the wolf","tyrion",0
+"3419",22285,67,"the dragon and the wolf","tyrion",0.0447213595499958
+"3420",22286,67,"the dragon and the wolf","cersei",0
+"3421",22287,67,"the dragon and the wolf","tyrion",0.566946709513841
+"3422",22288,67,"the dragon and the wolf","cersei",0.866025403784439
+"3423",22289,67,"the dragon and the wolf","tyrion",0.144337567297406
+"3424",22290,67,"the dragon and the wolf","cersei",-0.875
+"3425",22291,67,"the dragon and the wolf","tyrion",0.357770876399966
+"3426",22292,67,"the dragon and the wolf","cersei",0.204124145231932
+"3427",22293,67,"the dragon and the wolf","tyrion",0.353553390593274
+"3428",22294,67,"the dragon and the wolf","cersei",0
+"3429",22295,67,"the dragon and the wolf","tyrion",0.8
+"3430",22296,67,"the dragon and the wolf","cersei",0
+"3431",22297,67,"the dragon and the wolf","tyrion",0.357770876399966
+"3432",22298,67,"the dragon and the wolf","cersei",-0.2
+"3433",22299,67,"the dragon and the wolf","tyrion",-0.166666666666667
+"3434",22300,67,"the dragon and the wolf","cersei",0.591784025919366
+"3435",22301,67,"the dragon and the wolf","cersei",-0.0929669680201368
+"3436",22302,67,"the dragon and the wolf","tyrion",0
+"3437",22303,67,"the dragon and the wolf","jon",0.433012701892219
+"3438",22306,67,"the dragon and the wolf","jon",0.188982236504614
+"3439",22308,67,"the dragon and the wolf","jon",0
+"3440",22310,67,"the dragon and the wolf","jon",0.402492235949962
+"3441",22312,67,"the dragon and the wolf","jon",0
+"3442",22314,67,"the dragon and the wolf","jon",-0.0894427190999916
+"3443",22315,67,"the dragon and the wolf","cersei",0.0769800358919501
+"3444",22340,67,"the dragon and the wolf","jon",0.954594154601839
+"3445",22344,67,"the dragon and the wolf","jon",0.8
+"3446",22346,67,"the dragon and the wolf","jon",0.333333333333333
+"3447",22348,67,"the dragon and the wolf","jon",0
+"3448",22350,67,"the dragon and the wolf","jon",0
+"3449",22352,67,"the dragon and the wolf","jon",0
+"3450",22354,67,"the dragon and the wolf","jon",-1.15470053837925
+"3451",22356,67,"the dragon and the wolf","jon",0.111803398874989
+"3452",22358,67,"the dragon and the wolf","jon",0.188982236504614
+"3453",22360,67,"the dragon and the wolf","jon",0
+"3454",22420,67,"the dragon and the wolf","cersei",0
+"3455",22422,67,"the dragon and the wolf","cersei",0.2
+"3456",22424,67,"the dragon and the wolf","cersei",0
+"3457",22426,67,"the dragon and the wolf","cersei",-0.361478445646026
+"3458",22428,67,"the dragon and the wolf","cersei",0.375277674973257
+"3459",22430,67,"the dragon and the wolf","cersei",-0.361813613493316
+"3460",22432,67,"the dragon and the wolf","cersei",0.183333333333333
+"3461",22434,67,"the dragon and the wolf","cersei",0.346410161513775
+"3462",22436,67,"the dragon and the wolf","cersei",-0.663054227865948
+"3463",22438,67,"the dragon and the wolf","cersei",0
+"3464",22440,67,"the dragon and the wolf","cersei",-0.530330085889911
+"3465",22442,67,"the dragon and the wolf","cersei",0
+"3466",22444,67,"the dragon and the wolf","cersei",0
+"3467",22446,67,"the dragon and the wolf","cersei",-0.144337567297406
+"3468",22448,67,"the dragon and the wolf","cersei",0.32659863237109
+"3469",22450,67,"the dragon and the wolf","cersei",0.0903696114115064
+"3470",22452,67,"the dragon and the wolf","cersei",-0.707106781186547
+"3471",22454,67,"the dragon and the wolf","cersei",0.189736659610103
+"3472",22456,67,"the dragon and the wolf","cersei",-1
+"3473",22458,67,"the dragon and the wolf","cersei",0
+"3474",22460,67,"the dragon and the wolf","cersei",0
+"3475",22462,67,"the dragon and the wolf","cersei",0
