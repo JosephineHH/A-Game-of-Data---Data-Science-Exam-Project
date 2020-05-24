@@ -1,0 +1,225 @@
+"","N_serie","Episode","Name","sentiment"
+"1",1,"winter is coming","cersei",0.0703782612000587
+"2",1,"winter is coming","daenerys",0.13552128292871
+"3",1,"winter is coming","jon",-0.0201565227043553
+"4",1,"winter is coming","tyrion",0.0499660720875297
+"5",2,"the kingsroad","cersei",-0.03197500747028
+"6",2,"the kingsroad","daenerys",0.110420648096655
+"7",2,"the kingsroad","jon",0.114315125903452
+"8",2,"the kingsroad","tyrion",0.173083223480128
+"9",3,"lord snow","cersei",-0.039513323233683
+"10",3,"lord snow","daenerys",0.0446462701651103
+"11",3,"lord snow","jon",0.117481959809694
+"12",3,"lord snow","tyrion",0.187834696109236
+"13",4,"cripples bastards and broken things","cersei",0.0448979421295173
+"14",4,"cripples bastards and broken things","daenerys",0.0455160248978806
+"15",4,"cripples bastards and broken things","jon",-0.0982728301922924
+"16",4,"cripples bastards and broken things","tyrion",0.0959003541377535
+"17",5,"the wolf and the lion","cersei",-0.0141419308250769
+"18",5,"the wolf and the lion","tyrion",-0.0465340423801738
+"19",6,"a golden crown","cersei",-0.0102455744103861
+"20",6,"a golden crown","daenerys",0.102276573947356
+"21",6,"a golden crown","tyrion",0.111838092068299
+"22",7,"you win or you die","cersei",0.0590102392621067
+"23",7,"you win or you die","daenerys",0.100371361533826
+"24",7,"you win or you die","jon",0.0171260987500167
+"25",8,"the pointy end","cersei",0.0869966391940289
+"26",8,"the pointy end","jon",-0.197369642145249
+"27",8,"the pointy end","tyrion",0.0229066778080611
+"28",9,"baelor","cersei",-0.707106781186547
+"29",9,"baelor","daenerys",0.00859950537756267
+"30",9,"baelor","jon",0.105040328526942
+"31",9,"baelor","tyrion",0.0135245427313911
+"32",10,"fire and blood","cersei",-0.178885438199983
+"33",10,"fire and blood","daenerys",0.0315480648396659
+"34",10,"fire and blood","jon",0.0955360729977765
+"35",10,"fire and blood","tyrion",-0.0164706507400925
+"36",11,"the north remembers","cersei",0.0374513087285005
+"37",11,"the north remembers","daenerys",-0.0305202336269457
+"38",11,"the north remembers","jon",0.0433012701892219
+"39",11,"the north remembers","tyrion",0.0658414188439683
+"40",12,"the night lands","cersei",-0.017270654895063
+"41",12,"the night lands","daenerys",0.0618801924842996
+"42",12,"the night lands","jon",-0.146244679901475
+"43",12,"the night lands","tyrion",-0.00641103753186843
+"44",13,"what is dead may never die","cersei",-0.0404875083991006
+"45",13,"what is dead may never die","jon",0.0625552415324604
+"46",13,"what is dead may never die","tyrion",0.0675201928830782
+"47",14,"garden of bones","daenerys",-0.0565002935522948
+"48",14,"garden of bones","tyrion",0.174973746130488
+"49",15,"the ghost of harrenhal","cersei",0.0489210983614453
+"50",15,"the ghost of harrenhal","daenerys",0.092626950688847
+"51",15,"the ghost of harrenhal","jon",-0.0221349367958819
+"52",15,"the ghost of harrenhal","tyrion",-0.00886832890303788
+"53",16,"the old gods and the new","cersei",1.18965999726431
+"54",16,"the old gods and the new","daenerys",0.0533071830853463
+"55",16,"the old gods and the new","jon",-0.00442984920340974
+"56",16,"the old gods and the new","tyrion",-0.347627295696229
+"57",17,"a man without honor","cersei",0.0501983760382382
+"58",17,"a man without honor","daenerys",0.0419552404149486
+"59",17,"a man without honor","jon",-0.0123455615161516
+"60",17,"a man without honor","tyrion",-0.0505849834264071
+"61",18,"the prince of winterfell","cersei",0.00923064613605472
+"62",18,"the prince of winterfell","daenerys",0.216503695068051
+"63",18,"the prince of winterfell","jon",-0.142258898432212
+"64",18,"the prince of winterfell","tyrion",0.0996103243990654
+"65",19,"blackwater","cersei",0.152856209278782
+"66",19,"blackwater","tyrion",-0.0121716851725282
+"67",20,"valar morghulis","cersei",-0.404145188432738
+"68",20,"valar morghulis","daenerys",-0.0227677820300983
+"69",20,"valar morghulis","jon",-0.303417346187486
+"70",20,"valar morghulis","tyrion",0.0476168629769406
+"71",21,"valar dohaeris","cersei",0.0442680649772626
+"72",21,"valar dohaeris","daenerys",-0.00800153904912035
+"73",21,"valar dohaeris","jon",0.108825221425431
+"74",21,"valar dohaeris","tyrion",0.0725080877344128
+"75",22,"dark wings dark words","cersei",0.187097338141542
+"76",22,"dark wings dark words","jon",0.211858957413174
+"77",22,"dark wings dark words","tyrion",0.0450513329560309
+"78",23,"walk of punishment","cersei",-0.2
+"79",23,"walk of punishment","daenerys",0.065606776709886
+"80",23,"walk of punishment","jon",0
+"81",23,"walk of punishment","tyrion",0.0682750227954313
+"82",24,"and now his watch is ended","cersei",0.105795575611438
+"83",24,"and now his watch is ended","daenerys",-0.164023168591479
+"84",24,"and now his watch is ended","tyrion",0.0137189025071857
+"85",25,"kissed by fire","cersei",0.435087579686742
+"86",25,"kissed by fire","daenerys",0.0455084732808593
+"87",25,"kissed by fire","jon",-0.00429170030466379
+"88",25,"kissed by fire","tyrion",0.267736099047874
+"89",26,"the climb","cersei",-0.0911105635762097
+"90",26,"the climb","jon",-0.0465561356094137
+"91",26,"the climb","tyrion",-0.204256345766289
+"92",27,"the bear and the maiden fair","daenerys",0.152373082394289
+"93",27,"the bear and the maiden fair","jon",0.0673010435419256
+"94",27,"the bear and the maiden fair","tyrion",0.164442286921032
+"95",28,"second sons","cersei",0.128567670869423
+"96",28,"second sons","daenerys",-0.00221108298218111
+"97",28,"second sons","tyrion",0.0116098334535075
+"98",29,"the rains of castamere","daenerys",-0.052022005725994
+"99",29,"the rains of castamere","jon",0.0197261222162524
+"100",30,"mhysa","cersei",0.126227087984484
+"101",30,"mhysa","daenerys",0.0327062306238054
+"102",30,"mhysa","jon",0.0648459713474939
+"103",30,"mhysa","tyrion",0.0275193673646752
+"104",31,"two swords","cersei",-0.0440028869616727
+"105",31,"two swords","daenerys",0.0539498187727033
+"106",31,"two swords","jon",-0.0711666317540231
+"107",31,"two swords","tyrion",0.145625794190683
+"108",32,"the lion and the rose","cersei",0.0816412059327906
+"109",32,"the lion and the rose","tyrion",0.130206882402457
+"110",33,"breaker of chains","cersei",0.101863177270904
+"111",33,"breaker of chains","daenerys",0.040104259935539
+"112",33,"breaker of chains","jon",-0.154601910866743
+"113",33,"breaker of chains","tyrion",0.0730237435831197
+"114",34,"oathkeeper","cersei",0.0721030763299337
+"115",34,"oathkeeper","daenerys",0.402756564030094
+"116",34,"oathkeeper","jon",0.0965790304106817
+"117",34,"oathkeeper","tyrion",-0.0660062511238049
+"118",35,"first of his name","cersei",0.149805672194449
+"119",35,"first of his name","daenerys",0.100697535766352
+"120",35,"first of his name","jon",-0.0768699558702632
+"121",36,"the laws of gods and men","cersei",-0.0478956194846788
+"122",36,"the laws of gods and men","daenerys",0.262018270959919
+"123",36,"the laws of gods and men","tyrion",-0.0673624521291901
+"124",37,"mockingbird","cersei",0.396313882636891
+"125",37,"mockingbird","daenerys",0.0208370447322692
+"126",37,"mockingbird","jon",-0.0359067951664167
+"127",37,"mockingbird","tyrion",0.10318602262883
+"128",38,"the mountain and the viper","jon",-0.0766032346285426
+"129",38,"the mountain and the viper","tyrion",-0.0530202267847074
+"130",39,"the watchers on the wall","jon",-0.0340992498372342
+"131",40,"the children","cersei",0.0992043841667364
+"132",40,"the children","daenerys",0.238756434976873
+"133",40,"the children","jon",-0.0457681263479525
+"134",40,"the children","tyrion",-0.122426102686648
+"135",41,"the wars to come","cersei",-0.0138056968264986
+"136",41,"the wars to come","daenerys",0.0207945365391343
+"137",41,"the wars to come","jon",0.0910060658533676
+"138",41,"the wars to come","tyrion",-0.0410267901063217
+"139",42,"the house of black and white","cersei",0.0735131988533921
+"140",42,"the house of black and white","daenerys",-0.00445932177600578
+"141",42,"the house of black and white","jon",0.100339294290377
+"142",42,"the house of black and white","tyrion",-0.0264591439013851
+"143",43,"high sparrow","cersei",0.224395940964234
+"144",43,"high sparrow","jon",0.08342424773021
+"145",43,"high sparrow","tyrion",-0.0554062542777587
+"146",44,"sons of the harpy","cersei",0.152355826371868
+"147",44,"sons of the harpy","daenerys",0.168908957010228
+"148",44,"sons of the harpy","jon",0.174399039846321
+"149",44,"sons of the harpy","tyrion",0.0528042338280341
+"150",45,"kill the boy","daenerys",0.134644563792255
+"151",45,"kill the boy","jon",-0.0420434610710449
+"152",45,"kill the boy","tyrion",0.0366912685903536
+"153",46,"unbowed unbent unbroken","cersei",0.0824214138038895
+"154",46,"unbowed unbent unbroken","tyrion",-0.0763049402718123
+"155",47,"the gift","cersei",0.123133308796687
+"156",47,"the gift","daenerys",-0.144222522069815
+"157",47,"the gift","jon",0.204775065226978
+"158",47,"the gift","tyrion",0.140969102731257
+"159",48,"hardhome","cersei",-0.0617154757874543
+"160",48,"hardhome","daenerys",-0.0161949419599721
+"161",48,"hardhome","jon",0.00163103301359067
+"162",48,"hardhome","tyrion",0.160849446235573
+"163",49,"the dance of dragons","daenerys",0.0997798057654221
+"164",49,"the dance of dragons","jon",-0.394337567297406
+"165",49,"the dance of dragons","tyrion",0.087656601320566
+"166",50,"mothers mercy","cersei",0.107272371989184
+"167",50,"mothers mercy","daenerys",-0.0244673590736845
+"168",50,"mothers mercy","jon",-0.0753697334551938
+"169",50,"mothers mercy","tyrion",0.0442255109136344
+"170",51,"the red woman","cersei",-0.102442883446877
+"171",51,"the red woman","daenerys",0.0460759140512345
+"172",51,"the red woman","tyrion",-0.0347177205939282
+"173",52,"home","cersei",0.284902707473555
+"174",52,"home","tyrion",0.0274741821332739
+"175",53,"oathbreaker","cersei",-0.084005078292465
+"176",53,"oathbreaker","daenerys",-0.0944911182523068
+"177",53,"oathbreaker","jon",-0.0650583084142152
+"178",53,"oathbreaker","tyrion",0.248359806346171
+"179",54,"book of the stranger","cersei",-0.0275444606379147
+"180",54,"book of the stranger","daenerys",-0.0854353107111369
+"181",54,"book of the stranger","jon",-0.0199023011312997
+"182",54,"book of the stranger","tyrion",0.223976704683608
+"183",55,"the door","daenerys",0.102564803084996
+"184",55,"the door","jon",0.0933356624820299
+"185",55,"the door","tyrion",0.320013567575086
+"186",56,"blood of my blood","cersei",0.0651481984741189
+"187",56,"blood of my blood","daenerys",-0.0636192287213965
+"188",57,"the broken man","cersei",-0.0916742439241414
+"189",57,"the broken man","jon",-0.0476096325836769
+"190",58,"no one","cersei",0.185877959870232
+"191",58,"no one","tyrion",0.0986846222273725
+"192",59,"battle of the bastards","daenerys",-0.0184357924518111
+"193",59,"battle of the bastards","jon",0.00200069882096781
+"194",59,"battle of the bastards","tyrion",0.0240151005283269
+"195",60,"the winds of winter","cersei",-0.293609043979713
+"196",60,"the winds of winter","daenerys",0.12468026555917
+"197",60,"the winds of winter","jon",0.0640516677601681
+"198",60,"the winds of winter","tyrion",-0.0268278163393063
+"199",61,"dragonstone","cersei",-0.141236543202067
+"200",61,"dragonstone","daenerys",0
+"201",61,"dragonstone","jon",-0.0145524008836139
+"202",62,"stormborn","cersei",-0.176587421660102
+"203",62,"stormborn","daenerys",0.11125193442727
+"204",62,"stormborn","jon",0.0889288864680108
+"205",62,"stormborn","tyrion",0.114549846143479
+"206",63,"the queens justice","cersei",0.152081499891307
+"207",63,"the queens justice","daenerys",0.0375617309696648
+"208",63,"the queens justice","jon",-0.134844089500144
+"209",63,"the queens justice","tyrion",-0.0077797527976402
+"210",64,"the spoils of war","cersei",0.353054663570866
+"211",64,"the spoils of war","daenerys",-0.0756420264025457
+"212",64,"the spoils of war","jon",-0.0444731579659091
+"213",64,"the spoils of war","tyrion",-0.210316916710685
+"214",65,"eastwatch","cersei",-0.075990332427542
+"215",65,"eastwatch","daenerys",0.05573728011997
+"216",65,"eastwatch","jon",0.0532507595570556
+"217",65,"eastwatch","tyrion",0.0218398005251305
+"218",66,"beyond the wall","daenerys",0.36681335147532
+"219",66,"beyond the wall","jon",-0.0559489514002466
+"220",66,"beyond the wall","tyrion",0.17443340954968
+"221",67,"the dragon and the wolf","cersei",-0.0639619594078848
+"222",67,"the dragon and the wolf","daenerys",0.100969807359878
+"223",67,"the dragon and the wolf","jon",0.0465932812150901
+"224",67,"the dragon and the wolf","tyrion",-0.00192313946121184
