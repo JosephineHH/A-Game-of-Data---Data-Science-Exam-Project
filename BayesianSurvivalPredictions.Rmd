@@ -1,0 +1,486 @@
+---
+title: "BayesianSurvival"
+author: "Josephine Hillebrand Hansen"
+date: "22/05/2020"
+output: html_document
+---
+
+#Creating a dataset of when each NAMED character goes to die
+https://listofdeaths.fandom.com/wiki/Game_of_Thrones
+```{r}
+library(quanteda)
+data = read.csv("deaths_scraped.txt", header = FALSE, sep = "\n", stringsAsFactors = FALSE)
+
+season = list()
+season_name = list()
+
+for (i in (1:nrow(data))){
+  data$V1[i] = char_tolower(data$V1[i])
+  if (grepl("season", data$V1[i]) & grepl("edit", data$V1[i])){
+    season = append(season, i)
+    season_name = append(season_name, gsub("edit", "", data$V1[i]))}
+}
+
+season = unlist(season)
+season_name = unlist(season_name)
+
+
+#Create df
+df <- data.frame(matrix(ncol = 2, nrow = nrow(data)))
+x <- c("Season", "Death")
+colnames(df) <- x
+
+
+#Create df with episodes
+for (i in (1:length(season))){
+  if (i == length(season)){
+    df$Season[season[i]:length(df$Season)] = season_name[i]
+    for (j in (season[i]:nrow(data))){
+      df$Death[j] = data$V1[j]
+    }
+  }
+  else{
+    df$Season[season[i]:season[i+1]] = season_name[i]
+    
+    for (j in (season[i]:season[i+1])){
+      df$Death[j] = data$V1[j]
+    }
+      
+  }
+}
+
+
+#Remove all season from the Death row
+for (i in (1:nrow(df))){
+  if (grepl("season", df$Death[i]) & grepl("edit", df$Death[i])){
+    df = df[-i,]
+  }
+}
+
+
+#Repeat for episode, and split up data by who died, and what happened
+
+episode = list()
+episode_name = list()
+
+for (i in (1:nrow(df))){
+  if (grepl("edit", df$Death[i])){
+    episode = append(episode, i)
+    episode_name = append(episode_name, gsub("edit", "", df$Death[i]))}
+}
+
+episode = unlist(episode)
+episode_name = unlist(episode_name)
+
+
+
+deaths <- data.frame(matrix(ncol = 4, nrow = nrow(df)))
+x <- c("Season", "Episode", "Name", "How")
+colnames(deaths) <- x
+deaths$Season = df$Season
+
+
+#Create df with episodes
+for (i in (1:length(episode))){
+  if (i == length(episode)){
+    deaths$Episode[episode[i]:nrow(deaths)] = episode_name[i]
+    for (j in (episode[i]:nrow(deaths))){
+      deaths$Name[j] = sub("\\s\\-.*", "", df$Death[j])
+      deaths$How[j] = sub(".*?\\-\\s", "", df$Death[j])
+    }
+  }
+  else{
+    deaths$Episode[episode[i]:episode[i+1]] = episode_name[i]
+    
+    for (j in (episode[i]:episode[i+1])){
+      deaths$Name[j] = sub("\\s\\-.*", "", df$Death[j])
+      deaths$How[j] = sub(".*?\\-\\s", "", df$Death[j])
+    }
+      
+  }
+}
+
+
+
+#Remove episodes from the rows
+for (i in (1:nrow(deaths))){
+  if (grepl("edit", deaths$Name[i])){
+    deaths = deaths[-i,]
+  }
+}
+
+
+#Clean up and remove titles
+titles = c("lord ", "ser ", "queen ", "lady ", "prince ", "king ", " \\(the hound\\)", " \\(the mountain\\)", " \\(the kingslayer\\)", "the high ", "commander ", " the", "ned ", "master ", "the ", " seaworth", " halfhand", " xhoan daxos", "mo ullhor", " hollard", " kenning", " hill", " reed", " rayder", "first steward ", "first builder ", " tully", " lemoncloak", " paenymion", " of myr", " \\(littlefinger\\)", " strickland")
+
+for (title in titles){
+  for (i in (1:nrow(deaths))){
+    deaths$Name[i] = gsub(title, "", deaths$Name[i])
+  }}
+
+for (i in (1:nrow(deaths))){
+  if (deaths$Name[i] == "stableboy"){
+    deaths$Name[i] = "stable boy"}
+  if (deaths$Name[i] == "amory lorch"){
+    deaths$Name[i] = "amory"
+  }
+  if (deaths$Name[i] == "alton lannister"){
+    deaths$Name[i] = "alton"
+  }
+  if (deaths$Name[i] == "winterfell shepard"){
+    deaths$Name[i] = "winterfell shepherd"
+    }
+  if (deaths$Name[i] == "jack"){
+    deaths$Name[i] = "jacks"
+  }
+  if (deaths$Name[i] == "lorren"){
+    deaths$Name[i] = "black lorren"
+  }
+  if (deaths$Name[i] == "willem lannister"){
+    deaths$Name[i] = "willem"
+    }
+  if (deaths$Name[i] == "martyn lannister"){
+    deaths$Name[i] = "martyn"
+  }
+  if (deaths$Name[i] == "talisa stark"){
+    deaths$Name[i] = "talisa"
+  }
+  if (deaths$Name[i] == "wendel manderly"){
+    deaths$Name[i] = "manderly"
+  }
+  if (deaths$Name[i] == "olly's mother"){
+    deaths$Name[i] = "ollys mother"
+  }
+  if (deaths$Name[i] == "mole's town whore"){
+    deaths$Name[i] = "moles town whore"
+  }
+  if (deaths$Name[i] == "princess shireen baratheon"){
+    deaths$Name[i] = "shireen"
+  }
+  if (deaths$Name[i] == "selyse baratheon"){
+    deaths$Name[i] = "selyse"
+  }
+  if (deaths$Name[i] == "princess myrcella baratheon"){
+    deaths$Name[i] = "selyse"
+  }
+  if (deaths$Name[i] == "areo hotah"){
+    deaths$Name[i] = "areo"
+  }
+  if (deaths$Name[i] == "doran martell"){
+    deaths$Name[i] = "doran"
+  }
+  if (deaths$Name[i] == "trystane martell"){
+    deaths$Name[i] = "trystane"
+  }
+  if (deaths$Name[i] == "walda bolton"){
+    deaths$Name[i] = "walda"
+  }
+  if (deaths$Name[i] == "balon greyjoy"){
+    deaths$Name[i] = "balon"
+  }
+  if (deaths$Name[i] == "allithorne"){
+    deaths$Name[i] = "alliser thorne"
+  }
+  if (deaths$Name[i] == "three eyed raven"){
+    deaths$Name[i] = "threeeyed raven"
+  }
+  if (deaths$Name[i] == "brother ray"){
+    deaths$Name[i] = "ray"
+  }
+  if (deaths$Name[i] == "wun weg wun dar wun"){
+    deaths$Name[i] = "wun wun"
+  }
+  if (deaths$Name[i] == "lothar frey"){
+    deaths$Name[i] = "lothar"
+  }
+  if (deaths$Name[i] == "black walder rivers"){
+    deaths$Name[i] = "black walder"
+  }
+  if (deaths$Name[i] == "obara sand"){
+    deaths$Name[i] = "obara"
+    }
+  if (deaths$Name[i] == "nymeria sand"){
+    deaths$Name[i] = "nymeria"
+    }
+  if (deaths$Name[i] == "tyene sand"){
+    deaths$Name[i] = "sand"
+  }
+  if (deaths$Name[i] == "randyll tarly"){
+    deaths$Name[i] = "randyll"
+  }
+  if (deaths$Name[i] == "dickon tarly"){
+    deaths$Name[i] = "dickon"
+  }
+  if (deaths$Name[i] == "ellaria sand"){
+    deaths$Name[i] = "ellaria"
+  }
+  if (deaths$Name[i] == "of bones"){
+    deaths$Name[i] = "lord of bones"
+  }
+  if (deaths$Name[i] == "crane"){
+    deaths$Name[i] = "lady crane"
+  }
+}
+
+```
+
+
+#check how many of the characters we know die say something
+```{r}
+data = read.csv("game-of-thrones-script-all-seasons/got_cleaned.csv",stringsAsFactors = FALSE)
+
+list_of_characters = unique(data$Name)
+
+
+deaths$Speaks <- NA
+
+i = 0
+for (name in deaths$Name){
+  if (!(name %in% list_of_characters)){
+    i = i+1
+  }
+  else{
+    deaths$Speaks[i] = 1
+  }
+}
+
+for (i in (1:nrow(deaths))){
+  if (!(deaths$Name[i] %in% list_of_characters)) {
+    deaths$Speaks[i] = 0
+  }
+  else {
+    deaths$Speaks[i] = 1
+  }
+}
+
+deaths <- transform(deaths, id=match(Episode, unique(Episode)))
+
+
+```
+
+
+
+#Find out when characters first appears
+```{r}
+data <- transform(data, id=match(Episode.Title, unique(Episode.Title)))
+
+apperance = data %>%
+  group_by(Name) %>%
+  summarize(first_apperance = min(id),
+            last_apperance = ifelse(max(id) > 67, 67, max(id)),
+            
+            total_apperance = ifelse(!("Season 8" %in% unique(Season)), length(unique(id)), sum(unique(id)< 68)),
+            
+            seasons_apperance = ifelse(!("Season 8" %in% unique(Season)), length(unique(Season)), length(unique(Season))-1))
+
+
+#Merge first_apperance with deaths
+df.merge <- merge(x = apperance, y = deaths, by = "Name", all.x = TRUE)
+
+
+```
+
+#Fix some names
+```{r}
+
+allegiance <- read.csv("bayesianGameofThrones-master/char_final.csv", stringsAsFactors = FALSE)
+allegiance <- allegiance[-1:-3,]
+allegiance$Name <- char_tolower(allegiance$Name)
+
+
+for (k in (1:nrow(df.merge))){
+  if (!(df.merge$Name[k] %in% allegiance$Name)){
+    name = df.merge$Name[k]
+    #print(name)
+    for (i in (1:nrow(allegiance))){
+      if (name == sub('\\s.*', '', allegiance$Name[i])){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('lord', '', name) == sub('\\s.*', '', allegiance$Name[i])){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('knight', '', name) == sub('\\s.*', '', allegiance$Name[i])){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('lady', '', name) == sub('\\s.*', '', allegiance$Name[i])){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('king', '', name) == sub('\\s.*', '', allegiance$Name[i])){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('lord', '', name) == allegiance$Name[i]){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('knight', '', name) == allegiance$Name[i]){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('lady', '', name) == allegiance$Name[i]){
+        df.merge$Name[k] = allegiance$Name[i]
+      }
+      if (sub('king', '', name) == allegiance$Name[i]){
+        df.merge$Name[k] = allegiance$Name[i]
+      }}
+      }
+}
+```
+
+
+#Df showing allegiance and so on - BASED ON BOOKS
+```{r}
+
+
+
+df.merge <- merge(x = df.merge, y = allegiance, by = "Name")#, all.x = TRUE)
+```
+
+
+#Clean up the columns we don't need and rename others to something that makes sense
+```{r}
+df.merge$DwD <- NULL
+df.merge$FfC <- NULL
+df.merge$SoS <- NULL
+df.merge$CoK <- NULL
+df.merge$GoT <- NULL
+df.merge$Book.Death.Percentage <- NULL
+df.merge$Book.Intro.Chapter <- NULL
+df.merge$Book.of.Death <- NULL
+df.merge$Death.Year <- NULL
+df.merge$Speaks <- NULL
+df.merge$Death.Chapter <- NULL
+df.merge$Episode.x <- NULL
+
+library(tidyverse)
+df <- df.merge %>%
+  rename(
+    episode_of_death = id.y,
+    episode_of_first_apperance = id.x,
+    episode_name_first_apperance = Episode.Title,
+    season_name_first_apperance = Season.x,
+    episode_name_death = Episode.y,
+    season_name_death = Season.y
+    
+    
+  )
+
+#Remove rows 11 and 13 containing misspelled duplicate
+#df = df[-13:-14,]
+#df = df[-11,]
+
+
+```
+
+#Check for improper names and TRY TO FIX IT
+```{r}
+
+names = 0
+easy_fix_names = 0
+for (name in df$Name){
+  if (!(name %in% allegiance$Name)){
+    names = names+1
+    print(name)
+      }
+}
+
+
+```
+
+
+#FINALLY WORKING ON THE BAYESIAN STUFF
+```{r}
+#Add df with whether they have died or not
+df$Dead = NA
+
+for (i in 1:nrow(df)){
+  if (is.na(df$episode_of_death[i])){
+    df$Dead[i] = 0
+  }
+  else{
+    df$Dead[i] = 1
+  }
+} # 1 = dead
+
+#Create subset only containing season 1-7
+df_subset = subset(df, episode_of_death < 68 | is.na(episode_of_death))
+
+df_survival = df
+for (i in (1:nrow(df_survival))){
+  print(df_survival$Name[i])
+  if (df_survival$episode_of_death[i] > 67 | is.na(df_survival$episode_of_death[i])) {
+    print(df_survival$Name[i])
+    
+    df_survival$episode_of_death[i] = NA
+    df_survival$Dead[i] = 0
+  }
+  else{
+    
+  }}
+
+
+write.csv(df_survival, file = "survival.csv")
+
+
+```
+
+
+
+
+
+
+
+#Working with the Bayesian predictions
+
+```{r}
+library(survival)
+library(ranger)
+library(ggplot2)
+library(dplyr)
+library(ggfortify)
+
+```
+
+
+
+
+
+#For the GOT-data
+```{r}
+GOT <- read.csv("C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/survival.csv")
+GOT$Time = NA
+for (i in (1:nrow(GOT))){
+  if (GOT$Dead[i] == 1){
+    GOT$Time[i] = GOT$episode_of_death[i] - GOT$episode_of_first_apperance[i]
+  }
+  else {
+    GOT$Time[i] = 67-GOT$episode_of_first_apperance[i]
+  }
+}
+
+#Remove characters who only started appearing in season 8
+GOT<-GOT[!(GOT$episode_of_first_apperance > 67),]
+
+
+#Create survival object
+km_GOT <- with(GOT, Surv(Time, Dead))
+head(km_GOT,80)
+
+
+#Produce Kaplan-Meier estimates of probability of survival over time
+km_fit_GOT <- survfit(Surv(Time, Dead) ~ 1, data = GOT)
+summary(km_fit_GOT, times = c(1,5*(1:10)))
+
+autoplot(km_fit_GOT)
+
+
+#Survival by nobelity
+km_trt_fit_GOT <- survfit(Surv(Time, Dead) ~ Nobility, data=GOT)
+autoplot(km_trt_fit_GOT)
+
+#By gender
+km_trt_fit_GOT <- survfit(Surv(Time, Dead) ~ Gender, data=GOT)
+autoplot(km_trt_fit_GOT)
+
+
+
+```
+
+
