@@ -20,7 +20,7 @@ library(qdap)
 #data <- readr::read_delim("got_scripts_breakdown.csv",";", escape_double = FALSE, trim_ws = TRUE)
 
 data <- read.csv("game-of-thrones-script-all-seasons/Game_of_Thrones_Script.csv",stringsAsFactors = FALSE)
-data = subset(data, Season == "Season 8")
+#data = subset(data, Season == "Season 8")
 
 
 #Replace contractions with long form
@@ -58,7 +58,7 @@ for (i in 1:nrow(data)) {
 }
 
 
-write.csv2(data,"got_season8_half_cleaned.csv", sep =";", row.names = FALSE)
+write.csv2(data,"game-of-thrones-script-all-seasons.csv", sep =";", row.names = FALSE)
 
 ```
 

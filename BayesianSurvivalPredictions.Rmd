@@ -267,11 +267,16 @@ data <- transform(data, id=match(Episode.Title, unique(Episode.Title)))
 apperance = data %>%
   group_by(Name) %>%
   summarize(first_apperance = min(id),
+            
             last_apperance = ifelse(max(id) > 67, 67, max(id)),
             
             total_apperance = ifelse(!("Season 8" %in% unique(Season)), length(unique(id)), sum(unique(id)< 68)),
             
-            seasons_apperance = ifelse(!("Season 8" %in% unique(Season)), length(unique(Season)), length(unique(Season))-1))
+            seasons_apperance = ifelse(!("Season 8" %in% unique(Season)), length(unique(Season)), length(unique(Season))-1),
+            
+            time_of_monitoring = last_apperance-first_apperance+1,
+            
+            prominence = (total_apperance/time_of_monitoring)*seasons_apperance)
 
 
 #Merge first_apperance with deaths
@@ -352,16 +357,8 @@ df.merge$Episode.x <- NULL
 library(tidyverse)
 df <- df.merge %>%
   rename(
-    episode_of_death = id.y,
-    episode_of_first_apperance = id.x,
-    episode_name_first_apperance = Episode.Title,
-    season_name_first_apperance = Season.x,
-    episode_name_death = Episode.y,
-    season_name_death = Season.y
-    
-    
+    episode_of_death = id
   )
-
 #Remove rows 11 and 13 containing misspelled duplicate
 #df = df[-13:-14,]
 #df = df[-11,]
@@ -369,20 +366,6 @@ df <- df.merge %>%
 
 ```
 
-#Check for improper names and TRY TO FIX IT
-```{r}
-
-names = 0
-easy_fix_names = 0
-for (name in df$Name){
-  if (!(name %in% allegiance$Name)){
-    names = names+1
-    print(name)
-      }
-}
-
-
-```
 
 
 #FINALLY WORKING ON THE BAYESIAN STUFF
@@ -399,9 +382,10 @@ for (i in 1:nrow(df)){
   }
 } # 1 = dead
 
-#Create subset only containing season 1-7
-df_subset = subset(df, episode_of_death < 68 | is.na(episode_of_death))
+#Create subset only containing characters being introduced before season 8
+df = subset(df, first_apperance < 68)
 
+#Set characters who died later to still be alive
 df_survival = df
 for (i in (1:nrow(df_survival))){
   print(df_survival$Name[i])
@@ -445,42 +429,135 @@ library(ggfortify)
 #For the GOT-data
 ```{r}
 GOT <- read.csv("C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/survival.csv")
-GOT$Time = NA
-for (i in (1:nrow(GOT))){
-  if (GOT$Dead[i] == 1){
-    GOT$Time[i] = GOT$episode_of_death[i] - GOT$episode_of_first_apperance[i]
-  }
-  else {
-    GOT$Time[i] = 67-GOT$episode_of_first_apperance[i]
-  }
-}
+#GOT$Time = NA
+#for (i in (1:nrow(GOT))){
+#  if (GOT$Dead[i] == 1){
+#    GOT$Time[i] = GOT$episode_of_death[i] - #GOT$episode_of_first_apperance[i]
+#  }
+#  else {
+#    GOT$Time[i] = 67-GOT$episode_of_first_apperance[i]
+#  }
+#}
 
 #Remove characters who only started appearing in season 8
-GOT<-GOT[!(GOT$episode_of_first_apperance > 67),]
+#GOT<-GOT[!(GOT$episode_of_first_apperance > 67),]
+#More data cleaning
+GOT$Allegiances = gsub("House ", "", GOT$Allegiances)
 
 
 #Create survival object
-km_GOT <- with(GOT, Surv(Time, Dead))
+km_GOT <- with(GOT, Surv(time_of_monitoring, Dead))
 head(km_GOT,80)
 
 
 #Produce Kaplan-Meier estimates of probability of survival over time
-km_fit_GOT <- survfit(Surv(Time, Dead) ~ 1, data = GOT)
-summary(km_fit_GOT, times = c(1,5*(1:10)))
+km_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ 1, data = GOT)
+summary(km_fit_GOT, times = c(1*(1:10),67))
 
-autoplot(km_fit_GOT)
+autoplot(km_fit_GOT) +
+  xlab("Episodes since introduction") +
+  ylab("Probability of surviving")
 
 
 #Survival by nobelity
-km_trt_fit_GOT <- survfit(Surv(Time, Dead) ~ Nobility, data=GOT)
+km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Nobility, data=GOT)
 autoplot(km_trt_fit_GOT)
 
 #By gender
-km_trt_fit_GOT <- survfit(Surv(Time, Dead) ~ Gender, data=GOT)
+km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Gender, data=GOT)
 autoplot(km_trt_fit_GOT)
 
+km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Allegiances, data=GOT)
+autoplot(km_trt_fit_GOT)
 
+km_all_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Gender + Nobility + Allegiances, data=GOT)
+autoplot(km_all_fit_GOT)
+
+#km_all_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ first_apperance, data=GOT)
+#autoplot(km_all_fit_GOT)
+
+survminer::ggsurvplot(km_fit_GOT,
+           conf.int = TRUE,
+           break.time.by = 20,
+           risk.table = TRUE)
+
+
+
+#Fit a cox-model
+cox <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, data = GOT)
+summary(cox, times = 10)
+autoplot(cox)
+
+
+#How covariates change over time
+aa_fit <-aareg(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, 
+                 data = GOT)
+aa_fit
+autoplot(aa_fit)
 
 ```
 
+
+
+#Random forest ensemble model
+```{r}
+# ranger model
+r_fit <- ranger(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances,
+                     data = GOT,
+                     mtry = 3,
+                     importance = "permutation",
+                     splitrule = "extratrees",
+                     verbose = TRUE)
+
+# Average the survival models
+death_times <- r_fit$unique.death.times 
+surv_prob <- data.frame(r_fit$survival)
+avg_prob <- sapply(surv_prob,mean)
+
+# Plot the survival models for each patient
+plot(r_fit$unique.death.times,r_fit$survival[1,], 
+     type = "l", 
+     ylim = c(0,1),
+     col = "red",
+     xlab = "Days",
+     ylab = "survival",
+     main = "Patient Survival Curves")
+
+#
+cols <- colors()
+for (n in sample(c(2:dim(GOT)[1]), 20)){
+  lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n])
+}
+lines(death_times, avg_prob, lwd = 2)
+legend(500, 0.7, legend = c('Average = black'))
+
+#Most important variables according to ranger
+vi <- data.frame(sort(round(r_fit$variable.importance, 4), decreasing = TRUE))
+names(vi) <- "importance"
+head(vi)
+#Prediction error
+cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error)
+
+```
+
+#Plot the 3 models against each other
+```{r}
+# Set up for ggplot
+kmi <- rep("KM",length(km_all_fit_GOT$time))
+km_df <- data.frame(km_all_fit_GOT$time,km_all_fit_GOT$surv,kmi)
+names(km_df) <- c("Time","Surv","Model")
+
+coxi <- rep("Cox",length(cox$time))
+cox_df <- data.frame(cox$time,cox$surv,coxi)
+names(cox_df) <- c("Time","Surv","Model")
+
+rfi <- rep("RF",length(r_fit$unique.death.times))
+rf_df <- data.frame(r_fit$unique.death.times,avg_prob,rfi)
+names(rf_df) <- c("Time","Surv","Model")
+
+plot_df <- rbind(km_df,cox_df,rf_df)
+
+p <- ggplot(plot_df, aes(x = Time, y = Surv, color = Model))
+p + geom_line()
+```
 
