@@ -460,7 +460,7 @@ sent_episode_s8 <- rename(sent_episode_s8, N_serie = Episode)
 # appending season 8 to rest of data
 sent_episode_all <- rbind(sent_episode, sent_episode_s8)
 
-# write.csv(data, "got_full_data.csv")
+#write.csv(data, "got_fullSent_data.csv")
 ```
 
 ## re-transforming data to not have frequency
@@ -928,19 +928,24 @@ ggPacf(diff(ts_jon))
 checkresiduals(fit2)
 ```
 
-# Comparing the models
+## Comparing the models
 ```{r}
 #As there is no seasonality, we redefine our time series with frequency = 1
 ts_p = ts(ts_jon, frequency = 1)
 
 ts_diff = diff(ts_p)
 
-h <- 10
+h <- 6
 #Linear
 fit.lin <- tslm(ts_p ~ trend)
 fcasts.lin <- forecast(fit.lin, h = h)
+
 #Exponential
-fit.exp <- tslm(ts_p ~ trend)
+
+jon_mean[is.na(jon_mean)] <- 0
+ts_jon_0<- ts(jon_mean$sentiment, frequency = 1)
+
+fit.exp <- tslm(ts_jon_0 ~ trend)
 fcasts.exp <- forecast(fit.exp, h = h)
 
 #Piecewise
@@ -961,8 +966,9 @@ fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
   I(tb1^3), lambda = 0)
 fcasts.spl <- forecast(fit.spline, newdata = newdata)
 
-fit.arima <- auto.arima(ts_diff, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fit.arima <- auto.arima(ts_p, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
 fcasts.arima <- forecast(fit.arima, h=h)
+
 
 fit.mean <- meanf(ts_p)
 fcasts.mean <- forecast(fit.mean, h=h)
@@ -983,19 +989,182 @@ round(accuracy(fcasts.drift),2)
 
 
 ```
+## check resiudals
+```{r}
+checkresiduals(fit.spline)
+checkresiduals(fit.arima)
+checkresiduals(fit.mean)
+checkresiduals(fit.pw)
+
+
+Box.test(residuals(fit.spline), type = "Ljung-Box")
+Box.test(residuals(fit.arima), type = "Ljung-Box")
+Box.test(residuals(fit.mean), type = "Ljung-Box")
+Box.test(residuals(fit.pw), type = "Ljung-Box")
+
+
+```
+
+
+## forecasting
+```{r}
+
+autoplot(ts_jon) +
+  autolayer(fitted(fit.mean), series="Mean") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fcasts.pw, series="Piecewise", PI=FALSE) +
+  autolayer(fcasts.mean, series = "Mean", PI =FALSE)+
+  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
+  autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+##Validating forecasting
+```{r}
+
+S8$Episode[S8$Episode=="Episode 1"] <- 68
+S8$Episode[S8$Episode=="Episode 2"] <- 69
+S8$Episode[S8$Episode=="Episode 3"] <- 70
+S8$Episode[S8$Episode=="Episode 4"] <- 71
+S8$Episode[S8$Episode=="Episode 5"] <- 72
+S8$Episode[S8$Episode=="63"] <- 73
+
+S8$Name[S8$Name=="jon snow"] <- "jon"
+S8$Name[S8$Name=="cersei lannister"] <- "cersei"
+S8$Name[S8$Name=="tyrion lannister"] <- "tyrion"
+S8$Name[S8$Name=="daenerys targarien"] <- "daenerys"
+
+sent_char_s8 = S8 %>%
+  group_by(Column1, Episode, Name)%>%
+  summarise(mean_sent = mean(sentiment))
+
+sent_char_s8 <- rename(sent_char_s8, N_serie = Episode)
+
+jon_sub_s8 <- subset(sent_char_s8, subset = Name %in% c('jon'))
+
+jon_mean_s8 = jon_sub_s8 %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+
+jon <- rbind(jon_mean, jon_mean_s8)
+
+
+# full sentiment 8 seasons jon
+jon <- ts(jon$sentiment)
+```
 
 ```{r}
-h <- 10
-fit.lin <- tslm(ts_jon ~ trend)
+autoplot(jon) +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fcasts.pw, series="Piecewise", alpha=0.2) +
+  autolayer(fcasts.mean, series="Mean", PI=FALSE, alpha=0.1)+
+  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
+  autolayer(fcasts.arima, series = "ARIMA", alpha =0.2)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
+  guides(colour = guide_legend(title = " "))
+```
+```{r}
+# accuracy:
+all_test <- window(jon, start=67, end=73)
+round(accuracy(fcasts.pw, all_test),2)
+round(accuracy(fcasts.spl, all_test),2)
+round(accuracy(fcasts.mean, all_test),2)
+round(accuracy(fcasts.arima, all_test),2)
+```
+
+
+
+
+# TYRION
+## checking for stationarity
+```{r}
+# box test of original data
+Box.test(ts_tyrion, type = "Ljung-Box")
+ggAcf(ts_tyrion)
+
+# box test of differenced data
+Box.test(diff(ts_tyrion, type = "Ljung-Box"))
+ggAcf(diff(ts_tyrion))
+
+#We keep the non-differentiated time-series
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_tyrion %>% ur.kpss() %>% summary() #Stationary (below 5 % critical value)
+ts_tyrion %>% diff() %>% ur.kpss() %>% summary()
+
+# 'normal' differencing
+ndiffs(ts_tyrion) #This test reveals that 1 differentiating is required
+
+ts_tyrion %>% diff() %>% ur.kpss() %>% summary() #New test
+
+
+#Is seasonal differntiating required
+nsdiffs(ts_tyrion)
+
+
+
+```
+
+## autoArima
+```{r}
+
+fit <- auto.arima(ts_tyrion, seasonal=FALSE) # (0,0,0)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+#Differentiating
+#An autoarima that works harder - gives (3,0,0) with 0 mean
+fit2 <- auto.arima(ts_tyrion, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_tyrion))
+ggPacf(diff(ts_tyrion))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+## Comparing the models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_tyrion, frequency = 1)
+
+h <- 6
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
 fcasts.lin <- forecast(fit.lin, h = h)
-fit.exp <- tslm(ts_jon ~ trend, lambda = 0)
+
+#Exponential
+
+tyrion_mean[is.na(tyrion_mean)] <- 0
+ts_tyrion_0<- ts(tyrion_mean$sentiment, frequency = 1)
+
+fit.exp <- tslm(ts_tyrion_0 ~ trend)
 fcasts.exp <- forecast(fit.exp, h = h)
 
-t <- time(ts_jon)
+#Piecewise
+t <- time(ts_p)
 t.break1 <- 51
 tb1 <- ts(pmax(0, t - t.break1), start = 0)
 
-fit.pw <- tslm(ts_jon ~ t + tb1)
+fit.pw <- tslm(ts_p ~ t + tb1)
 t.new <- t[length(t)] + seq(h)
 tb1.new <- tb1[length(tb1)] + seq(h)
 
@@ -1003,30 +1172,306 @@ newdata <- cbind(t=t.new, tb1=tb1.new) %>%
   as.data.frame()
 fcasts.pw <- forecast(fit.pw, newdata = newdata)
 
-fit.spline <- tslm(ts_jon ~ t + I(t^2) + I(t^3) +
-  I(tb1^3))
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
 fcasts.spl <- forecast(fit.spline, newdata = newdata)
 
-fit.arima <- auto.arima(ts_jon, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fit.arima <- auto.arima(ts_p, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
 fcasts.arima <- forecast(fit.arima, h=h)
 
-autoplot(ts_jon) +
-  autolayer(fitted(fit.lin), series = "Linear") +
-  #autolayer(fitted(fit.exp), series = "Exponential") +
-  autolayer(fitted(fit.pw), series = "Piecewise") +
-  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+## check resiudals
+```{r}
+checkresiduals(fit.exp)
+checkresiduals(fit.arima)
+checkresiduals(fit.mean)
+
+
+
+Box.test(residuals(fit.exp), type = "Ljung-Box")
+Box.test(residuals(fit.arima), type = "Ljung-Box")
+Box.test(residuals(fit.mean), type = "Ljung-Box")
+
+
+```
+
+
+## forecasting
+```{r}
+
+autoplot(ts_tyrion) +
+  autolayer(fitted(fit.mean), series="Mean") +
+  autolayer(fitted(fit.exp), series = "Exponential") +
   autolayer(fitted(fit.arima), series = "ARIMA")+
-  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
-  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
-  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
-  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
-  autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  autolayer(fcasts.mean, series = "Mean", PI =FALSE)+
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) + 
+  autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
   xlab("Episode") + ylab("Sentiment Score") +
-  ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
+  ggtitle("Fit of predictions of Sentiment Score for Tyrion Lannister") +
   guides(colour = guide_legend(title = " "))
+
+```
+
+##Validating forecasting
+```{r}
+tyrion_sub_s8 <- subset(sent_char_s8, subset = Name %in% c('tyrion'))
+
+tyrion_mean_s8 = tyrion_sub_s8 %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+
+tyrion <- rbind(tyrion_mean, tyrion_mean_s8)
+
+
+# full sentiment 8 seasons tyrion
+tyrion <- ts(tyrion$sentiment)
+```
+
+```{r}
+autoplot(tyrion) +
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fcasts.mean, series="Mean", alpha=0.3)+
+  autolayer(fcasts.exp, series="Exponential", alpha=0.3) + 
+  autolayer(fcasts.arima, series = "ARIMA", alpha =0.3)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Tyrion Lannister") +
+  guides(colour = guide_legend(title = " "))
+```
+```{r}
+# accuracy:
+all_test <- window(tyrion, start=67, end=73)
+round(accuracy(fcasts.pw, all_test), 2)
+round(accuracy(fcasts.spl, all_test),2)
+round(accuracy(fcasts.mean, all_test),2)
+round(accuracy(fcasts.arima, all_test),2)
+```
+
+
+
+```{r}
 
 ```
 
 
 
+
+
+# CERSEI
+## checking for stationarity
+```{r}
+# box test of original data
+Box.test(ts_cersei, type = "Ljung-Box")
+ggAcf(ts_cersei)
+
+# box test of differenced data
+Box.test(diff(ts_cersei, type = "Ljung-Box"))
+ggAcf(diff(ts_cersei))
+
+#We keep the non-differentiated time-series
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_cersei %>% ur.kpss() %>% summary() #Stationary (below 5 % critical value)
+ts_cersei %>% diff() %>% ur.kpss() %>% summary()
+
+# 'normal' differencing
+ndiffs(ts_cersei) #This test reveals that 1 differentiating is required
+
+ts_cersei %>% diff() %>% ur.kpss() %>% summary() #New test
+
+#Is seasonal differntiating required
+nsdiffs(ts_cersei)
+
+```
+
+## autoArima
+```{r}
+
+fit <- auto.arima(ts_cersei, seasonal=FALSE) # (0,0,0)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+#Differentiating
+#An autoarima that works harder - gives (3,0,0) with 0 mean
+fit2 <- auto.arima(ts_cersei, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_cersei))
+ggPacf(diff(ts_cersei))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+## Comparing the models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_cersei, frequency = 1)
+
+h <- 6
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+
+#Exponential
+
+cersei_mean[is.na(cersei_mean)] <- 0
+ts_cersei_0<- ts(cersei_mean$sentiment, frequency = 1)
+
+fit.exp <- tslm(ts_cersei_0 ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_p, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+## check resiudals
+```{r}
+
+checkresiduals(fit.exp)
+checkresiduals(fit.pw)
+checkresiduals(fit.mean)
+
+
+
+Box.test(residuals(fit.exp), type = "Ljung-Box")
+Box.test(residuals(fit.pw), type = "Ljung-Box")
+Box.test(residuals(fit.mean), type = "Ljung-Box")
+
+
+```
+
+
+## forecasting
+```{r}
+
+autoplot(ts_cersei) +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  #autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.pw, series="Piecewise", PI=FALSE) +
+  #autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
+  autolayer(fcasts.mean, series="Mean", PI=FALSE) +
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for cersei Lannister") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+##Validating forecasting
+```{r}
+cersei_sub_s8 <- subset(sent_char_s8, subset = Name %in% c('cersei'))
+
+cersei_mean_s8 = cersei_sub_s8 %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+df <- data.frame("N_serie"=1:73)
+
+cersei <- rbind(cersei_mean, cersei_mean_s8)
+cersei <- merge(x = df, y = cersei, by = "N_serie", all = TRUE)
+
+# full sentiment 8 seasons cersei
+cersei <- ts(cersei$sentiment)
+
+autoplot(cersei)
+```
+
+```{r}
+autoplot(cersei) +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.pw, series="Piecewise", alpha=0.3) +
+  autolayer(fcasts.arima, series = "ARIMA", alpha=0.4)+
+  autolayer(fcasts.mean, series="Mean", alpha=0.3) +
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Cersei Lannister") +
+  guides(colour = guide_legend(title = " "))
+```
+
+```{r}
+# accuracy:
+all_test <- window(cersei, start=67, end=73)
+round(accuracy(fcasts.exp, all_test), 2)
+round(accuracy(fcasts.arima, all_test),2)
+round(accuracy(fcasts.mean, all_test),2)
+round(accuracy(fcasts.pw, all_test),2)
+```
+
+
+
+```{r}
+
+```
 
