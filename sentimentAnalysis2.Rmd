@@ -52,6 +52,30 @@ new_ts <- BoxCox(ts_data,lambda)
 
 # is log transform necessary - significant=transform
 MTS::archTest(ts_data, lag = 10) 
+
+# ACF
+ggAcf(ts_data)
+```
+## checking for seasonlity across all data
+```{r}
+ts_data <- ts(data1$sentiment, frequency = 10)
+#Fitting a linear model to our data
+fit.ts_data <- tslm(ts_data ~ trend)
+summary(fit.ts_data)
+
+#Linear model with effect of season
+fit.ts_season <- tslm(ts_data ~ trend + season)
+summary(fit.ts_season)
+
+#on the data from season
+fit.ts_sent_season <- tslm(ts_data ~ season)
+summary(fit.ts_sent_season)
+
+
+
+AIC(fit.ts_data, fit.ts_season, fit.ts_sent_season)
+# season does not add prediction value - lowest AIC
+
 ```
 
 
@@ -66,8 +90,8 @@ sent_episode = data1 %>%
 ts_sent_ep <- ts(sent_episode$mean_sent, frequency = 10)
 
 autoplot(ts_sent_ep) +
-  ggtitle("Sentiment scores per line") +
-  xlab("Line") +
+  ggtitle("Sentiment scores per episode") +
+  xlab("Episode") +
   ylab("Sentiment Score")
 
 ```
@@ -292,7 +316,7 @@ ts_sent_ep %>% diff() %>% ur.kpss() %>% summary() #New test
 
 
 #Is seasonal differntiating required
-nsdiffs(ts_sent_ep)
+nsdiffs(ts_sent_ep, alpha=0.1)
 
 
 
@@ -330,7 +354,7 @@ ts_p = ts(ts_sent_ep, frequency = 1)
 
 ts_diff = diff(ts_p)
 
-h <- 10
+h <- 6
 #Linear
 fit.lin <- tslm(ts_p ~ trend)
 fcasts.lin <- forecast(fit.lin, h = h)
@@ -378,13 +402,19 @@ round(accuracy(fcasts.drift),2)
 
 
 ```
+
+```{r}
+checkresiduals(fit.arima)
+
+checkresiduals(fit.mean)
+```
 ## plotting forecasting 
 ```{r}
 
 ts_sent_ep <- ts(sent_episode$mean_sent)
 
 
-h <- 10
+h <- 6
 fit.lin <- tslm(ts_sent_ep ~ trend)
 fcasts.lin <- forecast(fit.lin, h = h)
 fit.exp <- tslm(ts_sent_ep ~ trend, lambda = 0)
@@ -406,30 +436,31 @@ fit.spline <- tslm(ts_sent_ep ~ t + I(t^2) + I(t^3) +
   I(tb1^3))
 fcasts.spl <- forecast(fit.spline, newdata = newdata)
 
+
 fit.arima <- auto.arima(ts_sent_ep, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
 fcasts.arima <- forecast(fit.arima, h=h)
 
 autoplot(ts_sent_ep) +
   #autolayer(fitted(fit.lin), series = "Linear") +
+  autolayer(fitted(fit.mean),series="Mean")+
   #autolayer(fitted(fit.exp), series = "Exponential") +
-  autolayer(fitted(fit.pw), series = "Piecewise") +
+  #autolayer(fitted(fit.pw), series = "Piecewise") +
   #autolayer(fitted(fit.spline), series = "Cubic Spline") +
   autolayer(fitted(fit.arima), series = "ARIMA")+
-  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  #autolayer(fcasts.pw, series="Piecewise", PI=FALSE) +
   #autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  autolayer(fcasts.mean,series = "Mean", PI=FALSE)+
   #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
-  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
-  autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.3) +
+  #autolayer(fcasts.mean, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
   xlab("Episode") + ylab("Proportion of swear words") +
   ggtitle("Fit of predictions of swear-word proportions in GOT") +
   guides(colour = guide_legend(title = " "))
 
 ```
 
-# Cross validation
-```{r}
 
-```
 
 
 
@@ -472,39 +503,21 @@ ts_all <- ts(sent_episode_all$mean_sent)
 ## fit lin, exp, pw - 1 knot
 ```{r}
 
-h <- 10
-fit.lin <- tslm(ts_sent_ep ~ trend)
-fcasts.lin <- forecast(fit.lin, h = h)
-fit.exp <- tslm(ts_sent_ep ~ trend, lambda = 0)
-fcasts.exp <- forecast(fit.exp, h = h)
-
-t <- time(ts_sent_ep)
-t.break1 <- 50
-tb1 <- ts(pmax(0, t - t.break1), start = 0)
-
-fit.pw <- tslm(ts_sent_ep ~ t + tb1)
-t.new <- t[length(t)] + seq(h)
-tb1.new <- tb1[length(tb1)] + seq(h)
-
-newdata <- cbind(t=t.new, tb1=tb1.new) %>%
-  as.data.frame()
-fcasts.pw <- forecast(fit.pw, newdata = newdata)
-
-fit.spline <- tslm(ts_sent_ep ~ t + I(t^2) + I(t^3) +
-  I(tb1^3))
-fcasts.spl <- forecast(fit.spline, newdata = newdata)
-
 autoplot(ts_all) +
-  autolayer(fitted(fit.lin), series = "Linear") +
-  autolayer(fitted(fit.exp), series = "Exponential") +
-  autolayer(fitted(fit.pw), series = "Piecewise") +
- # autolayer(fitted(fit.spline), series = "Cubic Spline") +
-  autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
-  autolayer(fcasts.lin, series="Linear", PI=FALSE) +
-  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
-  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) +
-  xlab("Episode") + ylab("Proportion of swear words") +
-  ggtitle("Fit of predictions of swear-word proportions in GOT") +
+  #autolayer(fitted(fit.lin), series = "Linear") +
+  #autolayer(fitted(fit.exp), series = "Exponential") +
+  #autolayer(fitted(fit.pw), series = "Piecewise") +
+  #autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  #autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  #autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  #autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) 
+  autolayer(fcasts.mean, series="Mean", alpha = 0.3) +
+  autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment scores in GOT") +
   guides(colour = guide_legend(title = " "))
 
 ```
@@ -512,9 +525,11 @@ autoplot(ts_all) +
 # accuracy score
 ```{r}
 all_test <- window(ts_all, start=67, end=73)
-accuracy(fcasts.pw, all_test)
-accuracy(fcasts.lin, all_test)
-accuracy(fcasts.exp, all_test)
+round(accuracy(fcasts.mean, all_test),2)
+round(accuracy(fcasts.arima, all_test),2)
+
+round(summary(fcasts.mean),2)
+round(summary(fcasts.arima),2)
 
 ```
 
@@ -524,7 +539,7 @@ subsetting by
   Cercei lannister
   Tyrion lannister
   Jon Snow
-  Daenerys Targarian
+  Daenerys Targaryen
 
 ```{r}
 library(dplyr)
@@ -721,7 +736,7 @@ new_ts <- BoxCox(ts_daenerys,lambda)
 autoplot(ts_jon) + ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Jon Snow")
 autoplot(ts_tyrion)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Tyrion Lannister")
 autoplot(ts_cersei)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Cersei Lannister")
-autoplot(ts_daenerys)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Daenerys Targarian")
+autoplot(ts_daenerys)+ ylab("sentiment score")+xlab("episode")+ ggtitle("Sentiment score of Daenerys Targaryen")
 ```
 
 
@@ -788,14 +803,14 @@ ts_daenerys<- ts(daenerys_mean$sentiment, frequency = 10)
 ts_daenerys %>% decompose(type="additive") %>%
   autoplot() + xlab("Episode") +
   ggtitle("Classical multiplicative decomposition
-    of sentiment score: Daenerys Targarian")
+    of sentiment score: Daenerys Targaryen")
 
 ts_daenerys %>% decompose(type="additive") -> fit
 autoplot(ts_daenerys, series="Data") +
   autolayer(trendcycle(fit), series="Trend") +
   autolayer(seasadj(fit), series="Seasonally Adjusted") +
   xlab("Season") + ylab("Sentiment Score") +
-  ggtitle("Seasonally Adjusted Sentiment: Daenerys Targarian") +
+  ggtitle("Seasonally Adjusted Sentiment: Daenerys Targaryen") +
   scale_colour_manual(values=c("gray","blue","red"),
              breaks=c("Data","Seasonally Adjusted","Trend"))
 
@@ -1012,11 +1027,11 @@ Box.test(residuals(fit.pw), type = "Ljung-Box")
 autoplot(ts_jon) +
   autolayer(fitted(fit.mean), series="Mean") +
   autolayer(fitted(fit.pw), series = "Piecewise") +
-  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  #autolayer(fitted(fit.spline), series = "Cubic Spline") +
   autolayer(fitted(fit.arima), series = "ARIMA")+
   autolayer(fcasts.pw, series="Piecewise", PI=FALSE) +
   autolayer(fcasts.mean, series = "Mean", PI =FALSE)+
-  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
+  #autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
   autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
   xlab("Episode") + ylab("Sentiment Score") +
   ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
@@ -1037,7 +1052,7 @@ S8$Episode[S8$Episode=="63"] <- 73
 S8$Name[S8$Name=="jon snow"] <- "jon"
 S8$Name[S8$Name=="cersei lannister"] <- "cersei"
 S8$Name[S8$Name=="tyrion lannister"] <- "tyrion"
-S8$Name[S8$Name=="daenerys targarien"] <- "daenerys"
+S8$Name[S8$Name=="daenerys targaryen"] <- "daenerys"
 
 sent_char_s8 = S8 %>%
   group_by(Column1, Episode, Name)%>%
@@ -1063,11 +1078,11 @@ jon <- ts(jon$sentiment)
 autoplot(jon) +
   autolayer(fitted(fit.pw), series = "Piecewise") +
   autolayer(fitted(fit.mean), series = "Mean") +
-  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  #autolayer(fitted(fit.spline), series = "Cubic Spline") +
   autolayer(fitted(fit.arima), series = "ARIMA")+
   autolayer(fcasts.pw, series="Piecewise", alpha=0.2) +
   autolayer(fcasts.mean, series="Mean", PI=FALSE, alpha=0.1)+
-  autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
+  #autolayer(fcasts.spl, series="Cubic Spline", PI=FALSE) + 
   autolayer(fcasts.arima, series = "ARIMA", alpha =0.2)+
   xlab("Episode") + ylab("Sentiment Score") +
   ggtitle("Fit of predictions of Sentiment Score for Jon Snow") +
@@ -1080,6 +1095,12 @@ round(accuracy(fcasts.pw, all_test),2)
 round(accuracy(fcasts.spl, all_test),2)
 round(accuracy(fcasts.mean, all_test),2)
 round(accuracy(fcasts.arima, all_test),2)
+
+
+round(summary(fcasts.pw),2)
+round(summary(fcasts.spl),2)
+round(summary(fcasts.mean),2)
+round(summary(fcasts.arima),2)
 ```
 
 
@@ -1115,6 +1136,7 @@ nsdiffs(ts_tyrion)
 
 
 ```
+
 
 ## autoArima
 ```{r}
@@ -1248,6 +1270,7 @@ tyrion <- rbind(tyrion_mean, tyrion_mean_s8)
 tyrion <- ts(tyrion$sentiment)
 ```
 
+
 ```{r}
 autoplot(tyrion) +
   autolayer(fitted(fit.mean), series = "Mean") +
@@ -1260,19 +1283,17 @@ autoplot(tyrion) +
   ggtitle("Fit of predictions of Sentiment Score for Tyrion Lannister") +
   guides(colour = guide_legend(title = " "))
 ```
+
 ```{r}
 # accuracy:
 all_test <- window(tyrion, start=67, end=73)
-round(accuracy(fcasts.pw, all_test), 2)
-round(accuracy(fcasts.spl, all_test),2)
+round(accuracy(fcasts.exp, all_test), 2)
 round(accuracy(fcasts.mean, all_test),2)
 round(accuracy(fcasts.arima, all_test),2)
-```
 
-
-
-```{r}
-
+round(summary(fcasts.exp),2)
+round(summary(fcasts.mean),2)
+round(summary(fcasts.arima),2)
 ```
 
 
@@ -1466,7 +1487,220 @@ all_test <- window(cersei, start=67, end=73)
 round(accuracy(fcasts.exp, all_test), 2)
 round(accuracy(fcasts.arima, all_test),2)
 round(accuracy(fcasts.mean, all_test),2)
+
+
+round(summary(fcasts.arima),2)
+round(summary(fcasts.exp),2)
+round(summary(fcasts.mean),2)
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+# DAENERYS
+## checking for stationarity
+```{r}
+# box test of original data
+Box.test(ts_daenerys, type = "Ljung-Box")
+ggAcf(ts_daenerys)
+
+# box test of differenced data
+Box.test(diff(ts_daenerys, type = "Ljung-Box"))
+ggAcf(diff(ts_daenerys))
+
+#We keep the non-differentiated time-series
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_daenerys %>% ur.kpss() %>% summary() #Stationary (below 5 % critical value)
+ts_daenerys %>% diff() %>% ur.kpss() %>% summary()
+
+# 'normal' differencing
+ndiffs(ts_daenerys) #This test reveals that 1 differentiating is required
+
+ts_daenerys %>% diff() %>% ur.kpss() %>% summary() #New test
+
+#Is seasonal differntiating required
+nsdiffs(ts_daenerys)
+
+```
+
+## autoArima
+```{r}
+
+fit <- auto.arima(ts_daenerys, seasonal=FALSE) # (0,0,0)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+
+#Differentiating
+#An autoarima that works harder - gives (3,0,0) with 0 mean
+fit2 <- auto.arima(ts_daenerys, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#(p,d,q)
+#(0,1,1) - no constant
+
+ggAcf(diff(ts_daenerys))
+ggPacf(diff(ts_daenerys))
+
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+## Comparing the models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_daenerys, frequency = 1)
+
+h <- 6
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+
+#Exponential
+
+daenerys_mean[is.na(daenerys_mean)] <- 0
+ts_daenerys_0<- ts(daenerys_mean$sentiment, frequency = 1)
+
+fit.exp <- tslm(ts_daenerys_0 ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 51
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_p, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fcasts.lin),2)
+round(accuracy(fcasts.exp),2)
+round(accuracy(fcasts.pw),2)
+round(accuracy(fcasts.spl),2)
+round(accuracy(fcasts.arima),2)
+round(accuracy(fcasts.mean),2)
+round(accuracy(fcasts.naive),2)
+round(accuracy(fcasts.drift),2)
+
+
+```
+## check resiudals
+```{r}
+
+checkresiduals(fit.exp)
+checkresiduals(fit.pw)
+checkresiduals(fit.arima)
+checkresiduals(fit.mean)
+
+
+
+Box.test(residuals(fit.exp), type = "Ljung-Box")
+Box.test(residuals(fit.pw), type = "Ljung-Box")
+Box.test(residuals(fit.mean), type = "Ljung-Box")
+Box.test(residuals(fit.arima), type = "Ljung-Box")
+
+
+
+```
+
+
+## forecasting
+```{r}
+
+autoplot(ts_daenerys) +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.pw, series="Piecewise", PI=FALSE) +
+  autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
+  autolayer(fcasts.mean, series="Mean", PI=FALSE) +
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Daenerys Targaryen") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
+##Validating forecasting
+```{r}
+daenerys_sub_s8 <- subset(sent_char_s8, subset = Name %in% c('daenerys'))
+
+daenerys_mean_s8 = daenerys_sub_s8 %>%
+  group_by(N_serie)%>%
+  summarise(sentiment = mean(mean_sent))
+
+df <- data.frame("N_serie"=1:73)
+
+daenerys <- rbind(daenerys_mean, daenerys_mean_s8)
+daenerys <- merge(x = df, y = daenerys, by = "N_serie", all = TRUE)
+
+# full sentiment 8 seasons daenerys
+daenerys <- ts(daenerys$sentiment)
+
+autoplot(daenerys)
+```
+
+```{r}
+autoplot(daenerys) +
+  autolayer(fitted(fit.exp), series = "Exponential") +
+  autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.arima), series = "ARIMA")+
+  autolayer(fitted(fit.mean), series = "Mean") +
+  autolayer(fcasts.exp, series="Exponential", alpha=0.3) +
+  autolayer(fcasts.pw, series="Piecewise", alpha=0.3) +
+  autolayer(fcasts.arima, series = "ARIMA", PI=FALSE)+
+  autolayer(fcasts.mean, series="Mean", alpha=0.3) +
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of Sentiment Score for Daenerys Targaryen") +
+  guides(colour = guide_legend(title = " "))
+```
+
+```{r}
+# accuracy:
+all_test <- window(daenerys, start=67, end=73)
+round(accuracy(fcasts.exp, all_test), 2)
+round(accuracy(fcasts.arima, all_test),2)
+round(accuracy(fcasts.mean, all_test),2)
 round(accuracy(fcasts.pw, all_test),2)
+
+round(summary(fcasts.arima),2)
+round(summary(fcasts.exp),2)
+round(summary(fcasts.mean),2)
+round(summary(fcasts.pw),2)
+
+
 ```
 
 
