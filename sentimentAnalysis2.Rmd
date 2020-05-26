@@ -52,6 +52,30 @@ new_ts <- BoxCox(ts_data,lambda)
 
 # is log transform necessary - significant=transform
 MTS::archTest(ts_data, lag = 10) 
+
+# ACF
+ggAcf(ts_data)
+```
+## checking for seasonlity across all data
+```{r}
+ts_data <- ts(data1$sentiment, frequency = 10)
+#Fitting a linear model to our data
+fit.ts_data <- tslm(ts_data ~ trend)
+summary(fit.ts_data)
+
+#Linear model with effect of season
+fit.ts_season <- tslm(ts_data ~ trend + season)
+summary(fit.ts_season)
+
+#on the data from season
+fit.ts_sent_season <- tslm(ts_data ~ season)
+summary(fit.ts_sent_season)
+
+
+
+AIC(fit.ts_data, fit.ts_season, fit.ts_sent_season)
+# season does not add prediction value - lowest AIC
+
 ```
 
 
@@ -292,7 +316,7 @@ ts_sent_ep %>% diff() %>% ur.kpss() %>% summary() #New test
 
 
 #Is seasonal differntiating required
-nsdiffs(ts_sent_ep)
+nsdiffs(ts_sent_ep, alpha=0.1)
 
 
 
