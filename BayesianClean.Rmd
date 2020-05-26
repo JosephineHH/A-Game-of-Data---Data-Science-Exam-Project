@@ -275,7 +275,7 @@ data$Sentiment <- sent_scor$sentiment
 
 
 
-#Find out when characters first appears
+#Find out when characters first appears, last appears etc.
 ```{r}
 data <- transform(data, id=match(Episode.Title, unique(Episode.Title)))
 
@@ -350,7 +350,7 @@ for (k in (1:nrow(df.merge))){
 ```
 
 
-#Df showing allegiance and so on - BASED ON BOOKS
+#Merge with Df showing allegiance and so on - BASED ON BOOKS
 ```{r}
 
 
@@ -388,7 +388,7 @@ df <- df.merge %>%
 
 
 
-#FINALLY WORKING ON THE SURVIVAL STUFF
+#Adding survival status
 ```{r}
 #Add df with whether they have died or not
 df$Dead = NA
@@ -431,7 +431,7 @@ write.csv(df_survival, file = "survival.csv")
 
 
 
-#Working with the Bayesian predictions
+#Loading packages for survival analysis
 
 ```{r}
 library(survival)
@@ -439,6 +439,7 @@ library(ranger)
 library(ggplot2)
 library(dplyr)
 library(ggfortify)
+library(survminer)
 
 ```
 
@@ -450,7 +451,7 @@ library(ggfortify)
 ```{r}
 GOT <- read.csv("C:/Users/hille/Desktop/Data science/Project/A-Game-of-Data---Data-Science-Exam-Project/survival.csv")
 
-#Fix quixk fix names
+#Remove characters we have twice in the data due to our merging of names
 unique_names = unique(GOT$Name)
 
 new = GOT
@@ -474,36 +475,29 @@ for (name in unique_names){
 
 GOT <- new
 
-
+#Set nobility and gender as factors
 GOT$Nobility <- as.factor(GOT$Nobility)
 #GOT$Dead <- as.factor(GOT$Dead)
 GOT$Gender <- as.factor(GOT$Gender)
 #GOT$Time = NA
-#for (i in (1:nrow(GOT))){
-#  if (GOT$Dead[i] == 1){
-#    GOT$Time[i] = GOT$episode_of_death[i] - #GOT$episode_of_first_apperance[i]
-#  }
-#  else {
-#    GOT$Time[i] = 67-GOT$episode_of_first_apperance[i]
-#  }
-#}
 
-#Remove characters who only started appearing in season 8
-#GOT<-GOT[!(GOT$episode_of_first_apperance > 67),]
 #More data cleaning
 GOT$Allegiances = gsub("House ", "", GOT$Allegiances)
 
 GOT$Dead[GOT$Name == "jon snow"] = 0
+
+
+#Change minor houses to be allegiant with "other"
+minor_houses <- c("Arryn", "Greyjoy", "Martell", "Tully", "Tyrell", "Wildling")
+for (house in minor_houses){
+  GOT$Allegiances[GOT$Allegiances == house] <- "Other"}
+
+
 ```
 
 
-
+Kaplan-Meier estimates of survival probability
 ```{r}
-#Create survival object
-km_GOT <- with(GOT, Surv(time_of_monitoring, Dead))
-head(km_GOT,80)
-
-
 #Produce Kaplan-Meier estimates of probability of survival over time
 km_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ 1, data = GOT)
 summary(km_fit_GOT, times = c(1*(1:10),66,67))
@@ -512,54 +506,11 @@ autoplot(km_fit_GOT) +
   xlab("Episodes since introduction") +
   ylab("Probability of surviving")
 
-
-#Survival by nobelity
-km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Nobility, data=GOT)
-autoplot(km_trt_fit_GOT)
-
-#By gender
-km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Gender, data=GOT)
-autoplot(km_trt_fit_GOT)
-
-km_trt_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Allegiances, data=GOT)
-autoplot(km_trt_fit_GOT)
-
-km_all_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Gender + Nobility + Allegiances, data=GOT)
-autoplot(km_all_fit_GOT)
+```
 
 
-km_all_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ Prominence, data=GOT)
-autoplot(km_all_fit_GOT)
-
-#km_all_fit_GOT <- survfit(Surv(time_of_monitoring, Dead) ~ first_apperance, data=GOT)
-#autoplot(km_all_fit_GOT)
-
-
-#Change minor houses to be allegiant with "other"
-minor_houses <- c("Arryn", "Greyjoy", "Martell", "Tully", "Tyrell", "Wildling")
-for (house in minor_houses){
-  GOT$Allegiances[GOT$Allegiances == house] <- "Other"}
-
-km_fit_new <- survfit(Surv(time_of_monitoring, Dead) ~ Gender + Allegiances, data = GOT)
-
-
-survminer::ggsurvplot(km_all_fit_GOT,
-           conf.int = TRUE,
-           break.time.by = 20,
-           risk.table = TRUE)
-
-
-
-#Fit a cox-model
-cox <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, data = GOT)
-summary(cox, times = 10)
-autoplot(cox)
-
-cox <- coxph(Surv(time_of_monitoring, Dead) ~ Allegiances, data = GOT)
-summary(cox, times = 10)
-autoplot(cox)
-
-
+#Aalen plot of how covariates changes over tiem
+```{r}
 #How covariates change over time
 aa_fit <-aareg(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, 
                  data = GOT)
@@ -568,140 +519,13 @@ autoplot(aa_fit)
 
 
 
-#Create datasset only for major houses
-GOT_major = GOT[GOT$Allegiance != "Other",]
-
-km_fit_major <- survfit(Surv(time_of_monitoring, Dead) ~ 1, data = GOT_major)
-summary(km_fit_major, times = c(1*(1:10),66,67))
-autoplot(km_fit_major)
-
-cox <- coxph(Surv(time_of_monitoring, Dead) ~ Allegiances, data = GOT_major)
-summary(cox, times = 10)
-autoplot(cox)
-
-
-
-cox <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + prominence, data = GOT_major)
-summary(cox)
-autoplot(cox)
-
-
-
 ```
-
-
-
-#Random forest ensemble model
-```{r}
-# ranger model
-r_fit <- ranger(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances,
-                     data = GOT,
-                     mtry = 3,
-                     importance = "permutation",
-                     splitrule = "extratrees",
-                     verbose = TRUE)
-
-# Average the survival models
-death_times <- r_fit$unique.death.times 
-surv_prob <- data.frame(r_fit$survival)
-avg_prob <- sapply(surv_prob,mean)
-
-# Plot the survival models for each patient
-plot(r_fit$unique.death.times,r_fit$survival[1,], 
-     type = "l", 
-     ylim = c(0,1),
-     col = "red",
-     xlab = "Days",
-     ylab = "survival",
-     main = "Patient Survival Curves")
-
-#
-cols <- colors()
-for (n in sample(c(2:dim(GOT)[1]), 20)){
-  lines(r_fit$unique.death.times, r_fit$survival[n,], type = "l", col = cols[n])
-}
-lines(death_times, avg_prob, lwd = 2)
-legend(500, 0.7, legend = c('Average = black'))
-
-#Most important variables according to ranger
-vi <- data.frame(sort(round(r_fit$variable.importance, 4), decreasing = TRUE))
-names(vi) <- "importance"
-head(vi)
-#Prediction error
-cat("Prediction Error = 1 - Harrell's c-index = ", r_fit$prediction.error)
-
-```
-
-#Plot the 3 models against each other
-```{r}
-# Set up for ggplot
-kmi <- rep("KM",length(km_all_fit_GOT$time))
-km_df <- data.frame(km_all_fit_GOT$time,km_all_fit_GOT$surv,kmi)
-names(km_df) <- c("Time","Surv","Model")
-
-coxi <- rep("Cox",length(cox$time))
-cox_df <- data.frame(cox$time,cox$surv,coxi)
-names(cox_df) <- c("Time","Surv","Model")
-
-rfi <- rep("RF",length(r_fit$unique.death.times))
-rf_df <- data.frame(r_fit$unique.death.times,avg_prob,rfi)
-names(rf_df) <- c("Time","Surv","Model")
-
-plot_df <- rbind(km_df,cox_df,rf_df)
-
-p <- ggplot(plot_df, aes(x = Time, y = Surv, color = Model))
-p + geom_line()
-```
-
-
-
-
-#Finding hazard rates
-```{r}
-#Create model
-HR <- survfit(Surv(time_of_monitoring, Dead) ~ 1, data = GOT)
-
-#Get baseline curve
-baseline <- basehaz(HR)
-
-plot(baseline$time, baseline$hazard, type='l',main="Hazard rates") 
-lines(baseline$time, exp(-0.1929)*baseline$hazard, col="blue") 
-
-#ratio
-hazard_ratio = survfit(HR)$cumhaz
-
-
-
-```
-
-
 
 
 
 #Plots
 Distribution of time to death
 ```{r}
-ggplot(data = GOT[GOT$Dead == 1,], aes(x = time_of_monitoring, fill = Nobility)) + 
-  geom_histogram() + 
-  facet_grid(Nobility ~.) + 
-  ggtitle("Figure 1. Distribution of time-to-event by nobility status") +
-  xlab("Episodes since introduction") +
-  scale_fill_discrete(name="Experimental\nCondition",
-                         breaks=c("0", "1"),
-                         labels=c("Control", "Treatment 1"))
-
-
-ggplot(data = GOT, aes(x = time_of_monitoring, fill = Dead)) + 
-  geom_histogram() + 
-  facet_grid(Nobility ~.) + 
-  ggtitle("Distribution of time to censoring and death by nobility status") +
-  xlab("Episodes since introduction") +
-  ylab("Count")  +
-  scale_fill_discrete(name="Experimental\nCondition",
-                         breaks=c("0", "1"),
-                         labels=c("Censored", "Death/uncensored"))
-
-
 
 ggplot(data = transform(GOT, Nobility = c("Commonfolk", "Noble")), aes(x = time_of_monitoring, fill = Dead)) + 
   geom_histogram() + 
@@ -714,7 +538,7 @@ ggplot(data = transform(GOT, Nobility = c("Commonfolk", "Noble")), aes(x = time_
                       
                       
                       
-ggplot(data = GOT, aes(x = time_of_monitoring, fill = Dead)) + 
+ggplot(data = GOT, aes(x = time_of_monitoring, fill = as.factor(Dead))) + 
   geom_histogram() + 
   facet_grid(Nobility ~.) + 
   ggtitle("Distribution of time to censoring and death by nobility status") +
@@ -727,78 +551,7 @@ ggplot(data = GOT, aes(x = time_of_monitoring, fill = Dead)) +
 
 
 
-#Plot - probability at any point
-```{r}
-GOT_FIT <- survfit(Surv(time_of_monitoring, Dead) ~ 1, data = GOT)
-summary(GOT_FIT, times = 1:67)[4]
-
-#WRONG
-#Calculate probabilities at any point
-# https://rpubs.com/xvalda/survival
-di = summary(GOT_FIT, times = 1:67)$n.event
-ni = summary(GOT_FIT, times = 1:67)$n.risk
-times = summary(GOT_FIT, times = 1:67)$time
-prob = 1-(di/ni)
-
-df_prob = as.data.frame(prob)
-df_prob$time = times
-
-```
-
-
-
-
-
-
-```{r}
-GOT_FIT_ALL <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Prominence + Sentiment, data = GOT)
-summary(GOT_FIT_ALL)
-
-GOT_FIT_SENT <- coxph(Surv(time_of_monitoring, Dead) ~ Sentiment, data = GOT)
-summary(GOT_FIT_SENT)
-
-
-
-autoplot(GOT_FIT_SENT)
-
-
-
-aa_fit <- aareg(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, data = GOT)
-
-summary(aa_fit)
-
-autoplot(aa_fit) #prominence changes significantly over time
-```
-
-
-
-
-
-#Cox proportional hazard plot
-```{r}
-GOT_FIT_ALL <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances + Prominence + Sentiment, data = GOT)
-
-GOT_FIT_ALL <- coxph(Surv(time_of_monitoring, Dead) ~ Prominence + Allegiances, data = GOT)
-library(survminer)
-ggforest(GOT_FIT_ALL, data = GOT)
-
-
-
-
-```
-
-
-
-
-#Convert prominence score to a measure of whether they are a main character (1) or not (0)
-```{r}
-GOT$Prominence[GOT$Prominence < 2.5] = 0
-GOT$Prominence[GOT$Prominence >= 2.5] = 1
-```
-
-
-
-
+#Cox proportional hazard model comparisons
 ```{r}
 GOT_FIT_OTHERS <- coxph(Surv(time_of_monitoring, Dead) ~ Nobility + Gender + Allegiances, data = GOT)
 GOT_FIT_OURS <- coxph(Surv(time_of_monitoring, Dead) ~ Sentiment, data = GOT)
@@ -813,27 +566,20 @@ ggforest(GOT_FIT_COMBINED, data = GOT)
 ```
 
 
-
-
+#Check if proportional hazard assumptions of chosen model are ignored
+Test is not significant = Covariates do not vary significantly over time
 ```{r}
-#Comparing BIC-values of all our models
-extractAIC(GOT_FIT_OTHERS, k = log(GOT_FIT_OTHERS$nevent))
+cz <- cox.zph(GOT_FIT_OTHERS)
+print(cz) #NOT SIGNIFICANT - YAY
 
-extractAIC(GOT_FIT_OURS, k = log(GOT_FIT_OURS$nevent))
-extractAIC(GOT_FIT_COMBINED, k = log(GOT_FIT_COMBINED$nevent))
+
+
 
 ```
 
 
 
-```{r}
-GOT$Prominence <- as.factor(GOT$Prominence)
-```
-
-
-
-
-#Plot the cox model
+#Plot the cox model against the KM
 ```{r}
 cox_fit <- survfit(GOT_FIT_OTHERS)
 coxi <- rep("Cox",length(cox_fit$time))
@@ -862,62 +608,28 @@ autoplot(cox_fit)
 
 
 
-
-#Plotting a female noble from lannister against a male from that same house
-
-```{r}
-sex_df <- with(GOT,
-               data.frame(Gender = as.factor(c(1, 0)), 
-                          Nobility = as.factor(c(1,1)),
-                          Allegiances = c("Lannister", "Lannister")
-                          )
-               )
-sex_df
-
-fit <- survfit(GOT_FIT_OTHERS)
-fit$call$formula <- eval(fit$call$formula)
-
-ggsurvplot(Surv(GOT_FIT_OTHERS), ggtheme = theme_minimal())
-
-```
-
-
-
-
-#Using predict on our cox fit
+#Finding proportional hazard for each character
 ```{r}
 #This gives us a prediction of how much at risk each character is compared to the baseline
 risk = as.data.frame(predict(GOT_FIT_OTHERS, GOT, type="risk", se.fit = TRUE))
 risk$Name = GOT$Name
-risk$Gender = GOT$Gender
-risk$Nobility = GOT$Nobility
-risk$Allegiances = GOT$Allegiances
-
-
-
-
-```
-
-
-#Use cox cph to investigate whether the effect of each covariate differs according to time, and a global test of all covaraites at once
-#Proportional hazard assumption is violated if it is significant
-```{r}
-cz <- cox.zph(GOT_FIT_OTHERS)
-print(cz) #NOT SIGNIFICANT - YAY
-
-
+risk$time = GOT$time_of_monitoring
+risk$status = GOT$Dead
+risk$season_8 = NA
+risk$last = GOT$last_apperance
 
 
 ```
 
 
 
-#Extrapolate data
+
+#Extrapolate data to predict how characters will fare in season 8
 ```{r}
 GOT_FIT_OTHERS
 summary(GOT_FIT_OTHERS)
 
-#Convert our probability estimates to a survival object
+#Convert our probability estimates to a survival object - i.e. estimates of probability of surviving
 cox_fit <- survfit(GOT_FIT_OTHERS)
 surv <- cox_fit$surv
 df <- as.data.frame(surv)
@@ -935,7 +647,7 @@ beta.0 <- coef(model.0)[2]
 start <- list(alpha = alpha.0, beta = beta.0, theta = theta.0)
 start
 
-
+#Fit exponential model
 model <- nls(surv ~ alpha * exp(beta * time) + theta , data = df, start = start)
 
 
@@ -945,7 +657,7 @@ lines(df$time, predict(model, list(x = df$time)), col = 'skyblue', lwd = 3)
 
 
 
-#create predictions for the characters participating in more than 67 episodes (up to 73)
+#create predictions for probability of surviving up to 73 episodes after introduction
 
 newdata <- data.frame(
   time = c(1:73)
@@ -954,14 +666,8 @@ newdata <- data.frame(
 model_preds = predict(model, newdata = newdata)
 
 #Now that we have our predictions, we can calculate the probability of surviving an additional six episodes for each character still alive by season 7
-#for a charaacter who was introduced in the first episode
-prob_season8 <- model_preds[73]/model_preds[67]
 
 #and now we just need to calculate probabilities for each person dependent on how long they have been in the show and their individual probabilities
-risk$time = GOT$time_of_monitoring
-risk$status = GOT$Dead
-risk$season_8 = NA
-risk$last = GOT$last_apperance
 
 
 for (i in (1:nrow(GOT))){
@@ -977,6 +683,4 @@ for (i in (1:nrow(GOT))){
 
 
 ```
-
-
 
