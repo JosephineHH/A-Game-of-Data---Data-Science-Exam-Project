@@ -1,0 +1,421 @@
+---
+title: "Profanity time series modelling"
+author: "Josephine Hillebrand Hansen"
+date: "19/05/2020"
+output: html_document
+---
+
+
+Setting up and adding a column to the dataset that allows us to measure the number of times swear words were said during each episode
+#Adding profanity scores
+```{r setup, include=FALSE}
+data = read.csv("got_cleaned.csv")
+library(sjmisc)
+
+#Create empty profanity column
+data[,"profanity"] <- NA
+
+profanity = read.csv("Google-profanity-words-master/list.txt", header = FALSE)
+
+
+#swear_words = vector(mode = "list", length = length(data$lemma))
+
+
+for (i in 1:length(data$lemma)){
+  sentence = data$lemma[i]
+  sw = 0
+  
+  for (prof in profanity$V1){
+    nsw = str_count(sentence, prof)
+    sw = sw + nsw
+    sentence = gsub(prof, "", sentence)
+    }
+  data$profanity[i] = sw
+  print(i)
+}
+
+write.csv(data, "got_profanity_data.csv")
+
+data = read.csv("got_profanity_data.csv")
+
+
+#Creating two new df with profanity count for each episode, as well as for each season
+library(dplyr)
+prof_data_episode = data %>%
+  group_by(N_serie) %>%
+  summarize(sum_profanity = sum(profanity))
+  
+```
+
+
+
+```{r}
+library(fpp2)
+
+
+ts_prof = ts(prof_data_episode$sum_profanity, frequency = 10)
+
+autoplot(ts_prof) +
+  ggtitle("Number of swear words per episode") +
+  xlab("Episode") +
+  ylab("Number of swear words")
+
+
+
+```
+
+
+
+#Average number of sentences containing swear words
+
+```{r}
+prof_data_episode_ratio = data %>%
+  group_by(N_serie) %>%
+  summarize(sum_profanity = sum(profanity)/length(N_serie))
+
+#Convert to logit scale
+
+prof_data_episode_ratio$sum_profanity = log(prof_data_episode_ratio$sum_profanity/(1-prof_data_episode_ratio$sum_profanity))
+
+ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
+autoplot(ts_prof_ratio) +
+  ggtitle("Proportion of profanities") +
+  xlab("Season") +
+  ylab("Proportion of profanities")
+
+
+
+```
+
+
+#Lag plots
+```{r}
+gglagplot(ts_prof_ratio,
+          lags = 20,
+          seasonal = TRUE)
+```
+
+#Autocorrelation plots
+```{r}
+ggAcf(ts_prof, lag.max = 60)
+
+ggAcf(ts_prof_ratio, lag.max = 30) +
+  ggtitle("Autocorrelation plot of proportion of profanities")
+```
+
+
+
+
+#Simple forecasting
+```{r}
+# Plot some forecasts - Seasonal for each episodes
+autoplot(ts_prof_ratio) +
+  autolayer(meanf(ts_prof_ratio, h=11),
+    series="Mean", PI=FALSE) +
+  autolayer(naive(ts_prof_ratio, h=11),
+    series="Naïve", PI=FALSE) +
+  autolayer(snaive(ts_prof_ratio, h=11),
+    series="Seasonal naïve", PI=FALSE) +
+  autolayer(rwf(ts_prof_ratio, drift=TRUE, h=10),
+    series="Drift", PI=FALSE) +
+  ggtitle("Forecasts for profanity in future episodes") +
+  xlab("Season") + ylab("Swear words") +
+  guides(colour=guide_legend(title="Forecast"))
+
+```
+
+
+#Residuals from simple forecasting methods
+```{r}
+res <- residuals(naive(ts_prof_ratio))
+autoplot(res) + xlab("Day") + ylab("") +
+  ggtitle("Residuals from naïve method")
+
+mean(res[-1]) #This is zero, thus it is not biased
+
+gghistogram(res) + ggtitle("Histogram of residuals")
+
+ggAcf(res) + ggtitle("ACF of residuals")
+
+
+#Portmanteau tests for autocorrelation
+Box.test(res, lag = 10, fitdf = 0)
+#this is significant, which indicates that there is still some information left in the residuals not captured by the naive method
+
+
+checkresiduals(naive(ts_prof_ratio))
+checkresiduals(snaive(ts_prof_ratio))
+checkresiduals(rwf(ts_prof_ratio, drift = TRUE))
+checkresiduals(meanf(ts_prof_ratio))
+
+
+checkresiduals(naive(ts_prof_season_ratio))
+checkresiduals(rwf(ts_prof_season_ratio, drift = TRUE))
+checkresiduals(meanf(ts_prof_season_ratio))
+
+```
+
+
+
+
+#Check for effect of seasonality
+```{r}
+#Fitting a linear model to our data
+
+fit.ts_prof_ratio <- tslm(ts_prof_ratio ~ trend)
+summary(fit.ts_prof_ratio)
+
+#Linear model with effect of season
+fit.ts_prof_ratio_season <- tslm(ts_prof_ratio ~ trend + season)
+summary(fit.ts_prof_ratio_season)
+
+fit.ts_season <- tslm(ts_prof_ratio ~ season)
+
+AIC(fit.ts_prof_ratio, fit.ts_prof_ratio_season, fit.ts_season)
+
+
+```
+
+
+
+#Decompositing our time series
+```{r}
+
+ts_prof_ratio = ts(prof_data_episode_ratio$sum_profanity, frequency = 10)
+
+ts_prof_ratio %>% decompose(type="additive") %>%
+  autoplot() + xlab("Season") +
+  ggtitle("Classical Additive Decomposition
+    of Proportion of Profanities")
+
+ts_prof_ratio %>% decompose(type="additive") -> fit
+
+autoplot(fit) +
+  ggtitle("Classical multiplicative decomposition
+    of profanity in GOT episodes")
+
+
+
+autoplot(ts_prof_ratio, series="Data") +
+  autolayer(trendcycle(fit), series="Trend") +
+  autolayer(seasadj(fit), series="Seasonally Adjusted") +
+  xlab("Season") + ylab("Proportion of profanities") +
+  ggtitle("Seasonally Adjusted Profanity Data logit-scale") +
+  scale_colour_manual(values=c("gray","blue","red"),
+             breaks=c("Data","Seasonally Adjusted","Trend"))
+```
+
+
+
+
+
+#ARIMA
+Models that are neither seasonal nor have a trend
+```{r}
+#Check for necessity of differencing
+Box.test(ts_prof_ratio)
+ggAcf(ts_prof_ratio)
+ggPacf(ts_prof_ratio)
+
+#Is differencing required - i.e. is our data stationary
+library(urca)
+ts_prof_ratio %>% ur.kpss() %>% summary() #Statinary (below 5 % critical value)
+
+
+ndiffs(ts_prof_ratio) 
+
+#Is seasonal differencing required
+nsdiffs(ts_prof_ratio)
+
+
+```
+
+
+#Compute arima model
+```{r}
+
+
+fit <- auto.arima(ts_prof_ratio, seasonal=FALSE)
+summary(fit)
+fit %>% forecast(h=10) %>% autoplot(include=80)
+
+#Use the harder-working autoarima
+fit2 <- auto.arima(ts_prof_ratio, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+summary(fit2)
+fit2 %>% forecast(h=10) %>% autoplot(include=80)
+
+#Check residuals of our fit
+checkresiduals(fit2)
+```
+
+
+#Test of variance
+```{r}
+lambda <- BoxCox.lambda(ts_prof_ratio) #
+lambda # if lambda was around 1, then you do not need any power transform
+new_ts <- BoxCox(ts_prof_ratio,lambda)
+
+
+MTS::archTest(ts_prof_ratio, lag = 10)
+```
+
+
+#Comparing models
+```{r}
+#As there is no seasonality, we redefine our time series with frequency = 1
+ts_p = ts(ts_prof_ratio, frequency = 1)
+#differenced ts for ARIMA
+
+
+
+h <- 6
+#Linear
+fit.lin <- tslm(ts_p ~ trend)
+fcasts.lin <- forecast(fit.lin, h = h)
+#Exponential
+fit.exp <- tslm(ts_p ~ trend)
+fcasts.exp <- forecast(fit.exp, h = h)
+
+#Piecewise
+t <- time(ts_p)
+t.break1 <- 60
+tb1 <- ts(pmax(0, t - t.break1), start = 0)
+
+fit.pw <- tslm(ts_p ~ t + tb1)
+t.new <- t[length(t)] + seq(h)
+tb1.new <- tb1[length(tb1)] + seq(h)
+
+newdata <- cbind(t=t.new, tb1=tb1.new) %>%
+  as.data.frame()
+fcasts.pw <- forecast(fit.pw, newdata = newdata)
+
+#cubic spline
+fit.spline <- tslm(ts_p ~ t + I(t^2) + I(t^3) +
+  I(tb1^3), lambda = 0)
+fcasts.spl <- forecast(fit.spline, newdata = newdata)
+
+fit.arima <- auto.arima(ts_p, seasonal = FALSE, stepwise = FALSE, approximation = FALSE)
+fcasts.arima <- forecast(fit.arima, h=h)
+
+fit.mean <- meanf(ts_p)
+fcasts.mean <- forecast(fit.mean, h=h)
+fit.naive <- naive(ts_p)
+fcasts.naive <- forecast(fit.naive, h=h)
+fit.drift <- rwf(ts_p, drift = TRUE)
+fcasts.drift <- forecast(fit.drift, h = h)
+
+
+round(accuracy(fit.lin),2)
+round(accuracy(fit.exp),2)
+round(accuracy(fit.pw),2)
+round(accuracy(fit.spline),2)
+round(accuracy(fit.arima),2)
+round(accuracy(fit.mean),2)
+round(accuracy(fit.naive),2)
+round(accuracy(fit.drift),2)
+
+
+
+checkresiduals(fit.spl)
+
+
+Box.test(residuals(fit.spl), type = "Ljung-Box")
+```
+
+
+#SEASON 8
+#Calculate profanity proportions for season 8
+```{r}
+# sentiment score for all seasons
+
+data2 <-read.csv("got_season8_cleaned.csv")
+
+data2$profanity <- NA
+
+profanity = read.csv("Google-profanity-words-master/list.txt", header = FALSE)
+
+
+#swear_words = vector(mode = "list", length = length(data$lemma))
+
+
+for (i in 1:length(data2$lemma)){
+  sentence = data2$lemma[i]
+  sw = 0
+  
+  for (prof in profanity$V1){
+    nsw = str_count(sentence, prof)
+    sw = sw + nsw
+    sentence = gsub(prof, "", sentence)
+    }
+  data2$profanity[i] = sw
+  print(i)
+}
+
+
+
+
+library(dplyr);library(tidyverse)
+profanity_s8 = data2 %>%
+  group_by(Episode) %>%
+  summarise(sum_profanity = sum(profanity)/length(profanity))
+  
+profanity_s8$Episode <- c(68,69,70,71,72,73)
+
+profanity_s8 <- rename(profanity_s8, N_serie = Episode)
+
+#Logit transform
+profanity_s8$sum_profanity = log(profanity_s8$sum_profanity/(1-profanity_s8$sum_profanity))
+
+# appending season 8 to rest of data
+profanity_all <- rbind(prof_data_episode_ratio, profanity_s8)
+
+```
+
+
+
+#Forecast s8
+```{r}
+ts_all <- ts(profanity_all$sum_profanity)
+
+
+
+#Check forecasting ability
+all_test <- window(ts_all, start=67, end=73)
+round(accuracy(fcasts.spl, all_test),2)
+
+#Convert point forecasts and real values to proportions again 
+
+
+point_forecasts = 1/(1+ exp(-fcasts.spl$mean))
+high_ci = 1/(1+ exp(-fcasts.spl$upper[,2]))
+low_ci = 1/(1+ exp(-fcasts.spl$lower[,2]))
+
+
+
+
+```
+
+
+
+
+#Plotting forecasts
+```{r}
+autoplot(ts_all) +
+  #autolayer(fitted(fit.lin), series = "Linear") +
+  #autolayer(fitted(fit.exp), series = "Exponential") +
+  #autolayer(fitted(fit.pw), series = "Piecewise") +
+  autolayer(fitted(fit.spline), series = "Cubic Spline") +
+  #autolayer(fitted(fit.mean), series = "Mean") +
+  #autolayer(fitted(fit.arima), series = "ARIMA")+
+  #autolayer(fcasts.pw, series="Piecewise", alpha = 0.5) +
+  #autolayer(fcasts.lin, series="Linear", PI=FALSE) +
+  #autolayer(fcasts.exp, series="Exponential", PI=FALSE) +
+  autolayer(fcasts.spl, series="Cubic Spline", alpha = 0.5) + # PI=FALSE) 
+  #autolayer(fcasts.mean, series="Mean", alpha = 0.3) +
+  #autolayer(fcasts.arima, series = "ARIMA", alpha=0.5)+
+  xlab("Episode") + ylab("Sentiment Score") +
+  ggtitle("Fit of predictions of profanity proportions in GOT") +
+  guides(colour = guide_legend(title = " "))
+
+```
+
