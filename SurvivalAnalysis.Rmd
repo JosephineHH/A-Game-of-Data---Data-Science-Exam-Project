@@ -1,5 +1,5 @@
 ---
-title: "BayesianSurvival"
+title: "Survival Analysis"
 author: "Josephine Hillebrand Hansen"
 date: "22/05/2020"
 output: html_document
