@@ -491,6 +491,9 @@ GOT$Dead[GOT$Name == "jon snow"] = 0
 minor_houses <- c("Arryn", "Greyjoy", "Martell", "Tully", "Tyrell", "Wildling")
 for (house in minor_houses){
   GOT$Allegiances[GOT$Allegiances == house] <- "Other"}
+  
+  
+write.csv(GOT, file = "survival.csv")
 
 
 ```

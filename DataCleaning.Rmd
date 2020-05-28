@@ -1,8 +1,10 @@
 ---
-title: "Basic NLP Exploration"
+title: "Data cleaning"
 author: "Josephine Hillebrand Hansen"
 date: "18/05/2020"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 
