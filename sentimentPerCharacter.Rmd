@@ -1,0 +1,55 @@
+---
+title: "Windrose"
+author: "Josephine Hillebrand Hansen"
+date: "22/05/2020"
+output: html_document
+---
+
+# loading data
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+library(readr);library(MTS);library(textclean);library(pacman);library(fpp2)
+data <-read_delim("got_cleaned.csv",",", escape_double = FALSE, trim_ws = TRUE)
+
+
+```
+
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(sentimentr, dplyr, magrittr)
+
+
+mytext <- data$lemma
+
+mytext <- get_sentences(mytext)
+sent_scor <- as.data.frame(sentiment(mytext))
+
+data1 <- merge(data,sent_scor, by.x='Column1', by.y='element_id')
+```
+
+
+
+#Group data by character
+```{r}
+sent_name <- data1 %>%
+  group_by(Name) %>%
+  summarize(sent = sum(sentiment), sentences = length(Name), mean = mean(sentiment[sentiment !=0]))
+
+
+#taking the ten characters who say the most
+main <- sent_name[with(sent_name,order(-sentences)),]
+
+main <- main[1:10,]
+
+library(ggplot2)
+
+ggplot(main) + 
+  geom_bar(main$sent)
+
+
+```
+
